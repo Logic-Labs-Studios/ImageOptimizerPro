@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Meta Tags SEO -->
+    <title>Compressor de Imagens Online: Reduzir Tamanho de Foto e Converter para WebP</title>
+    <meta name="description" content="Otimizar imagens para site nunca foi tão fácil. Compressor de imagem gratuito, rápido e seguro. Reduza o tamanho das suas fotos e converta para WebP instantaneamente.">
+    <meta name="keywords" content="compressor de imagem, reduzir tamanho de foto, converter para webp, otimizar imagens para site">
+    
+    <!-- PWA -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#10B981">
+    <link rel="icon" href="icon-192.png" type="image/png">
+
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            light: '#F9FAFB',
+                            dark: '#1E293B',
+                            primary: '#10B981',
+                            primaryHover: '#059669',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Browser Image Compression CDN -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/browser-image-compression@2.0.2/dist/browser-image-compression.js"></script>
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #F9FAFB; color: #1E293B; }
+        .drop-zone { border: 2px dashed #CBD5E1; transition: all 0.3s ease; }
+        .drop-zone.dragover { border-color: #10B981; background-color: #ECFDF5; }
+        .ad-placeholder { background: #E2E8F0; border: 1px dashed #94A3B8; display: flex; align-items: center; justify-content: center; color: #64748B; font-size: 0.875rem; text-align: center; }
+        input[type=range] { -webkit-appearance: none; width: 100%; background: transparent; }
+        input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; height: 20px; width: 20px; border-radius: 50%; background: #10B981; cursor: pointer; margin-top: -6px; }
+        input[type=range]::-webkit-slider-runnable-track { width: 100%; height: 8px; cursor: pointer; background: #E2E8F0; border-radius: 4px; }
+        .image-compare-container { position: relative; overflow: hidden; border-radius: 0.5rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); background-image: repeating-linear-gradient(45deg, #ccc 25%, transparent 25%, transparent 75%, #ccc 75%, #ccc), repeating-linear-gradient(45deg, #ccc 25%, transparent 25%, transparent 75%, #ccc 75%, #ccc); background-position: 0 0, 10px 10px; background-size: 20px 20px; }
+        .image-compare { display: block; width: 100%; height: auto; max-height: 400px; object-fit: contain; }
+        .progress-bar { width: 0%; transition: width 0.3s ease; }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <i class="fa-solid fa-leaf text-brand-primary text-2xl"></i>
+                <span class="font-bold text-xl tracking-tight text-brand-dark">ImageOpti<span class="text-brand-primary">Pro</span></span>
+            </div>
+            <nav class="hidden md:flex gap-6 font-medium text-sm text-gray-600">
+                <a href="#como-funciona" class="hover:text-brand-primary transition">Como Funciona</a>
+                <a href="#faq" class="hover:text-brand-primary transition">FAQ</a>
+                <a href="#privacidade" class="hover:text-brand-primary transition">Privacidade</a>
+            </nav>
+            <button class="md:hidden text-gray-600"><i class="fa-solid fa-bars text-xl"></i></button>
+        </div>
+    </header>
+
+    <!-- AdSense: Banner Superior (Leaderboard) -->
+    <div class="w-full max-w-7xl mx-auto px-4 mt-6">
+        <div class="ad-placeholder h-[90px] w-full max-w-[728px] mx-auto rounded">
+            <!-- AdSense: 728x90 -->
+            [AdSense Banner Superior: Inserir Código Aqui]
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full flex flex-col lg:flex-row gap-8">
+        
+        <!-- Left Column -->
+        <div class="flex-1 w-full max-w-4xl max-auto">
+            <!-- Hero -->
+            <section class="text-center mb-10">
+                <h1 class="text-3xl md:text-5xl font-bold text-brand-dark mb-4 drop-shadow-sm">Compressor de Imagens Online: <br class="hidden md:block"/><span class="text-brand-primary">Rápido, Grátis e Seguro</span></h1>
+                <p class="text-lg text-gray-500 max-w-2xl mx-auto">Reduza o tamanho da foto e converta para WebP ou JPG instantaneamente. Tudo processado no seu navegador, garantindo total privacidade.</p>
+            </section>
+
+            <!-- Tool -->
+            <section class="bg-white rounded-2xl shadow-xl p-6 md:p-8 mb-12 border border-gray-100 relative">
+                
+                <!-- Step 1: Upload -->
+                <div id="upload-section" class="drop-zone rounded-xl p-10 flex flex-col items-center justify-center cursor-pointer bg-gray-50 group hover:bg-gray-100">
+                    <input type="file" id="file-input" class="hidden" accept="image/jpeg, image/png, image/webp" multiple="false">
+                    <div class="bg-white p-4 rounded-full shadow-sm mb-4 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fa-solid fa-cloud-arrow-up text-4xl text-brand-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Arraste e largue a sua imagem aqui</h3>
+                    <p class="text-sm text-gray-500 mb-4">ou clique para escolher um ficheiro</p>
+                    <p class="text-xs text-gray-400">Suporta JPG, PNG, WebP (Máx: 20MB)</p>
+                    <button class="mt-6 px-6 py-2.5 bg-brand-dark hover:bg-gray-800 text-white font-medium rounded-lg shadow transition" onclick="document.getElementById('file-input').click()">Selecionar Imagem</button>
+                </div>
+
+                <!-- Step 2: Processing (Fake Delay for Ads) -->
+                <div id="processing-section" class="hidden flex-col items-center justify-center py-12">
+                    <div class="w-16 h-16 border-4 border-gray-200 border-t-brand-primary rounded-full animate-spin mb-6"></div>
+                    <h3 class="text-xl font-semibold mb-2">A otimizar a sua imagem...</h3>
+                    <p class="text-sm text-gray-500 mb-6 max-w-xs text-center">A aplicar algoritmos de compressão avançados. Por favor aguarde.</p>
+                    <div class="w-full max-w-md bg-gray-200 rounded-full h-2.5 mb-2 overflow-hidden shadow-inner">
+                        <div id="progress-bar-fill" class="progress-bar bg-brand-primary h-2.5 rounded-full"></div>
+                    </div>
+                    <p id="progress-text" class="text-xs font-medium text-gray-600">0%</p>
+                </div>
+
+                <!-- Step 3: Result -->
+                <div id="result-section" class="hidden flex-col gap-6">
+                    <div class="flex justify-between items-center mb-2">
+                        <h3 class="text-lg font-bold text-brand-dark"><i class="fa-solid fa-check-circle text-brand-primary mr-2"></i>Imagem Pronta!</h3>
+                        <button id="btn-new-image" class="text-sm text-gray-500 hover:text-brand-dark transition underline">Carregar nova imagem</button>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
+                        <!-- Preview Column -->
+                        <div class="flex flex-col gap-2">
+                            <span class="text-sm font-semibold text-gray-700">Pré-visualização</span>
+                            <div class="image-compare-container w-full h-64 bg-gray-100 flex items-center justify-center relative">
+                                <img id="preview-image" src="" alt="Preview" class="image-compare">
+                                <div class="absolute top-2 right-2 bg-black/60 text-white text-xs px-2 py-1 rounded backdrop-blur-sm">Otimizada</div>
+                            </div>
+                            <div class="flex justify-between mt-2 text-sm">
+                                <div class="text-center bg-gray-50 p-2 rounded border border-gray-100 flex-1 mr-2">
+                                    <span class="block text-xs text-gray-500">Original</span>
+                                    <span class="font-bold text-gray-700" id="size-original">-- KB</span>
+                                </div>
+                                <div class="text-center bg-green-50 p-2 rounded border border-green-100 flex-1 ml-2">
+                                    <span class="block text-xs text-green-600">Otimizada</span>
+                                    <span class="font-bold text-brand-primary" id="size-optimized">-- KB</span>
+                                    <span class="block text-xs font-semibold text-green-700" id="size-saved">(-0%)</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Controls -->
+                        <div class="flex flex-col gap-5 bg-gray-50 p-5 rounded-xl border border-gray-100">
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-2">Formato de Saída</label>
+                                <div class="flex bg-white rounded-lg border border-gray-200 overflow-hidden shadow-sm">
+                                    <button class="flex-1 py-2 text-sm font-medium transition format-btn active-format bg-brand-primary text-white" data-format="webp">WebP (Rec.)</button>
+                                    <button class="flex-1 py-2 text-sm font-medium text-gray-600 transition format-btn hover:bg-gray-50" data-format="jpeg">JPG</button>
+                                </div>
+                            </div>
+                            <div>
+                                <label class="flex justify-between text-sm font-semibold text-gray-700 mb-2">
+                                    <span>Qualidade</span>
+                                    <span id="quality-val" class="text-brand-primary font-bold">80%</span>
+                                </label>
+                                <input type="range" id="quality-slider" min="10" max="100" value="80" class="w-full">
+                                <div class="flex justify-between text-xs text-gray-400 mt-1"><span>Menor tamanho</span><span>Melhor qualidade</span></div>
+                            </div>
+                            <hr class="border-gray-200">
+                            <button id="btn-download" class="w-full py-3.5 bg-brand-primary hover:bg-brand-primaryHover text-white font-bold rounded-lg shadow-lg shadow-green-500/30 transition transform hover:-translate-y-0.5 mt-2 flex items-center justify-center gap-2 text-lg">
+                                <i class="fa-solid fa-download"></i> Descarregar Imagem
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- AdSense: In-Content -->
+            <div class="w-full mb-12">
+                <div class="ad-placeholder h-[250px] w-full mx-auto rounded">
+                    <!-- AdSense: Auto ou 300x250 -->
+                    [AdSense In-Content / Responsive: Inserir Código Aqui]
+                </div>
+            </div>
+
+            <!-- SEO Content -->
+            <article class="prose prose-slate max-w-none">
+                <h2 id="como-funciona" class="text-2xl font-bold text-brand-dark mb-4 border-b pb-2">Porquê otimizar as suas imagens?</h2>
+                <p class="text-gray-600 mb-6">A otimização de imagens é um dos fatores mais críticos para o <strong>Web Performance</strong> e SEO. Imagens pesadas atrasam o carregamento do seu site, o que aumenta a taxa de rejeição e penaliza o seu ranking no Google. Ao reduzir o tamanho da foto sem perder qualidade perceptível, garante uma navegação rápida e fluida.</p>
+
+                <h3 class="text-xl font-semibold text-brand-dark mt-6 mb-3">Vantagens do formato WebP</h3>
+                <ul class="list-disc pl-5 text-gray-600 mb-8 space-y-2">
+                    <li><strong>Compressão Superior:</strong> Tamanhos entre 25-34% menores face ao JPEG/PNG.</li>
+                    <li><strong>Transparência:</strong> Suporta fundos transparentes, substituindo o PNG facilmente.</li>
+                    <li><strong>Conversão Instantânea:</strong> Converta as suas imagens de forma rápida no site.</li>
+                </ul>
+
+                <h2 id="faq" class="text-2xl font-bold text-brand-dark mt-8 mb-4 border-b pb-2">Perguntas Frequentes (FAQ)</h2>
+                <div class="space-y-4 mb-8">
+                    <div class="bg-white p-4 rounded-lg border border-gray-100 shadow-sm">
+                        <h4 class="font-bold text-gray-800 flex gap-2"><i class="fa-solid fa-circle-question text-brand-primary mt-1"></i> É grátis e as minhas fotos estão seguras?</h4>
+                        <p class="text-gray-600 text-sm mt-2">Sim, 100% grátis e seguro. A compressão ocorre inteiramente no seu navegador, NUNCA enviamos ficheiros para os nossos servidores.</p>
+                    </div>
+                </div>
+
+                <h2 id="privacidade" class="text-2xl font-bold text-brand-dark mt-8 mb-4 border-b pb-2">Privacidade por Design</h2>
+                <p class="text-gray-600 mb-6">Sendo uma <em>Progressive Web App (PWA)</em>, funciona com o poder do seu próprio dispositivo, como um software offline.</p>
+            </article>
+        </div>
+
+        <!-- Sidebar for Ads -->
+        <aside class="hidden lg:block w-[300px] flex-shrink-0">
+            <div class="sticky top-24">
+                <div class="ad-placeholder h-[600px] w-[300px] rounded mb-6">
+                    <!-- AdSense: 300x600 -->
+                    [AdSense Sidebar: Inserir Código 300x600 Aqui]
+                </div>
+            </div>
+        </aside>
+
+    </main>
+
+    <!-- AdSense: Footer -->
+    <div class="w-full max-w-7xl mx-auto px-4 mb-8">
+        <div class="ad-placeholder h-[90px] w-full max-w-[728px] mx-auto rounded">
+            <!-- AdSense: 728x90 -->
+            [AdSense Banner Inferior: Inserir Código Aqui]
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-brand-dark text-gray-300 py-8 text-center text-sm border-t border-gray-800 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="flex items-center gap-2 text-white">
+                <i class="fa-solid fa-leaf text-brand-primary"></i> <span class="font-bold">ImageOptiPro</span> &copy; 2026.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script -->
+    <script src="script.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('sw.js').catch(err => console.log('SW falhou: ', err));
+            });
+        }
+    </script>
+</body>
+</html>
