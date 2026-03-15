@@ -112,34 +112,79 @@ document.addEventListener('DOMContentLoaded', () => {
 
         progressBarFill.style.width = '0%';
         progressText.textContent = '0%';
+        
+        const procMsg = document.getElementById('processing-msg');
+        const procTip = document.getElementById('processing-tip');
 
-        // Fake delay for AdSense viewability
-        const delayMs = 2500;
-        let progress = 0;
+        // Tips Array
+        const tips = [
+            "Imagens otimizadas podem acelerar o seu site em mais de 40%.",
+            "O Google privilegia sites que carregam rápido em dispositivos móveis.",
+            "Esta compressão é feita localmente para garantir a sua total privacidade.",
+            "Reduzir o peso das imagens poupa a largura de banda dos seus visitantes."
+        ];
+        
+        // Mostrar uma dica aleatória
+        procTip.textContent = tips[Math.floor(Math.random() * tips.length)];
+        procMsg.textContent = 'A analisar a estrutura da imagem...';
+
+        // Timer e Lógica de Progresso (Trancado em 5 segundos = 5000ms)
+        const totalDuration = 5000;
+        const intervalMs = 50; 
+        const steps = totalDuration / intervalMs;
+        let currentStep = 0;
+
+        // Inicia a compressão nos bastidores MAS a UI demora sempre 5s
+        let compressionPromise = performCompression();
         
         const progressInterval = setInterval(() => {
-            progress += 5;
-            if (progress > 95) progress = 95;
+            currentStep++;
+            let progress = Math.min((currentStep / steps) * 100, 99); // Vai até 99% fluidamente
+            let currentTimeMs = currentStep * intervalMs;
+            
             progressBarFill.style.width = `${progress}%`;
-            progressText.textContent = `${progress}%`;
-        }, delayMs / 20);
+            progressText.textContent = `${Math.floor(progress)}%`;
 
+            // Mudança de Textos nos tempos especificados
+            if (currentTimeMs === 1500) {
+                procMsg.style.opacity = 0;
+                setTimeout(() => {
+                    procMsg.textContent = 'A otimizar camadas e metadados...';
+                    procMsg.style.opacity = 1;
+                }, 300);
+            } else if (currentTimeMs === 3500) {
+                procMsg.style.opacity = 0;
+                setTimeout(() => {
+                    procMsg.textContent = 'A finalizar compressão sem perda de qualidade...';
+                    procMsg.style.opacity = 1;
+                }, 300);
+            }
+
+            // Aos 5 segundos (5000ms), termina a animação e aguarda compressão caso ainda não tenha acabado
+            if (currentStep >= steps) {
+                clearInterval(progressInterval);
+                finishProcessingFlow(compressionPromise);
+            }
+        }, intervalMs);
+    }
+    
+    async function finishProcessingFlow(compressionPromise) {
         try {
-            await performCompression();
-            clearInterval(progressInterval);
+            await compressionPromise; // Garantir que a compressão (nos bastidores) já acabou mesmo (normalmente demora menos de 5s)
+            
             progressBarFill.style.width = '100%';
             progressText.textContent = '100%';
             
+            // Pequeno atraso para a pessoa ver os 100%
             setTimeout(() => {
                 processingSection.classList.add('hidden');
                 processingSection.classList.remove('flex');
                 resultSection.classList.remove('hidden');
                 resultSection.classList.add('flex');
-            }, 300);
+            }, 400);
 
         } catch (error) {
             console.error(error);
-            clearInterval(progressInterval);
             alert("Erro ao otimizar. Tente novamente.");
             btnNewImage.click();
         }

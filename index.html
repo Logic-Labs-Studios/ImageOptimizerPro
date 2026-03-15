@@ -107,15 +107,33 @@
                     <button class="mt-6 px-6 py-2.5 bg-brand-dark hover:bg-gray-800 text-white font-medium rounded-lg shadow transition" onclick="document.getElementById('file-input').click()">Selecionar Imagem</button>
                 </div>
 
-                <!-- Step 2: Processing (Fake Delay for Ads) -->
+                <!-- Step 2: Processing (Fake Delay for AdSense & User Experience) -->
                 <div id="processing-section" class="hidden flex-col items-center justify-center py-12">
-                    <div class="w-16 h-16 border-4 border-gray-200 border-t-brand-primary rounded-full animate-spin mb-6"></div>
-                    <h3 class="text-xl font-semibold mb-2">A otimizar a sua imagem...</h3>
-                    <p class="text-sm text-gray-500 mb-6 max-w-xs text-center">A aplicar algoritmos de compressão avançados. Por favor aguarde.</p>
-                    <div class="w-full max-w-md bg-gray-200 rounded-full h-2.5 mb-2 overflow-hidden shadow-inner">
-                        <div id="progress-bar-fill" class="progress-bar bg-brand-primary h-2.5 rounded-full"></div>
+                    <div class="relative mb-8">
+                        <div class="absolute inset-0 bg-brand-primary/20 rounded-full blur-xl animate-pulse"></div>
+                        <div class="w-20 h-20 bg-white rounded-full shadow-lg border-4 border-gray-50 flex items-center justify-center relative z-10 animate-[bounce_2s_infinite]">
+                            <i class="fa-solid fa-gear text-4xl text-brand-primary animate-spin" style="animation-duration: 3s;"></i>
+                        </div>
                     </div>
-                    <p id="progress-text" class="text-xs font-medium text-gray-600">0%</p>
+                    
+                    <h3 class="text-2xl font-bold mb-2 text-brand-dark">A processar imagem...</h3>
+                    <p id="processing-msg" class="text-sm font-medium text-brand-primary mb-6 text-center h-5 transition-opacity duration-300">A iniciar o motor de compressão...</p>
+                    
+                    <div class="w-full max-w-md bg-gray-100 rounded-full h-3 mb-2 overflow-hidden shadow-inner border border-gray-200">
+                        <div id="progress-bar-fill" class="progress-bar bg-gradient-to-r from-brand-primary to-emerald-400 h-3 rounded-full relative overflow-hidden">
+                            <div class="absolute inset-0 bg-white/20 w-full animate-[shimmer_2s_infinite]" style="background-image: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent); transform: skewX(-20deg);"></div>
+                        </div>
+                    </div>
+                    <p id="progress-text" class="text-xs font-bold text-gray-500 mb-8">0%</p>
+                    
+                    <!-- Dica Aleatória -->
+                    <div class="max-w-sm mt-4 bg-blue-50/50 border border-blue-100 p-4 rounded-xl flex gap-3 text-left">
+                        <i class="fa-solid fa-lightbulb text-yellow-500 mt-0.5"></i>
+                        <div>
+                            <span class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">Sabia que?</span>
+                            <p id="processing-tip" class="text-xs text-gray-600 leading-relaxed font-medium">Imagens otimizadas podem acelerar o seu site em mais de 40%.</p>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Step 3: Result -->
