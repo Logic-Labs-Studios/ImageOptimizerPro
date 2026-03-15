@@ -60,14 +60,14 @@
     <!-- Header -->
     <header class="bg-white shadow-sm sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-            <div class="flex items-center gap-2">
+            <a href="index.html" class="flex items-center gap-2">
                 <i class="fa-solid fa-leaf text-brand-primary text-2xl"></i>
                 <span class="font-bold text-xl tracking-tight text-brand-dark">ImageOpti<span class="text-brand-primary">Pro</span></span>
-            </div>
+            </a>
             <nav class="hidden md:flex gap-6 font-medium text-sm text-gray-600">
                 <a href="#como-funciona" class="hover:text-brand-primary transition">Como Funciona</a>
                 <a href="#faq" class="hover:text-brand-primary transition">FAQ</a>
-                <a href="#privacidade" class="hover:text-brand-primary transition">Privacidade</a>
+                <a href="privacidade.html" class="hover:text-brand-primary transition">Privacidade</a>
             </nav>
             <button class="md:hidden text-gray-600"><i class="fa-solid fa-bars text-xl"></i></button>
         </div>
@@ -227,14 +227,243 @@
 
     <!-- Footer -->
     <footer class="bg-brand-dark text-gray-300 py-8 text-center text-sm border-t border-gray-800 mt-auto">
-        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row gap-6 justify-between items-center">
             <div class="flex items-center gap-2 text-white">
-                <i class="fa-solid fa-leaf text-brand-primary"></i> <span class="font-bold">ImageOptiPro</span> &copy; 2026.
+                <i class="fa-solid fa-leaf text-brand-primary"></i> <span class="font-bold border-r border-gray-600 pr-2 pb-1">ImageOptiPro</span> <span>&copy; 2026</span>
+            </div>
+            <div class="flex gap-4">
+                <a href="index.html" class="hover:text-white transition">Início</a>
+                <a href="privacidade.html" class="hover:text-white transition">Privacidade</a>
+                <button onclick="localStorage.removeItem('cookiePreferences'); localStorage.removeItem('cookieConsent'); window.location.reload();" class="hover:text-gray-100 text-gray-400 decoration-dotted underline transition">
+                    Gerir Detalhes de Cookies
+                </button>
             </div>
         </div>
     </footer>
 
-    <!-- Script -->
+    <!-- Banner de Cookies (RGPD) -->
+    <div id="cookie-banner" class="fixed bottom-4 left-4 right-4 md:left-8 md:right-auto md:max-w-md z-[60] bg-white border border-gray-200 rounded-2xl shadow-2xl p-6 transition-all duration-500 translate-y-[150%] opacity-0 pointer-events-none">
+        <div class="flex flex-col gap-4">
+            <div>
+                <h3 class="flex items-center gap-2 text-lg font-semibold text-gray-900 mb-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-brand-primary"><path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5"/><path d="M8.5 8.5v.01"/><path d="M16 15.5v.01"/><path d="M12 12v.01"/><path d="M11 17v.01"/><path d="M7 14v.01"/></svg>
+                    Valorizamos a sua privacidade
+                </h3>
+                <p class="text-xs text-gray-600 leading-relaxed text-justify">
+                    Utilizamos cookies e tecnologias semelhantes para personalizar conteúdo e anúncios, fornecer funcionalidades de redes sociais e analisar o nosso tráfego. Partilhamos também informações sobre a sua utilização do site com os nossos parceiros de publicidade (Google AdSense) e de análise, que as podem combinar com outras informações que lhes forneceu ou que recolheram a partir da sua utilização dos serviços deles.
+                </p>
+            </div>
+            
+            <div class="flex flex-col gap-2">
+                <div class="flex items-center gap-3">
+                    <button id="accept-all-cookies" class="flex-1 bg-brand-primary hover:bg-brand-primaryHover text-white text-sm font-medium py-2.5 px-4 rounded-xl transition-colors w-full focus:outline-none focus:ring-2 focus:ring-brand-primary focus:ring-offset-2 cursor-pointer shadow-sm">
+                        Aceitar Tudo
+                    </button>
+                    <button id="reject-cookies" class="flex-1 bg-white hover:bg-gray-50 text-gray-700 text-sm font-medium py-2.5 px-4 rounded-xl border border-gray-300 transition-colors w-full focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 cursor-pointer">
+                        Rejeitar
+                    </button>
+                </div>
+                <button id="open-preferences" class="text-xs text-gray-500 hover:text-gray-700 underline text-center w-full mt-1 cursor-pointer transition-colors focus:outline-none">
+                    Personalizar
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Preferências de Cookies -->
+    <div id="cookie-modal" class="fixed inset-0 z-[70] flex items-center justify-center p-4 bg-gray-900/50 backdrop-blur-sm transition-opacity duration-300 opacity-0 pointer-events-none">
+        <div class="bg-white rounded-2xl shadow-xl w-full max-w-lg max-h-[90vh] flex flex-col overflow-hidden transform scale-95 transition-transform duration-300">
+            <!-- Header do Modal -->
+            <div class="flex items-center justify-between p-5 border-b border-gray-100">
+                <h2 class="text-xl font-bold text-gray-900">Preferências de Privacidade</h2>
+                <button id="close-modal-top" class="text-gray-400 hover:text-gray-600 transition-colors focus:outline-none">
+                    <i class="fa-solid fa-xmark text-xl"></i>
+                </button>
+            </div>
+            
+            <!-- Corpo do Modal (Scrollable) -->
+            <div class="p-5 overflow-y-auto flex-1 space-y-6">
+                <!-- Categoria 1: Necessários -->
+                <div class="bg-gray-50 p-4 rounded-xl border border-gray-100">
+                    <div class="flex items-center justify-between mb-2">
+                        <h4 class="font-semibold text-gray-900 text-sm">Cookies Estritamente Necessários</h4>
+                        <span class="text-xs font-medium text-brand-primary bg-green-100 px-2 py-1 rounded-full">Sempre Ativos</span>
+                    </div>
+                    <p class="text-xs text-gray-600 leading-relaxed">
+                        Essenciais para o funcionamento básico do site (como guardar esta própria preferência de cookies) e segurança. Não podem ser desativados.
+                    </p>
+                </div>
+
+                <!-- Categoria 2: Estatísticas -->
+                <div>
+                    <div class="flex items-center justify-between mb-2">
+                        <label for="toggle-stats" class="font-semibold text-gray-900 text-sm cursor-pointer">Cookies de Estatísticas</label>
+                        <!-- Toggle Animado (Tailwind) -->
+                        <div class="relative inline-block w-11 h-6 align-middle select-none transition duration-200 ease-in">
+                            <input type="checkbox" name="toggle" id="toggle-stats" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white border-4 border-gray-300 appearance-none cursor-pointer top-0.5 left-0.5 transition-transform duration-200 checked:translate-x-5 checked:border-brand-primary"/>
+                            <label for="toggle-stats" class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer transition-colors duration-200 peer-checked:bg-brand-primary"></label>
+                        </div>
+                    </div>
+                    <p class="text-xs text-gray-600 leading-relaxed">
+                        Permitem-nos entender como interage com o site, de forma anónima, reportando informações como páginas visitadas e erros, para podermos melhorar o nosso serviço.
+                    </p>
+                </div>
+
+                <!-- Categoria 3: Marketing / AdSense -->
+                <div>
+                    <div class="flex items-center justify-between mb-2">
+                        <label for="toggle-marketing" class="font-semibold text-gray-900 text-sm cursor-pointer">Cookies de Marketing / Publicidade</label>
+                        <!-- Toggle Animado (Tailwind) -->
+                        <div class="relative inline-block w-11 h-6 align-middle select-none transition duration-200 ease-in">
+                            <input type="checkbox" name="toggle" id="toggle-marketing" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white border-4 border-gray-300 appearance-none cursor-pointer top-0.5 left-0.5 transition-transform duration-200 checked:translate-x-5 checked:border-brand-primary"/>
+                            <label for="toggle-marketing" class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer transition-colors duration-200 peer-checked:bg-brand-primary"></label>
+                        </div>
+                    </div>
+                    <p class="text-xs text-gray-600 leading-relaxed">
+                        Utilizados por terceiros (como o Google AdSense) para apresentar anúncios relevantes baseados nos seus comportamentos de navegação e interesses.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Footer do Modal -->
+            <div class="p-5 border-t border-gray-100 bg-gray-50 flex flex-col sm:flex-row gap-3">
+                <button id="save-preferences" class="flex-1 bg-white hover:bg-gray-100 text-gray-700 text-sm font-medium py-2.5 px-4 rounded-xl border border-gray-300 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2">
+                    Guardar Preferências
+                </button>
+                <button id="accept-all-modal" class="flex-1 bg-brand-primary hover:bg-brand-primaryHover text-white text-sm font-medium py-2.5 px-4 rounded-xl transition-colors focus:outline-none focus:ring-2 focus:ring-brand-primary focus:ring-offset-2 shadow-sm">
+                    Aceitar Todos
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        /* CSS adicional rápido para os Toggles (Checkboxes customizados em Tailwind) */
+        .toggle-checkbox:checked { right: 0; border-color: #10B981; }
+        .toggle-checkbox:checked + .toggle-label { background-color: #10B981; }
+    </style>
+
+    <!-- Script de Lógica do Consentimento e Preferências -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Elementos Banner
+            const cookieBanner = document.getElementById('cookie-banner');
+            const acceptAllBtn = document.getElementById('accept-all-cookies');
+            const rejectBtn = document.getElementById('reject-cookies');
+            const openPrefBtn = document.getElementById('open-preferences');
+            
+            // Elementos Modal
+            const cookieModal = document.getElementById('cookie-modal');
+            const modalContainer = cookieModal.querySelector('.transform');
+            const closeModalBtn = document.getElementById('close-modal-top');
+            const savePrefBtn = document.getElementById('save-preferences');
+            const acceptAllModalBtn = document.getElementById('accept-all-modal');
+            
+            // Toggles
+            const toggleStats = document.getElementById('toggle-stats');
+            const toggleMarketing = document.getElementById('toggle-marketing');
+
+            // 1. Verificar consentimento existente
+            const savedPreferences = localStorage.getItem('cookiePreferences');
+            let preferences = { stats: false, marketing: false };
+
+            if (!savedPreferences) {
+                // Primeira visita: mostrar banner com atraso
+                setTimeout(() => {
+                    cookieBanner.classList.remove('translate-y-[150%]', 'opacity-0', 'pointer-events-none');
+                    cookieBanner.classList.add('translate-y-0', 'opacity-100');
+                }, 500);
+            } else {
+                // Já visitou e guardou preferências
+                cookieBanner.remove();
+                preferences = JSON.parse(savedPreferences);
+                applyPreferences(preferences);
+            }
+
+            // 2. Funções UI
+            const closeBanner = () => {
+                cookieBanner.classList.remove('translate-y-0', 'opacity-100');
+                cookieBanner.classList.add('translate-y-[150%]', 'opacity-0', 'pointer-events-none');
+                setTimeout(() => cookieBanner.remove(), 500);
+            };
+
+            const openModal = () => {
+                // Esconder Banner visualmente sem o apagar
+                cookieBanner.classList.add('opacity-0', 'pointer-events-none');
+                
+                // Mostrar Modal
+                cookieModal.classList.remove('opacity-0', 'pointer-events-none');
+                modalContainer.classList.remove('scale-95');
+                modalContainer.classList.add('scale-100');
+            };
+
+            const closeModal = () => {
+                // Se fechou no "X", e o banner ainda existir no DOM (não escolheu nada), mostrar banner
+                if(document.body.contains(cookieBanner)) {
+                    cookieBanner.classList.remove('opacity-0', 'pointer-events-none');
+                }
+                
+                // Esconder Modal
+                modalContainer.classList.remove('scale-100');
+                modalContainer.classList.add('scale-95');
+                cookieModal.classList.add('opacity-0', 'pointer-events-none');
+            };
+
+            // 3. Funções Lógicas de Aceitação
+            const saveAndApply = (prefs) => {
+                localStorage.setItem('cookiePreferences', JSON.stringify(prefs));
+                applyPreferences(prefs);
+                closeBanner();
+                closeModal();
+            };
+
+            const handleAcceptAll = () => saveAndApply({ stats: true, marketing: true });
+            const handleRejectAll = () => saveAndApply({ stats: false, marketing: false });
+
+            // 4. Aplicar ações/carregar scripts reais
+            function applyPreferences(prefs) {
+                // Update Toggles visual states just in case
+                toggleStats.checked = prefs.stats;
+                toggleMarketing.checked = prefs.marketing;
+
+                if(prefs.marketing) {
+                    // O Utilizador ACEITOU Marketing (Google AdSense)
+                    // Podes inserir aqui a lógica dinâmica para injetar o script do AdSense
+                    console.log("[Cookies] Marketing ACEITE! A carregar scripts do AdSense...");
+                    /* Exemplo de inserção dinâmica do AdSense:
+                    const adScript = document.createElement('script');
+                    adScript.async = true;
+                    adScript.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXX";
+                    adScript.crossOrigin = "anonymous";
+                    document.head.appendChild(adScript);
+                    */
+                } else {
+                    console.log("[Cookies] Marketing REJEITADO. Scripts de AdSense bloqueados.");
+                }
+
+                if(prefs.stats) {
+                    console.log("[Cookies] Estatísticas ACEITES! A carregar Google Analytics...");
+                }
+            }
+
+            // 5. Event Listeners
+            acceptAllBtn.addEventListener('click', handleAcceptAll);
+            rejectBtn.addEventListener('click', handleRejectAll);
+            openPrefBtn.addEventListener('click', openModal);
+            
+            closeModalBtn.addEventListener('click', closeModal);
+            acceptAllModalBtn.addEventListener('click', handleAcceptAll);
+            
+            savePrefBtn.addEventListener('click', () => {
+                saveAndApply({
+                    stats: toggleStats.checked,
+                    marketing: toggleMarketing.checked
+                });
+            });
+        });
+    </script>
+
+    <!-- Script principal de funcionamento da aplicação -->
     <script src="script.js"></script>
     <script>
         if ('serviceWorker' in navigator) {
