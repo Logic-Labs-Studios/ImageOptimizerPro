@@ -55,7 +55,6 @@
         body { font-family: 'Inter', sans-serif; background-color: #F9FAFB; color: #1E293B; }
         .drop-zone { border: 2px dashed #CBD5E1; transition: all 0.3s ease; }
         .drop-zone.dragover { border-color: #10B981; background-color: #ECFDF5; }
-        .ad-placeholder { background: #E2E8F0; border: 1px dashed #94A3B8; display: flex; align-items: center; justify-content: center; color: #64748B; font-size: 0.875rem; text-align: center; }
         input[type=range] { -webkit-appearance: none; width: 100%; background: transparent; }
         input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; height: 20px; width: 20px; border-radius: 50%; background: #10B981; cursor: pointer; margin-top: -6px; }
         input[type=range]::-webkit-slider-runnable-track { width: 100%; height: 8px; cursor: pointer; background: #E2E8F0; border-radius: 4px; }
@@ -83,11 +82,8 @@
     </header>
 
     <!-- AdSense: Banner Superior (Leaderboard) -->
-    <div class="w-full max-w-7xl mx-auto px-4 mt-6">
-        <div class="ad-placeholder h-[90px] w-full max-w-[728px] mx-auto rounded">
-            <!-- AdSense: 728x90 -->
-            [AdSense Banner Superior: Inserir Código Aqui]
-        </div>
+    <div class="w-full max-w-7xl mx-auto px-4 mt-6 flex justify-center">
+        <!-- AdSense: 728x90 - Inserir Código Aqui -->
     </div>
 
     <!-- Main Content -->
@@ -200,56 +196,77 @@
             </section>
 
             <!-- AdSense: In-Content -->
-            <div class="w-full mb-12">
-                <div class="ad-placeholder h-[250px] w-full mx-auto rounded">
-                    <!-- AdSense: Auto ou 300x250 -->
-                    [AdSense In-Content / Responsive: Inserir Código Aqui]
-                </div>
+            <div class="w-full mb-12 flex justify-center">
+                <!-- AdSense: Auto ou 300x250 - Inserir Código Aqui -->
             </div>
 
             <!-- SEO Content -->
-            <article class="prose prose-slate max-w-none">
-                <h2 id="como-funciona" class="text-2xl font-bold text-brand-dark mb-4 border-b pb-2">Porquê otimizar as suas imagens?</h2>
-                <p class="text-gray-600 mb-6">A otimização de imagens é um dos fatores mais críticos para o <strong>Web Performance</strong> e SEO. Imagens pesadas atrasam o carregamento do seu site, o que aumenta a taxa de rejeição e penaliza o seu ranking no Google. Ao reduzir o tamanho da foto sem perder qualidade perceptível, garante uma navegação rápida e fluida.</p>
+            <article class="bg-white rounded-2xl shadow-sm p-8 border border-gray-100 mb-12">
+                <h2 id="como-funciona" class="text-2xl font-bold text-brand-dark mb-4 border-b border-gray-100 pb-3">Porquê otimizar as suas imagens com o ImageOptimizerPro?</h2>
+                <p class="text-gray-600 mb-6 leading-relaxed">A velocidade de um website é um dos fatores mais importantes para o sucesso online, quer tenhas um blog pessoal ou uma loja e-commerce. Imagens pesadas são o principal motivo para a lentidão de uma página. Com o ImageOptimizerPro, ajudamos-te a encontrar o equilíbrio perfeito entre qualidade visual e desempenho técnico.</p>
 
-                <h3 class="text-xl font-semibold text-brand-dark mt-6 mb-3">Vantagens do formato WebP</h3>
-                <ul class="list-disc pl-5 text-gray-600 mb-8 space-y-2">
-                    <li><strong>Compressão Superior:</strong> Tamanhos entre 25-34% menores face ao JPEG/PNG.</li>
-                    <li><strong>Transparência:</strong> Suporta fundos transparentes, substituindo o PNG facilmente.</li>
-                    <li><strong>Conversão Instantânea:</strong> Converta as suas imagens de forma rápida no site.</li>
+                <h2 class="text-xl font-bold text-brand-dark mt-8 mb-3">O impacto da otimização no SEO e na experiência do utilizador</h2>
+                <p class="text-gray-600 mb-6 leading-relaxed">Quando comprimes uma imagem sem perder qualidade perceptível, estás a garantir que o teu site carrega mais rápido em dispositivos móveis. O Google utiliza a velocidade de carregamento (Core Web Vitals) como um critério de ranking. Ou seja, um site mais leve tem mais hipóteses de aparecer nos primeiros resultados de pesquisa.</p>
+
+                <h2 class="text-xl font-bold text-brand-dark mt-8 mb-4">Vantagens de usar o ImageOptimizerPro:</h2>
+                <ul class="space-y-4 text-gray-600 mb-8">
+                    <li class="flex items-start gap-3">
+                        <i class="fa-solid fa-bolt text-yellow-500 mt-1"></i>
+                        <div><strong class="text-gray-800">Velocidade Incrível:</strong> Reduz o tamanho dos ficheiros em até 80%, mantendo a nitidez.</div>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="fa-solid fa-magnifying-glass-chart text-blue-500 mt-1"></i>
+                        <div><strong class="text-gray-800">Melhor SEO:</strong> Sites rápidos são favorecidos pelos algoritmos de busca.</div>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="fa-solid fa-mobile-screen text-brand-primary mt-1"></i>
+                        <div><strong class="text-gray-800">Poupança de Dados:</strong> Ideal para utilizadores que navegam através de redes móveis (4G/5G).</div>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="fa-solid fa-shield-halved text-green-600 mt-1"></i>
+                        <div><strong class="text-gray-800">Privacidade Total:</strong> Todo o processamento é feito de forma segura e os seus ficheiros não são armazenados no nosso servidor.</div>
+                    </li>
                 </ul>
 
-                <h2 id="faq" class="text-2xl font-bold text-brand-dark mt-8 mb-4 border-b pb-2">Perguntas Frequentes (FAQ)</h2>
-                <div class="space-y-4 mb-8">
-                    <div class="bg-white p-4 rounded-lg border border-gray-100 shadow-sm">
-                        <h4 class="font-bold text-gray-800 flex gap-2"><i class="fa-solid fa-circle-question text-brand-primary mt-1"></i> É grátis e as minhas fotos estão seguras?</h4>
-                        <p class="text-gray-600 text-sm mt-2">Sim, 100% grátis e seguro. A compressão ocorre inteiramente no seu navegador, NUNCA enviamos ficheiros para os nossos servidores.</p>
-                    </div>
-                </div>
+                <h2 class="text-xl font-bold text-brand-dark mt-8 mb-3">Diferença entre formatos: JPEG vs PNG vs WebP</h2>
+                <p class="text-gray-600 mb-6 leading-relaxed">Nem todas as imagens são iguais. Para fotografias com muitas cores, o formato JPEG é ideal pela sua capacidade de compressão. Se precisas de transparência, o PNG é a escolha certa. No entanto, se queres o melhor dos dois mundos para a web, o formato WebP é a recomendação atual do Google, oferecendo uma redução de peso superior a qualquer outro formato tradicional.</p>
 
-                <h2 id="privacidade" class="text-2xl font-bold text-brand-dark mt-8 mb-4 border-b pb-2">Privacidade por Design</h2>
-                <p class="text-gray-600 mb-6">Sendo uma <em>Progressive Web App (PWA)</em>, funciona com o poder do seu próprio dispositivo, como um software offline.</p>
+                <h2 class="text-xl font-bold text-brand-dark mt-8 mb-4">Como otimizar as suas fotos corretamente?</h2>
+                <ul class="space-y-4 text-gray-600 mb-8">
+                    <li class="flex items-start gap-3">
+                        <i class="fa-solid fa-compress text-brand-primary mt-1"></i>
+                        <div><strong class="text-gray-800">Redimensionar primeiro:</strong> Não carregues uma foto de 4000px se ela só vai aparecer com 800px no ecrã.</div>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="fa-solid fa-file-image text-brand-primary mt-1"></i>
+                        <div><strong class="text-gray-800">Escolher o formato certo:</strong> Usa JPEG para fotos e PNG para logótipos ou gráficos.</div>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="fa-solid fa-check-double text-brand-primary mt-1"></i>
+                        <div><strong class="text-gray-800">Comprimir com o ImageOptimizerPro:</strong> Passa as tuas imagens pela nossa ferramenta antes de as publicares no teu site ou redes sociais.</div>
+                    </li>
+                </ul>
+
+                <h2 id="faq" class="text-xl font-bold text-brand-dark mt-10 mb-4 border-t border-gray-100 pt-6">Perguntas Frequentes (FAQ) & Privacidade</h2>
+                <div class="bg-gray-50 p-5 rounded-xl border border-gray-100">
+                    <h4 class="font-bold text-gray-800 flex gap-2"><i class="fa-solid fa-circle-question text-brand-primary mt-0.5"></i> É grátis e as minhas fotos estão seguras?</h4>
+                    <p class="text-gray-600 text-sm mt-2 mb-4">Sim, 100% grátis e seguro. A compressão ocorre inteiramente no seu navegador. Sendo uma <em>Progressive Web App (PWA)</em>, funciona com o poder do seu próprio dispositivo e NUNCA enviamos ficheiros para os nossos servidores.</p>
+                </div>
             </article>
         </div>
 
         <!-- Sidebar for Ads -->
         <aside class="hidden lg:block w-[300px] flex-shrink-0">
-            <div class="sticky top-24">
-                <div class="ad-placeholder h-[600px] w-[300px] rounded mb-6">
-                    <!-- AdSense: 300x600 -->
-                    [AdSense Sidebar: Inserir Código 300x600 Aqui]
-                </div>
+            <div class="sticky top-24 flex justify-center">
+                <!-- AdSense: 300x600 - Inserir Código Aqui -->
             </div>
         </aside>
 
     </main>
 
     <!-- AdSense: Footer -->
-    <div class="w-full max-w-7xl mx-auto px-4 mb-8">
-        <div class="ad-placeholder h-[90px] w-full max-w-[728px] mx-auto rounded">
-            <!-- AdSense: 728x90 -->
-            [AdSense Banner Inferior: Inserir Código Aqui]
-        </div>
+    <div class="w-full max-w-7xl mx-auto px-4 mb-8 flex justify-center">
+        <!-- AdSense: 728x90 - Inserir Código Aqui -->
     </div>
 
     <!-- Footer -->
@@ -258,9 +275,9 @@
             <div class="flex items-center gap-2 text-white">
                 <i class="fa-solid fa-leaf text-brand-primary"></i> <span class="font-bold border-r border-gray-600 pr-2 pb-1">ImageOptiPro</span> <span>&copy; 2026</span>
             </div>
-            <div class="flex gap-4">
+            <div class="flex gap-4 items-center">
                 <a href="index.html" class="hover:text-white transition">Início</a>
-                <a href="privacidade.html" class="hover:text-white transition">Privacidade</a>
+                <a href="privacidade.html" class="text-brand-primary font-semibold hover:text-white transition underline underline-offset-4 decoration-brand-primary/50">Política de Privacidade</a>
                 <button onclick="localStorage.removeItem('cookiePreferences'); localStorage.removeItem('cookieConsent'); window.location.reload();" class="hover:text-gray-100 text-gray-400 decoration-dotted underline transition">
                     Gerir Detalhes de Cookies
                 </button>

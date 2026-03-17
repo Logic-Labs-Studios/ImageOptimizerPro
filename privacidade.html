@@ -40,7 +40,6 @@
 
     <style>
         body { font-family: 'Inter', sans-serif; background-color: #F9FAFB; color: #1E293B; }
-        .ad-placeholder { background: #E2E8F0; border: 1px dashed #94A3B8; display: flex; align-items: center; justify-content: center; color: #64748B; font-size: 0.875rem; text-align: center; }
     </style>
 </head>
 <body class="min-h-screen flex flex-col">
@@ -147,9 +146,9 @@
             <div class="flex items-center gap-2 text-white">
                 <i class="fa-solid fa-leaf text-brand-primary"></i> <span class="font-bold border-r border-gray-600 pr-2 pb-1">ImageOptiPro</span> <span>&copy; 2026</span>
             </div>
-            <div class="flex gap-4">
+            <div class="flex gap-4 items-center">
                 <a href="index.html" class="hover:text-white transition">Início</a>
-                <a href="privacidade.html" class="hover:text-white transition font-bold py-1 border-b border-brand-primary text-white">Privacidade</a>
+                <a href="privacidade.html" class="text-brand-primary font-semibold hover:text-white transition underline underline-offset-4 decoration-brand-primary/50">Política de Privacidade</a>
                 <button onclick="localStorage.removeItem('cookiePreferences'); localStorage.removeItem('cookieConsent'); window.location.reload();" class="hover:text-gray-100 text-gray-400 decoration-dotted underline transition">
                     Gerir Definições de Cookies
                 </button>
