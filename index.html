@@ -14,8 +14,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Meta Tags SEO -->
     <title>Compressor de Imagens Online: Reduzir Tamanho de Foto e Converter para WebP</title>
-    <meta name="description" content="Otimizar imagens para site nunca foi tão fácil. Compressor de imagem gratuito, rápido e seguro. Reduza o tamanho das suas fotos e converta para WebP instantaneamente.">
-    <meta name="keywords" content="compressor de imagem, reduzir tamanho de foto, converter para webp, otimizar imagens para site">
+    <meta name="description" content="Otimize, converta e remova dados EXIF das suas imagens de forma gratuita e segura, 100% no seu navegador. Suporta WebP, AVIF, JPEG, PNG e muito mais.">
+    <meta name="keywords" content="otimizador de imagem, compressor de fotos, converter heic para jpg, conversor webp, removedor de metadados, apagar dados exif, conversor avif, reduzir tamanho de imagem, ferramentas de imagem grátis, sem upload, redimensionar imagem online, recortar foto grátis, extrator paleta cores, multilingue, heic converter, exif viewer, site multilingue">
     
     <!-- PWA -->
     <link rel="manifest" href="manifest.json">
@@ -47,6 +47,20 @@
     
     <!-- Browser Image Compression CDN -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/browser-image-compression@2.0.2/dist/browser-image-compression.js"></script>
+    <!-- HEIC to Any CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/heic2any@0.0.4/dist/heic2any.min.js"></script>
+    <!-- EXIF Reader CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/exifr/dist/lite.umd.js"></script>
+    
+    <!-- Cropper.js -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.1/cropper.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.1/cropper.min.js"></script>
+    
+    <!-- ColorThief -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.3.2/color-thief.umd.js"></script>
+
+    <!-- i18n Dictionary & Engine -->
+    <script src="i18n.js"></script>
     
     <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -55,8 +69,8 @@
         body { font-family: 'Inter', sans-serif; background-color: #F9FAFB; color: #1E293B; }
         .drop-zone { border: 2px dashed #CBD5E1; transition: all 0.3s ease; }
         .drop-zone.dragover { border-color: #10B981; background-color: #ECFDF5; }
-        input[type=range] { -webkit-appearance: none; width: 100%; background: transparent; }
-        input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; height: 20px; width: 20px; border-radius: 50%; background: #10B981; cursor: pointer; margin-top: -6px; }
+        input[type=range] { appearance: none; -webkit-appearance: none; width: 100%; background: transparent; }
+        input[type=range]::-webkit-slider-thumb { appearance: none; -webkit-appearance: none; height: 20px; width: 20px; border-radius: 50%; background: #10B981; cursor: pointer; margin-top: -6px; }
         input[type=range]::-webkit-slider-runnable-track { width: 100%; height: 8px; cursor: pointer; background: #E2E8F0; border-radius: 4px; }
         .image-compare-container { position: relative; overflow: hidden; border-radius: 0.5rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); background-image: repeating-linear-gradient(45deg, #ccc 25%, transparent 25%, transparent 75%, #ccc 75%, #ccc), repeating-linear-gradient(45deg, #ccc 25%, transparent 25%, transparent 75%, #ccc 75%, #ccc); background-position: 0 0, 10px 10px; background-size: 20px 20px; }
         .image-compare { display: block; width: 100%; height: auto; max-height: 400px; object-fit: contain; }
@@ -72,10 +86,16 @@
                 <i class="fa-solid fa-leaf text-brand-primary text-2xl"></i>
                 <span class="font-bold text-xl tracking-tight text-brand-dark">ImageOpti<span class="text-brand-primary">Pro</span></span>
             </a>
-            <nav class="hidden md:flex gap-6 font-medium text-sm text-gray-600">
-                <a href="#como-funciona" class="hover:text-brand-primary transition">Como Funciona</a>
-                <a href="#faq" class="hover:text-brand-primary transition">FAQ</a>
-                <a href="privacidade.html" class="hover:text-brand-primary transition">Privacidade</a>
+            <nav class="hidden md:flex items-center gap-6 font-medium text-sm text-gray-600">
+                <a href="#como-funciona" class="hover:text-brand-primary transition" data-i18n="nav_how">Como Funciona</a>
+                <a href="blog.html" class="hover:text-brand-primary transition font-bold text-gray-800">Blog</a>
+                <a href="#faq" class="hover:text-brand-primary transition" data-i18n="nav_faq">FAQ</a>
+                <a href="privacidade.html" class="hover:text-brand-primary transition" data-i18n="nav_privacy">Privacidade</a>
+                <div class="flex items-center gap-2 border-l border-gray-200 pl-6 ml-2">
+                    <button id="lang-btn-pt" class="lang-selector font-bold text-brand-primary transition hover:text-brand-primaryHover" onclick="setLanguage('pt')">PT</button>
+                    <span class="text-gray-300">|</span>
+                    <button id="lang-btn-en" class="lang-selector text-gray-500 transition hover:text-brand-primary" onclick="setLanguage('en')">EN</button>
+                </div>
             </nav>
             <button class="md:hidden text-gray-600"><i class="fa-solid fa-bars text-xl"></i></button>
         </div>
@@ -93,23 +113,33 @@
         <div class="flex-1 w-full max-w-4xl max-auto">
             <!-- Hero -->
             <section class="text-center mb-10">
-                <h1 class="text-3xl md:text-5xl font-bold text-brand-dark mb-4 drop-shadow-sm">Compressor de Imagens Online: <br class="hidden md:block"/><span class="text-brand-primary">Rápido, Grátis e Seguro</span></h1>
-                <p class="text-lg text-gray-500 max-w-2xl mx-auto">Reduza o tamanho da foto e converta para WebP ou JPG instantaneamente. Tudo processado no seu navegador, garantindo total privacidade.</p>
+                <h1 class="text-3xl md:text-5xl font-bold text-brand-dark mb-4 drop-shadow-sm" data-i18n="hero_title">Otimizador de Imagens Online: <br class="hidden md:block"/><span class="text-brand-primary">Rápido, Grátis e Seguro</span></h1>
+                <p class="text-lg text-gray-500 max-w-2xl mx-auto" data-i18n="hero_sub">Reduza o tamanho da foto e converta para WebP ou JPG instantaneamente. Tudo processado no seu navegador, garantindo total privacidade.</p>
             </section>
 
             <!-- Tool -->
             <section class="bg-white rounded-2xl shadow-xl p-6 md:p-8 mb-12 border border-gray-100 relative">
                 
-                <!-- Step 1: Upload -->
-                <div id="upload-section" class="drop-zone rounded-xl p-10 flex flex-col items-center justify-center cursor-pointer bg-gray-50 group hover:bg-gray-100">
+                <!-- Tabs Navigation -->
+                <div class="flex flex-wrap border-b border-gray-200 mb-6 font-medium text-sm text-center text-gray-500">
+                    <button class="tab-btn w-1/4 md:w-auto p-4 border-b-2 rounded-t-lg border-brand-primary text-brand-primary font-bold transition" data-target="panel-compressor" data-seo="seo-compressor" data-i18n="tab_compressor">Compressor</button>
+                    <button class="tab-btn w-1/4 md:w-auto p-4 border-b-2 rounded-t-lg border-transparent hover:text-gray-600 hover:border-gray-300 transition" data-target="panel-converter" data-seo="seo-converter" data-i18n="tab_converter">Converter</button>
+                    <button class="tab-btn w-1/4 md:w-auto p-4 border-b-2 rounded-t-lg border-transparent hover:text-gray-600 hover:border-gray-300 transition" data-target="panel-exif" data-seo="seo-exif" data-i18n="tab_exif">EXIF</button>
+                    <button class="tab-btn w-1/4 md:w-auto p-4 border-b-2 rounded-t-lg border-transparent hover:text-gray-600 hover:border-gray-300 transition" data-target="panel-utilities" data-seo="seo-utilities" data-i18n="tab_utils">Utilitários</button>
+                </div>
+
+                <!-- Compressor Panel -->
+                <div id="panel-compressor" class="tab-panel block">
+                    <!-- Step 1: Upload -->
+                    <div id="upload-section" class="drop-zone rounded-xl p-10 flex flex-col items-center justify-center cursor-pointer bg-gray-50 group hover:bg-gray-100">
                     <input type="file" id="file-input" class="hidden" accept="image/jpeg, image/png, image/webp" multiple="false">
                     <div class="bg-white p-4 rounded-full shadow-sm mb-4 group-hover:scale-110 transition-transform duration-300">
                         <i class="fa-solid fa-cloud-arrow-up text-4xl text-brand-primary"></i>
                     </div>
-                    <h3 class="text-xl font-semibold mb-2">Arraste e largue a sua imagem aqui</h3>
-                    <p class="text-sm text-gray-500 mb-4">ou clique para escolher um ficheiro</p>
-                    <p class="text-xs text-gray-400">Suporta JPG, PNG, WebP (Máx: 20MB)</p>
-                    <button class="mt-6 px-6 py-2.5 bg-brand-dark hover:bg-gray-800 text-white font-medium rounded-lg shadow transition" onclick="document.getElementById('file-input').click()">Selecionar Imagem</button>
+                    <h3 class="text-xl font-semibold mb-2" data-i18n="comp_drop">Arraste e largue a sua imagem aqui</h3>
+                    <p class="text-sm text-gray-500 mb-4" data-i18n="comp_click">ou clique para escolher um ficheiro</p>
+                    <p class="text-xs text-gray-400" data-i18n="comp_support">Suporta JPG, PNG, WebP (Máx: 20MB)</p>
+                    <button class="mt-6 px-6 py-2.5 bg-brand-dark hover:bg-gray-800 text-white font-medium rounded-lg shadow transition" onclick="document.getElementById('file-input').click()" data-i18n="comp_btn_select">Selecionar Imagem</button>
                 </div>
 
                 <!-- Step 2: Processing (Fake Delay for AdSense & User Experience) -->
@@ -121,8 +151,8 @@
                         </div>
                     </div>
                     
-                    <h3 class="text-2xl font-bold mb-2 text-brand-dark">A processar imagem...</h3>
-                    <p id="processing-msg" class="text-sm font-medium text-brand-primary mb-6 text-center h-5 transition-opacity duration-300">A iniciar o motor de compressão...</p>
+                    <h3 class="text-2xl font-bold mb-2 text-brand-dark" data-i18n="comp_processing">A processar imagem...</h3>
+                    <p id="processing-msg" class="text-sm font-medium text-brand-primary mb-6 text-center h-5 transition-opacity duration-300" data-i18n="comp_proc_msg">A iniciar o motor de compressão...</p>
                     
                     <div class="w-full max-w-md bg-gray-100 rounded-full h-3 mb-2 overflow-hidden shadow-inner border border-gray-200">
                         <div id="progress-bar-fill" class="progress-bar bg-gradient-to-r from-brand-primary to-emerald-400 h-3 rounded-full relative overflow-hidden">
@@ -135,8 +165,8 @@
                     <div class="max-w-sm mt-4 bg-blue-50/50 border border-blue-100 p-4 rounded-xl flex gap-3 text-left">
                         <i class="fa-solid fa-lightbulb text-yellow-500 mt-0.5"></i>
                         <div>
-                            <span class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">Sabia que?</span>
-                            <p id="processing-tip" class="text-xs text-gray-600 leading-relaxed font-medium">Imagens otimizadas podem acelerar o seu site em mais de 40%.</p>
+                            <span class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1" data-i18n="comp_did_you_know">Sabia que?</span>
+                            <p id="processing-tip" class="text-xs text-gray-600 leading-relaxed font-medium" data-i18n="comp_tip">Imagens otimizadas podem acelerar o seu site em mais de 40%.</p>
                         </div>
                     </div>
                 </div>
@@ -144,17 +174,17 @@
                 <!-- Step 3: Result -->
                 <div id="result-section" class="hidden flex-col gap-6">
                     <div class="flex justify-between items-center mb-2">
-                        <h3 class="text-lg font-bold text-brand-dark"><i class="fa-solid fa-check-circle text-brand-primary mr-2"></i>Imagem Pronta!</h3>
-                        <button id="btn-new-image" class="text-sm text-gray-500 hover:text-brand-dark transition underline">Carregar nova imagem</button>
+                        <h3 class="text-lg font-bold text-brand-dark"><i class="fa-solid fa-check-circle text-brand-primary mr-2"></i><span data-i18n="comp_ready">Imagem Pronta!</span></h3>
+                        <button id="btn-new-image" class="text-sm text-gray-500 hover:text-brand-dark transition underline" data-i18n="comp_new">Carregar nova imagem</button>
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
                         <!-- Preview Column -->
                         <div class="flex flex-col gap-2">
-                            <span class="text-sm font-semibold text-gray-700">Pré-visualização</span>
+                            <span class="text-sm font-semibold text-gray-700" data-i18n="comp_preview">Pré-visualização</span>
                             <div class="image-compare-container w-full h-64 bg-gray-100 flex items-center justify-center relative">
                                 <img id="preview-image" src="" alt="Preview" class="image-compare">
-                                <div class="absolute top-2 right-2 bg-black/60 text-white text-xs px-2 py-1 rounded backdrop-blur-sm">Otimizada</div>
+                                <div class="absolute top-2 right-2 bg-black/60 text-white text-xs px-2 py-1 rounded backdrop-blur-sm" data-i18n="comp_badge">Otimizada</div>
                             </div>
                             <div class="flex justify-between mt-2 text-sm">
                                 <div class="text-center bg-gray-50 p-2 rounded border border-gray-100 flex-1 mr-2">
@@ -192,7 +222,212 @@
                             </button>
                         </div>
                     </div>
+                    </div>
                 </div>
+
+                <!-- Converter Panel -->
+                <div id="panel-converter" class="tab-panel hidden">
+                    <div id="convert-upload-section" class="drop-zone rounded-xl p-10 flex flex-col items-center justify-center cursor-pointer bg-gray-50 group hover:bg-gray-100">
+                        <input type="file" id="convert-file-input" class="hidden" accept="image/jpeg, image/png, image/webp, image/gif, image/bmp, image/tiff, image/heic, .ico, image/avif, image/x-icon" multiple="false">
+                        <div class="bg-white p-4 rounded-full shadow-sm mb-4 group-hover:scale-110 transition-transform duration-300">
+                            <i class="fa-solid fa-arrows-rotate text-4xl text-brand-primary"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2 text-center">Arraste a imagem para converter</h3>
+                        <p class="text-sm text-gray-500 mb-4 text-center">HEIC, JPG, PNG, WebP, GIF, BMP, TIFF, AVIF, ICO</p>
+                        <button class="mt-4 px-6 py-2.5 bg-brand-dark hover:bg-gray-800 text-white font-medium rounded-lg shadow transition" onclick="document.getElementById('convert-file-input').click()">Selecionar Ficheiro</button>
+                    </div>
+
+                    <!-- Convert Processing -->
+                    <div id="convert-processing-section" class="hidden flex-col items-center justify-center py-12">
+                        <div class="relative mb-8">
+                            <i class="fa-solid fa-arrows-rotate text-4xl text-brand-primary animate-spin"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-2 text-brand-dark">A converter imagem...</h3>
+                        <p id="convert-processing-msg" class="text-sm font-medium text-brand-primary mb-6 text-center h-5">Isto pode demorar alguns segundos em ficheiros grandes.</p>
+                    </div>
+
+                    <!-- Convert Result -->
+                    <div id="convert-result-section" class="hidden flex-col gap-6">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="text-lg font-bold text-brand-dark"><i class="fa-solid fa-check-circle text-brand-primary mr-2"></i>Pronto a Converter!</h3>
+                            <button id="btn-new-convert" class="text-sm text-gray-500 hover:text-brand-dark transition underline">Novo ficheiro</button>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
+                            <div class="flex flex-col gap-2">
+                                <span class="text-sm font-semibold text-gray-700">Pré-visualização</span>
+                                <div class="image-compare-container w-full h-64 bg-gray-100 flex items-center justify-center relative">
+                                    <img id="convert-preview-image" src="" alt="Preview" class="image-compare">
+                                </div>
+                                <div class="text-center text-sm text-gray-500 mt-2">
+                                    <span id="convert-filename" class="font-semibold text-gray-700"></span> (<span id="convert-filesize" class="font-semibold text-gray-700"></span>)
+                                </div>
+                            </div>
+                            <div class="flex flex-col gap-5 bg-gray-50 p-5 rounded-xl border border-gray-100">
+                                <div>
+                                    <label class="block text-sm font-semibold text-gray-700 mb-2">Formato de Saída</label>
+                                    <div class="grid grid-cols-2 gap-2 bg-white rounded-lg border border-gray-200 overflow-hidden shadow-sm p-1">
+                                        <button class="py-2 text-sm font-medium transition convert-format-btn bg-brand-primary text-white rounded" data-format="jpeg">JPG</button>
+                                        <button class="py-2 text-sm font-medium transition convert-format-btn text-gray-600 hover:bg-gray-50 rounded" data-format="png">PNG</button>
+                                        <button class="py-2 text-sm font-medium transition convert-format-btn text-gray-600 hover:bg-gray-50 rounded" data-format="webp">WebP</button>
+                                        <button class="py-2 text-sm font-medium transition convert-format-btn text-gray-600 hover:bg-gray-50 rounded" data-format="avif">AVIF</button>
+                                    </div>
+                                    <div id="convert-quality-container" class="mt-4">
+                                        <label class="flex justify-between text-sm font-semibold text-gray-700 mb-2">
+                                            <span>Qualidade</span>
+                                            <span id="convert-quality-val" class="text-brand-primary font-bold">90%</span>
+                                        </label>
+                                        <input type="range" id="convert-quality-slider" min="10" max="100" value="90" class="w-full">
+                                    </div>
+                                </div>
+                                <hr class="border-gray-200 mt-1">
+                                <button id="btn-convert-download" class="w-full py-3.5 bg-brand-primary hover:bg-brand-primaryHover text-white font-bold rounded-lg shadow-lg shadow-green-500/30 transition transform hover:-translate-y-0.5 mt-1 flex items-center justify-center gap-2 text-lg">
+                                    <i class="fa-solid fa-download"></i> Converter
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- EXIF Panel -->
+                <div id="panel-exif" class="tab-panel hidden">
+                    <div id="exif-upload-section" class="drop-zone rounded-xl p-10 flex flex-col items-center justify-center cursor-pointer bg-gray-50 group hover:bg-gray-100">
+                        <input type="file" id="exif-file-input" class="hidden" accept="image/jpeg, image/png, image/webp, image/heic, video/mp4, video/quicktime, application/pdf" multiple="false">
+                        <div class="bg-white p-4 rounded-full shadow-sm mb-4 group-hover:scale-110 transition-transform duration-300">
+                            <i class="fa-solid fa-shield-halved text-4xl text-brand-primary"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2 text-center">Inspecionar ou Limpar Dados EXIF</h3>
+                        <p class="text-sm text-gray-500 mb-4 text-center">JPG, PNG, WEBP, HEIC, MP4, MOV, PDF</p>
+                        <button class="mt-4 px-6 py-2.5 bg-brand-dark hover:bg-gray-800 text-white font-medium rounded-lg shadow transition" onclick="document.getElementById('exif-file-input').click()">Selecionar Ficheiro</button>
+                    </div>
+
+                    <div id="exif-result-section" class="hidden flex-col gap-6">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="text-lg font-bold text-brand-dark"><i class="fa-solid fa-file-shield text-brand-primary mr-2"></i>Análise Concluída</h3>
+                            <button id="btn-new-exif" class="text-sm text-gray-500 hover:text-brand-dark transition underline">Novo Ficheiro</button>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
+                            <div class="flex flex-col gap-4">
+                                <div class="image-compare-container w-full h-64 bg-gray-100 flex items-center justify-center relative overflow-hidden rounded-xl">
+                                    <img id="exif-preview-image" src="" alt="Preview" class="image-compare hidden">
+                                    <div id="exif-preview-fileicon" class="hidden flex-col items-center justify-center text-gray-400">
+                                        <i class="fa-solid fa-file-video text-6xl mb-2"></i>
+                                        <span class="text-sm font-medium truncate w-48 text-center" id="exif-preview-filename"></span>
+                                    </div>
+                                </div>
+                                <div id="exif-status-box" class="bg-blue-50 border border-blue-100 p-4 rounded-xl flex gap-3 text-left">
+                                    <i class="fa-solid fa-circle-info text-blue-500 mt-0.5"></i>
+                                    <p class="text-sm text-brand-dark font-semibold" id="exif-status-msg">Encontrados 5 metadados.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex flex-col gap-4">
+                                <div class="bg-gray-50 border border-gray-200 rounded-xl overflow-y-auto" style="max-height: 250px;">
+                                    <table class="w-full text-sm text-left text-gray-600">
+                                        <thead class="text-xs text-brand-dark uppercase bg-gray-100 sticky top-0">
+                                            <tr>
+                                                <th scope="col" class="px-4 py-3 border-b border-gray-200" data-i18n="exif_prop">Propriedade</th>
+                                                <th scope="col" class="px-4 py-3 border-b border-gray-200" data-i18n="exif_val">Valor</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="exif-data-body">
+                                            <!-- Data rows will be injected here -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <button id="btn-exif-clean" class="w-full py-3.5 bg-red-500 hover:bg-red-600 text-white font-bold rounded-lg shadow-lg shadow-red-500/30 transition transform hover:-translate-y-0.5 flex items-center justify-center gap-2 text-lg">
+                                    <i class="fa-solid fa-eraser"></i> <span data-i18n="exif_clean">Limpar Dados Originais</span>
+                                </button>
+                                <p class="text-xs text-center text-gray-500" id="exif-clean-note" data-i18n="exif_clean_note">As imagens serão re-exportadas para remover o EXIF. Vídeos e PDFs podem suportar limpeza via canvas quando possível ou apenas inspeção visual.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Utilities Panel -->
+                <div id="panel-utilities" class="tab-panel hidden">
+                    <!-- Utilities Sub-Navigation -->
+                    <div class="flex gap-2 justify-center mb-6">
+                        <button id="btn-util-resizer" class="util-sub-btn px-4 py-2 bg-brand-primary text-white text-sm font-bold rounded-full shadow transition" data-i18n="util_tab_resizer">Redimensionar / Recortar</button>
+                        <button id="btn-util-color" class="util-sub-btn px-4 py-2 bg-gray-100 text-gray-600 hover:bg-gray-200 text-sm font-bold rounded-full transition" data-i18n="util_tab_color">Extrator de Cores</button>
+                    </div>
+
+                    <!-- Resizer & Cropper Tool -->
+                    <div id="util-resizer-tool" class="flex flex-col gap-6">
+                        <div id="resizer-upload-section" class="drop-zone rounded-xl p-10 flex flex-col items-center justify-center cursor-pointer bg-gray-50 group hover:bg-gray-100">
+                            <input type="file" id="resizer-file-input" class="hidden" accept="image/*" multiple="false">
+                            <div class="bg-white p-4 rounded-full shadow-sm mb-4 group-hover:scale-110 transition-transform duration-300">
+                                <i class="fa-solid fa-crop-simple text-4xl text-brand-primary"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold mb-2 text-center" data-i18n="resizer_drop">Arraste a imagem para editar</h3>
+                            <button class="mt-4 px-6 py-2.5 bg-brand-dark hover:bg-gray-800 text-white font-medium rounded-lg shadow transition" onclick="document.getElementById('resizer-file-input').click()" data-i18n="resizer_btn_select">Selecionar Imagem</button>
+                        </div>
+
+                        <div id="resizer-editor-section" class="hidden grid-cols-1 md:grid-cols-[1fr_250px] gap-6">
+                            <!-- Image Canvas Area -->
+                            <div class="bg-gray-100 rounded-xl overflow-hidden flex items-center justify-center relative min-h-[300px] h-[400px]">
+                                <img id="resizer-image" src="" alt="Resizer Image" class="max-w-full max-h-full">
+                            </div>
+
+                            <!-- Controls Area -->
+                            <div class="flex flex-col gap-4 bg-gray-50 p-4 rounded-xl border border-gray-100 h-fit">
+                                <div class="flex flex-col gap-2">
+                                    <label class="text-sm font-semibold text-gray-700" data-i18n="resizer_presets">Formatos Pré-Definidos:</label>
+                                    <div class="grid grid-cols-2 gap-2">
+                                        <button class="crop-ratio-btn bg-brand-primary text-white text-xs py-2 rounded font-semibold" data-ratio="NaN" data-i18n="resizer_free">Livre</button>
+                                        <button class="crop-ratio-btn bg-white border border-gray-200 text-gray-600 hover:bg-gray-50 text-xs py-2 rounded font-semibold" data-ratio="1" data-i18n="resizer_square">1:1 (Quadrado)</button>
+                                        <button class="crop-ratio-btn bg-white border border-gray-200 text-gray-600 hover:bg-gray-50 text-xs py-2 rounded font-semibold" data-ratio="1.7777" data-i18n="resizer_16_9">16:9 (Ecrã)</button>
+                                        <button class="crop-ratio-btn bg-white border border-gray-200 text-gray-600 hover:bg-gray-50 text-xs py-2 rounded font-semibold" data-ratio="0.8" data-i18n="resizer_4_5">4:5 (Retrato)</button>
+                                    </div>
+                                </div>
+                                <hr class="border-gray-200">
+                                
+                                <div class="flex gap-2">
+                                    <div class="flex-1">
+                                        <label class="text-xs text-gray-500 font-semibold mb-1 block" data-i18n="resizer_width">Largura (px)</label>
+                                        <input type="number" id="resizer-w" class="w-full border border-gray-300 rounded px-2 py-1 text-sm focal-input">
+                                    </div>
+                                    <div class="flex-1">
+                                        <label class="text-xs text-gray-500 font-semibold mb-1 block" data-i18n="resizer_height">Altura (px)</label>
+                                        <input type="number" id="resizer-h" class="w-full border border-gray-300 rounded px-2 py-1 text-sm focal-input">
+                                    </div>
+                                </div>
+                                
+                                <button id="btn-crop-download" class="w-full py-3 bg-brand-primary hover:bg-brand-primaryHover text-white font-bold rounded-lg shadow-lg shadow-green-500/30 transition transform hover:-translate-y-0.5 mt-2 flex items-center justify-center gap-2 text-sm">
+                                    <i class="fa-solid fa-download"></i> <span data-i18n="resizer_download">Cortar e Descarregar</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Color Extractor Tool -->
+                    <div id="util-color-tool" class="hidden flex-col gap-6">
+                        <div id="color-upload-section" class="drop-zone rounded-xl p-10 flex flex-col items-center justify-center cursor-pointer bg-gray-50 group hover:bg-gray-100">
+                            <input type="file" id="color-file-input" class="hidden" accept="image/*" multiple="false">
+                            <div class="bg-white p-4 rounded-full shadow-sm mb-4 group-hover:scale-110 transition-transform duration-300">
+                                <i class="fa-solid fa-palette text-4xl text-brand-primary"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold mb-2 text-center" data-i18n="color_drop">Arraste a foto para extrair cores</h3>
+                            <button class="mt-4 px-6 py-2.5 bg-brand-dark hover:bg-gray-800 text-white font-medium rounded-lg shadow transition" onclick="document.getElementById('color-file-input').click()" data-i18n="color_btn_select">Selecionar Foto</button>
+                        </div>
+                        
+                        <div id="color-result-section" class="hidden flex-col gap-6">
+                            <div class="flex flex-col items-center w-full">
+                                <div class="w-64 h-64 bg-gray-100 rounded-xl overflow-hidden mb-6 flex items-center justify-center shadow-inner">
+                                    <img id="color-preview-image" src="" alt="Preview" class="max-w-full max-h-full object-contain">
+                                </div>
+                                <h4 class="text-lg font-bold text-gray-800 mb-4" data-i18n="color_results">Palete Extraída:</h4>
+                                <p class="text-xs text-gray-500 mb-4" data-i18n="color_click_copy">Clique para copiar o código HEX</p>
+                                
+                                <div id="color-palette-container" class="flex flex-wrap gap-4 justify-center">
+                                    <!-- Colors will be generated here -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
             </section>
 
             <!-- AdSense: In-Content -->
@@ -201,58 +436,120 @@
             </div>
 
             <!-- SEO Content -->
-            <article class="bg-white rounded-2xl shadow-sm p-8 border border-gray-100 mb-12">
-                <h2 id="como-funciona" class="text-2xl font-bold text-brand-dark mb-4 border-b border-gray-100 pb-3">Porquê otimizar as suas imagens com o ImageOptimizerPro?</h2>
-                <p class="text-gray-600 mb-6 leading-relaxed">A velocidade de um website é um dos fatores mais importantes para o sucesso online, quer tenhas um blog pessoal ou uma loja e-commerce. Imagens pesadas são o principal motivo para a lentidão de uma página. Com o ImageOptimizerPro, ajudamos-te a encontrar o equilíbrio perfeito entre qualidade visual e desempenho técnico.</p>
+            <div id="seo-container">
+                <!-- Compressor SEO -->
+                <article id="seo-compressor" class="seo-article bg-white rounded-2xl shadow-sm p-8 border border-gray-100 mb-12 block">
+                    <h2 id="como-funciona" class="text-2xl font-bold text-brand-dark mb-4 border-b border-gray-100 pb-3" data-i18n="seo_comp_h2_1">Porquê otimizar as suas imagens com o ImageOptimizerPro?</h2>
+                    <p class="text-gray-600 mb-6 leading-relaxed" data-i18n="seo_comp_p1">A velocidade de um website é um dos fatores mais importantes para o sucesso online, quer tenhas um blog pessoal ou uma loja e-commerce. Imagens pesadas são o principal motivo para a lentidão de uma página. Com o ImageOptimizerPro, ajudamos-te a encontrar o equilíbrio perfeito entre qualidade visual e desempenho técnico.</p>
 
-                <h2 class="text-xl font-bold text-brand-dark mt-8 mb-3">O impacto da otimização no SEO e na experiência do utilizador</h2>
-                <p class="text-gray-600 mb-6 leading-relaxed">Quando comprimes uma imagem sem perder qualidade perceptível, estás a garantir que o teu site carrega mais rápido em dispositivos móveis. O Google utiliza a velocidade de carregamento (Core Web Vitals) como um critério de ranking. Ou seja, um site mais leve tem mais hipóteses de aparecer nos primeiros resultados de pesquisa.</p>
+                    <h2 class="text-xl font-bold text-brand-dark mt-8 mb-3" data-i18n="seo_comp_h2_2">O impacto da otimização no SEO e na experiência do utilizador</h2>
+                    <p class="text-gray-600 mb-6 leading-relaxed" data-i18n="seo_comp_p2">Quando comprimes uma imagem sem perder qualidade perceptível, estás a garantir que o teu site carrega mais rápido em dispositivos móveis. O Google utiliza a velocidade de carregamento (Core Web Vitals) como um critério de ranking. Ou seja, um site mais leve tem mais hipóteses de aparecer nos primeiros resultados de pesquisa.</p>
 
-                <h2 class="text-xl font-bold text-brand-dark mt-8 mb-4">Vantagens de usar o ImageOptimizerPro:</h2>
-                <ul class="space-y-4 text-gray-600 mb-8">
-                    <li class="flex items-start gap-3">
-                        <i class="fa-solid fa-bolt text-yellow-500 mt-1"></i>
-                        <div><strong class="text-gray-800">Velocidade Incrível:</strong> Reduz o tamanho dos ficheiros em até 80%, mantendo a nitidez.</div>
-                    </li>
-                    <li class="flex items-start gap-3">
-                        <i class="fa-solid fa-magnifying-glass-chart text-blue-500 mt-1"></i>
-                        <div><strong class="text-gray-800">Melhor SEO:</strong> Sites rápidos são favorecidos pelos algoritmos de busca.</div>
-                    </li>
-                    <li class="flex items-start gap-3">
-                        <i class="fa-solid fa-mobile-screen text-brand-primary mt-1"></i>
-                        <div><strong class="text-gray-800">Poupança de Dados:</strong> Ideal para utilizadores que navegam através de redes móveis (4G/5G).</div>
-                    </li>
-                    <li class="flex items-start gap-3">
-                        <i class="fa-solid fa-shield-halved text-green-600 mt-1"></i>
-                        <div><strong class="text-gray-800">Privacidade Total:</strong> Todo o processamento é feito de forma segura e os seus ficheiros não são armazenados no nosso servidor.</div>
-                    </li>
-                </ul>
+                    <h2 class="text-xl font-bold text-brand-dark mt-8 mb-4" data-i18n="seo_comp_h2_3">Vantagens de usar o ImageOptimizerPro:</h2>
+                    <ul class="space-y-4 text-gray-600 mb-8">
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-bolt text-yellow-500 mt-1"></i>
+                            <div data-i18n="seo_comp_li_1"><strong class="text-gray-800">Velocidade Incrível:</strong> Reduz o tamanho dos ficheiros em até 80%, mantendo a nitidez.</div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-magnifying-glass-chart text-blue-500 mt-1"></i>
+                            <div data-i18n="seo_comp_li_2"><strong class="text-gray-800">Melhor SEO:</strong> Sites rápidos são favorecidos pelos algoritmos de busca.</div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-mobile-screen text-brand-primary mt-1"></i>
+                            <div data-i18n="seo_comp_li_3"><strong class="text-gray-800">Poupança de Dados:</strong> Ideal para utilizadores que navegam através de redes móveis (4G/5G).</div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-shield-halved text-green-600 mt-1"></i>
+                            <div data-i18n="seo_comp_li_4"><strong class="text-gray-800">Privacidade Total:</strong> Todo o processamento é feito de forma segura e os seus ficheiros não são armazenados no nosso servidor.</div>
+                        </li>
+                    </ul>
 
-                <h2 class="text-xl font-bold text-brand-dark mt-8 mb-3">Diferença entre formatos: JPEG vs PNG vs WebP</h2>
-                <p class="text-gray-600 mb-6 leading-relaxed">Nem todas as imagens são iguais. Para fotografias com muitas cores, o formato JPEG é ideal pela sua capacidade de compressão. Se precisas de transparência, o PNG é a escolha certa. No entanto, se queres o melhor dos dois mundos para a web, o formato WebP é a recomendação atual do Google, oferecendo uma redução de peso superior a qualquer outro formato tradicional.</p>
+                    <h2 class="text-xl font-bold text-brand-dark mt-8 mb-3" data-i18n="seo_comp_h2_4">Diferença entre formatos: JPEG vs PNG vs WebP</h2>
+                    <p class="text-gray-600 mb-6 leading-relaxed" data-i18n="seo_comp_p3">Nem todas as imagens são iguais. Para fotografias com muitas cores, o formato JPEG é ideal pela sua capacidade de compressão. Se precisas de transparência, o PNG é a escolha certa. No entanto, se queres o melhor dos dois mundos para a web, o formato WebP é a recomendação atual do Google, oferecendo uma redução de peso superior a qualquer outro formato tradicional.</p>
 
-                <h2 class="text-xl font-bold text-brand-dark mt-8 mb-4">Como otimizar as suas fotos corretamente?</h2>
-                <ul class="space-y-4 text-gray-600 mb-8">
-                    <li class="flex items-start gap-3">
-                        <i class="fa-solid fa-compress text-brand-primary mt-1"></i>
-                        <div><strong class="text-gray-800">Redimensionar primeiro:</strong> Não carregues uma foto de 4000px se ela só vai aparecer com 800px no ecrã.</div>
-                    </li>
-                    <li class="flex items-start gap-3">
-                        <i class="fa-solid fa-file-image text-brand-primary mt-1"></i>
-                        <div><strong class="text-gray-800">Escolher o formato certo:</strong> Usa JPEG para fotos e PNG para logótipos ou gráficos.</div>
-                    </li>
-                    <li class="flex items-start gap-3">
-                        <i class="fa-solid fa-check-double text-brand-primary mt-1"></i>
-                        <div><strong class="text-gray-800">Comprimir com o ImageOptimizerPro:</strong> Passa as tuas imagens pela nossa ferramenta antes de as publicares no teu site ou redes sociais.</div>
-                    </li>
-                </ul>
+                    <h2 class="text-xl font-bold text-brand-dark mt-8 mb-4" data-i18n="seo_comp_h2_5">Como otimizar as suas fotos corretamente?</h2>
+                    <ul class="space-y-4 text-gray-600 mb-8">
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-compress text-brand-primary mt-1"></i>
+                            <div data-i18n="seo_comp_li_5"><strong class="text-gray-800">Redimensionar primeiro:</strong> Não carregues uma foto de 4000px se ela só vai aparecer com 800px no ecrã.</div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-file-image text-brand-primary mt-1"></i>
+                            <div data-i18n="seo_comp_li_6"><strong class="text-gray-800">Escolher o formato certo:</strong> Usa JPEG para fotos e PNG para logótipos ou gráficos.</div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-check-double text-brand-primary mt-1"></i>
+                            <div data-i18n="seo_comp_li_7"><strong class="text-gray-800">Comprimir com o ImageOptimizerPro:</strong> Passa as tuas imagens pela nossa ferramenta antes de as publicares no teu site ou redes sociais.</div>
+                        </li>
+                    </ul>
 
-                <h2 id="faq" class="text-xl font-bold text-brand-dark mt-10 mb-4 border-t border-gray-100 pt-6">Perguntas Frequentes (FAQ) & Privacidade</h2>
-                <div class="bg-gray-50 p-5 rounded-xl border border-gray-100">
-                    <h4 class="font-bold text-gray-800 flex gap-2"><i class="fa-solid fa-circle-question text-brand-primary mt-0.5"></i> É grátis e as minhas fotos estão seguras?</h4>
-                    <p class="text-gray-600 text-sm mt-2 mb-4">Sim, 100% grátis e seguro. A compressão ocorre inteiramente no seu navegador. Sendo uma <em>Progressive Web App (PWA)</em>, funciona com o poder do seu próprio dispositivo e NUNCA enviamos ficheiros para os nossos servidores.</p>
-                </div>
-            </article>
+                    <h2 id="faq" class="text-xl font-bold text-brand-dark mt-10 mb-4 border-t border-gray-100 pt-6" data-i18n="faq_title">Perguntas Frequentes (FAQ) & Privacidade</h2>
+                    <div class="bg-gray-50 p-5 rounded-xl border border-gray-100">
+                        <h4 class="font-bold text-gray-800 flex gap-2"><i class="fa-solid fa-circle-question text-brand-primary mt-0.5"></i> <span data-i18n="faq_q1">É grátis e as minhas fotos estão seguras?</span></h4>
+                        <p class="text-gray-600 text-sm mt-2 mb-4" data-i18n="faq_a1">Sim, 100% grátis e seguro. A compressão ocorre inteiramente no seu navegador. Sendo uma <em>Progressive Web App (PWA)</em>, funciona com o poder do seu próprio dispositivo e NUNCA enviamos ficheiros para os nossos servidores.</p>
+                    </div>
+                </article>
+
+                <!-- Converter SEO -->
+                <article id="seo-converter" class="seo-article bg-white rounded-2xl shadow-sm p-8 border border-gray-100 mb-12 hidden">
+                    <h2 class="text-2xl font-bold text-brand-dark mb-4 border-b border-gray-100 pb-3" data-i18n="seo_conv_h2_1">Conversor de Imagens Online Gratuito</h2>
+                    <p class="text-gray-600 mb-6 leading-relaxed" data-i18n="seo_conv_p1">A compatibilidade de formatos é essencial para a web moderna. O nosso conversor permite transformar imagens HEIC, GIF, TIFF ou BMP nos formatos mais eficientes da atualidade, como WebP e AVIF, garantindo a máxima compatibilidade e rapidez.</p>
+                    
+                    <h2 class="text-xl font-bold text-brand-dark mt-8 mb-4" data-i18n="seo_conv_h2_2">Vantagens da nossa ferramenta de conversão:</h2>
+                    <ul class="space-y-4 text-gray-600 mb-8">
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-arrows-rotate text-brand-primary mt-1"></i>
+                            <div data-i18n="seo_conv_li_1"><strong class="text-gray-800">Versatilidade:</strong> Suporta conversões de e para os formatos mais populares (HEIC, JPG, PNG, WebP, GIF, BMP, TIFF, AVIF, ICO).</div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-shield-halved text-green-600 mt-1"></i>
+                            <div data-i18n="seo_conv_li_2"><strong class="text-gray-800">100% no Navegador:</strong> Não há uploads para servidores. A conversão é feita localmente no seu dispositivo, garantindo total privacidade e segurança.</div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-bolt text-yellow-500 mt-1"></i>
+                            <div data-i18n="seo_conv_li_3"><strong class="text-gray-800">Otimizado para a Web:</strong> Converta para WebP ou AVIF e melhore a velocidade de carregamento do seu site ou blog.</div>
+                        </li>
+                    </ul>
+
+                    <h2 class="text-xl font-bold text-brand-dark mt-8 mb-3" data-i18n="seo_conv_h2_3">Como converter as suas imagens?</h2>
+                    <p class="text-gray-600 mb-6 leading-relaxed" data-i18n="seo_conv_p2">Basta arrastar e soltar os ficheiros, escolher o formato de saída desejado (JPG, PNG, WebP ou AVIF) e clicar em converter. Rápido, seguro e sem complicações.</p>
+                </article>
+
+                <!-- EXIF SEO -->
+                <article id="seo-exif" class="seo-article bg-white rounded-2xl shadow-sm p-8 border border-gray-100 mb-12 hidden">
+                    <h2 class="text-2xl font-bold text-brand-dark mb-4 border-b border-gray-100 pb-3" data-i18n="seo_exif_h2_1">Leitor e Removedor de Dados EXIF</h2>
+                    <p class="text-gray-600 mb-6 leading-relaxed" data-i18n="seo_exif_p1">Proteja a sua privacidade com a nossa ferramenta EXIF. Cada foto ou vídeo que capta com o smartphone guarda metadados ocultos, como a localização GPS exata, a data, a hora e o modelo do dispositivo. Partilhar estas imagens online pode expor a sua privacidade.</p>
+                    
+                    <h2 class="text-xl font-bold text-brand-dark mt-8 mb-4" data-i18n="seo_exif_h2_2">O que pode fazer com o nosso visualizador EXIF?</h2>
+                    <ul class="space-y-4 text-gray-600 mb-8">
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-magnifying-glass text-blue-500 mt-1"></i>
+                            <div data-i18n="seo_exif_li_1"><strong class="text-gray-800">Inspecionar e Pesquisar:</strong> Descubra instantaneamente que informações estão escondidas nos seus ficheiros multimédia (suporta JPEG, PNG, WEBP, HEIC, MP4, MOV e PDF).</div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-eraser text-red-500 mt-1"></i>
+                            <div data-i18n="seo_exif_li_2"><strong class="text-gray-800">Limpeza de Metadados:</strong> Remova todos os dados sensíveis e informações de rastreio com um único clique antes de partilhar imagens nas redes sociais ou com clientes.</div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-shield-halved text-green-600 mt-1"></i>
+                            <div data-i18n="seo_exif_li_3"><strong class="text-gray-800">Segurança Máxima:</strong> Tal como as nossas outras ferramentas, os seus ficheiros nunca saem do seu dispositivo. Todo o processamento de limpeza é feito no seu próprio navegador.</div>
+                        </li>
+                    </ul>
+                </article>
+
+                <!-- Resizer SEO -->
+                <article id="seo-resizer" class="seo-article bg-white rounded-2xl shadow-sm p-8 border border-gray-100 mb-12 hidden">
+                    <h2 class="text-2xl font-bold text-brand-dark mb-4 border-b border-gray-100 pb-3" data-i18n="seo_resizer_h2_1">Redimensionador e Recortador de Imagens Online Gratuito</h2>
+                    <p class="text-gray-600 mb-6 leading-relaxed" data-i18n="seo_resizer_p1">Ajuste as suas fotos para as dimensões exatas exigidas por lojas online (e-commerce) ou redes sociais. Otimizado para SEO, sem perda de qualidade e 100% seguro no navegador.</p>
+                </article>
+
+                <!-- Color SEO -->
+                <article id="seo-color" class="seo-article bg-white rounded-2xl shadow-sm p-8 border border-gray-100 mb-12 hidden">
+                    <h2 class="text-2xl font-bold text-brand-dark mb-4 border-b border-gray-100 pb-3" data-i18n="seo_color_h2_1">Extrair Palete de Cores de Imagens em Segundos</h2>
+                    <p class="text-gray-600 mb-6 leading-relaxed" data-i18n="seo_color_p1">Ferramenta essencial para designers e criadores de conteúdo. Descubra as cores dominantes de qualquer fotografia e obtenha os códigos HEX e RGB imediatos para usar nos seus projetos artísticos ou interfaces web.</p>
+                </article>
+            </div>
         </div>
 
         <!-- Sidebar for Ads -->
@@ -275,10 +572,13 @@
             <div class="flex items-center gap-2 text-white">
                 <i class="fa-solid fa-leaf text-brand-primary"></i> <span class="font-bold border-r border-gray-600 pr-2 pb-1">ImageOptiPro</span> <span>&copy; 2026</span>
             </div>
-            <div class="flex gap-4 items-center">
-                <a href="index.html" class="hover:text-white transition">Início</a>
-                <a href="privacidade.html" class="text-brand-primary font-semibold hover:text-white transition underline underline-offset-4 decoration-brand-primary/50">Política de Privacidade</a>
-                <button onclick="localStorage.removeItem('cookiePreferences'); localStorage.removeItem('cookieConsent'); window.location.reload();" class="hover:text-gray-100 text-gray-400 decoration-dotted underline transition">
+            <div class="flex gap-4 items-center flex-wrap justify-center">
+                <a href="index.html" class="hover:text-white transition font-bold text-white" data-i18n="foot_tools">Ferramentas</a>
+                <a href="blog.html" class="hover:text-white transition" data-i18n="foot_blog">Blog</a>
+                <a href="sobre.html" class="hover:text-white transition" data-i18n="foot_about">Sobre Nós</a>
+                <a href="contactos.html" class="hover:text-white transition" data-i18n="foot_contact">Contactos</a>
+                <a href="privacidade.html" class="text-brand-primary font-semibold hover:text-white transition underline underline-offset-4 decoration-brand-primary/50" data-i18n="nav_privacy">Política de Privacidade</a>
+                <button onclick="localStorage.removeItem('cookiePreferences'); localStorage.removeItem('cookieConsent'); window.location.reload();" class="hover:text-gray-100 text-gray-400 decoration-dotted underline transition" data-i18n="foot_cookies">
                     Gerir Detalhes de Cookies
                 </button>
             </div>
@@ -291,23 +591,23 @@
             <div>
                 <h3 class="flex items-center gap-2 text-lg font-semibold text-gray-900 mb-2">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-brand-primary"><path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5"/><path d="M8.5 8.5v.01"/><path d="M16 15.5v.01"/><path d="M12 12v.01"/><path d="M11 17v.01"/><path d="M7 14v.01"/></svg>
-                    Valorizamos a sua privacidade
+                    <span data-i18n="cookie_title">Valorizamos a sua privacidade</span>
                 </h3>
-                <p class="text-xs text-gray-600 leading-relaxed text-justify">
+                <p class="text-xs text-gray-600 leading-relaxed text-justify" data-i18n="cookie_desc">
                     Utilizamos cookies e tecnologias semelhantes para personalizar conteúdo e anúncios, fornecer funcionalidades de redes sociais e analisar o nosso tráfego. Partilhamos também informações sobre a sua utilização do site com os nossos parceiros de publicidade (Google AdSense) e de análise, que as podem combinar com outras informações que lhes forneceu ou que recolheram a partir da sua utilização dos serviços deles.
                 </p>
             </div>
             
             <div class="flex flex-col gap-2">
                 <div class="flex items-center gap-3">
-                    <button id="accept-all-cookies" class="flex-1 bg-brand-primary hover:bg-brand-primaryHover text-white text-sm font-medium py-2.5 px-4 rounded-xl transition-colors w-full focus:outline-none focus:ring-2 focus:ring-brand-primary focus:ring-offset-2 cursor-pointer shadow-sm">
+                    <button id="accept-all-cookies" class="flex-1 bg-brand-primary hover:bg-brand-primaryHover text-white text-sm font-medium py-2.5 px-4 rounded-xl transition-colors w-full focus:outline-none focus:ring-2 focus:ring-brand-primary focus:ring-offset-2 cursor-pointer shadow-sm" data-i18n="cookie_accept_all">
                         Aceitar Tudo
                     </button>
-                    <button id="reject-cookies" class="flex-1 bg-white hover:bg-gray-50 text-gray-700 text-sm font-medium py-2.5 px-4 rounded-xl border border-gray-300 transition-colors w-full focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 cursor-pointer">
+                    <button id="reject-cookies" class="flex-1 bg-white hover:bg-gray-50 text-gray-700 text-sm font-medium py-2.5 px-4 rounded-xl border border-gray-300 transition-colors w-full focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 cursor-pointer" data-i18n="cookie_reject">
                         Rejeitar
                     </button>
                 </div>
-                <button id="open-preferences" class="text-xs text-gray-500 hover:text-gray-700 underline text-center w-full mt-1 cursor-pointer transition-colors focus:outline-none">
+                <button id="open-preferences" class="text-xs text-gray-500 hover:text-gray-700 underline text-center w-full mt-1 cursor-pointer transition-colors focus:outline-none" data-i18n="cookie_customize">
                     Personalizar
                 </button>
             </div>
@@ -319,7 +619,7 @@
         <div class="bg-white rounded-2xl shadow-xl w-full max-w-lg max-h-[90vh] flex flex-col overflow-hidden transform scale-95 transition-transform duration-300">
             <!-- Header do Modal -->
             <div class="flex items-center justify-between p-5 border-b border-gray-100">
-                <h2 class="text-xl font-bold text-gray-900">Preferências de Privacidade</h2>
+                <h2 class="text-xl font-bold text-gray-900" data-i18n="cookie_modal_title">Preferências de Privacidade</h2>
                 <button id="close-modal-top" class="text-gray-400 hover:text-gray-600 transition-colors focus:outline-none">
                     <i class="fa-solid fa-xmark text-xl"></i>
                 </button>
@@ -330,10 +630,10 @@
                 <!-- Categoria 1: Necessários -->
                 <div class="bg-gray-50 p-4 rounded-xl border border-gray-100">
                     <div class="flex items-center justify-between mb-2">
-                        <h4 class="font-semibold text-gray-900 text-sm">Cookies Estritamente Necessários</h4>
-                        <span class="text-xs font-medium text-brand-primary bg-green-100 px-2 py-1 rounded-full">Sempre Ativos</span>
+                        <h4 class="font-semibold text-gray-900 text-sm" data-i18n="cookie_necessary_title">Cookies Estritamente Necessários</h4>
+                        <span class="text-xs font-medium text-brand-primary bg-green-100 px-2 py-1 rounded-full" data-i18n="cookie_always_active">Sempre Ativos</span>
                     </div>
-                    <p class="text-xs text-gray-600 leading-relaxed">
+                    <p class="text-xs text-gray-600 leading-relaxed" data-i18n="cookie_necessary_desc">
                         Essenciais para o funcionamento básico do site (como guardar esta própria preferência de cookies) e segurança. Não podem ser desativados.
                     </p>
                 </div>
@@ -341,14 +641,14 @@
                 <!-- Categoria 2: Estatísticas -->
                 <div>
                     <div class="flex items-center justify-between mb-2">
-                        <label for="toggle-stats" class="font-semibold text-gray-900 text-sm cursor-pointer">Cookies de Estatísticas</label>
+                        <label for="toggle-stats" class="font-semibold text-gray-900 text-sm cursor-pointer" data-i18n="cookie_stats_title">Cookies de Estatísticas</label>
                         <!-- Toggle Animado (Tailwind) -->
                         <div class="relative inline-block w-11 h-6 align-middle select-none transition duration-200 ease-in">
                             <input type="checkbox" name="toggle" id="toggle-stats" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white border-4 border-gray-300 appearance-none cursor-pointer top-0.5 left-0.5 transition-transform duration-200 checked:translate-x-5 checked:border-brand-primary"/>
                             <label for="toggle-stats" class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer transition-colors duration-200 peer-checked:bg-brand-primary"></label>
                         </div>
                     </div>
-                    <p class="text-xs text-gray-600 leading-relaxed">
+                    <p class="text-xs text-gray-600 leading-relaxed" data-i18n="cookie_stats_desc">
                         Permitem-nos entender como interage com o site, de forma anónima, reportando informações como páginas visitadas e erros, para podermos melhorar o nosso serviço.
                     </p>
                 </div>
@@ -356,14 +656,14 @@
                 <!-- Categoria 3: Marketing / AdSense -->
                 <div>
                     <div class="flex items-center justify-between mb-2">
-                        <label for="toggle-marketing" class="font-semibold text-gray-900 text-sm cursor-pointer">Cookies de Marketing / Publicidade</label>
+                        <label for="toggle-marketing" class="font-semibold text-gray-900 text-sm cursor-pointer" data-i18n="cookie_marketing_title">Cookies de Marketing / Publicidade</label>
                         <!-- Toggle Animado (Tailwind) -->
                         <div class="relative inline-block w-11 h-6 align-middle select-none transition duration-200 ease-in">
                             <input type="checkbox" name="toggle" id="toggle-marketing" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white border-4 border-gray-300 appearance-none cursor-pointer top-0.5 left-0.5 transition-transform duration-200 checked:translate-x-5 checked:border-brand-primary"/>
                             <label for="toggle-marketing" class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer transition-colors duration-200 peer-checked:bg-brand-primary"></label>
                         </div>
                     </div>
-                    <p class="text-xs text-gray-600 leading-relaxed">
+                    <p class="text-xs text-gray-600 leading-relaxed" data-i18n="cookie_marketing_desc">
                         Utilizados por terceiros (como o Google AdSense) para apresentar anúncios relevantes baseados nos seus comportamentos de navegação e interesses.
                     </p>
                 </div>
@@ -371,10 +671,10 @@
 
             <!-- Footer do Modal -->
             <div class="p-5 border-t border-gray-100 bg-gray-50 flex flex-col sm:flex-row gap-3">
-                <button id="save-preferences" class="flex-1 bg-white hover:bg-gray-100 text-gray-700 text-sm font-medium py-2.5 px-4 rounded-xl border border-gray-300 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2">
+                <button id="save-preferences" class="flex-1 bg-white hover:bg-gray-100 text-gray-700 text-sm font-medium py-2.5 px-4 rounded-xl border border-gray-300 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2" data-i18n="cookie_save">
                     Guardar Preferências
                 </button>
-                <button id="accept-all-modal" class="flex-1 bg-brand-primary hover:bg-brand-primaryHover text-white text-sm font-medium py-2.5 px-4 rounded-xl transition-colors focus:outline-none focus:ring-2 focus:ring-brand-primary focus:ring-offset-2 shadow-sm">
+                <button id="accept-all-modal" class="flex-1 bg-brand-primary hover:bg-brand-primaryHover text-white text-sm font-medium py-2.5 px-4 rounded-xl transition-colors focus:outline-none focus:ring-2 focus:ring-brand-primary focus:ring-offset-2 shadow-sm" data-i18n="cookie_accept_all">
                     Aceitar Todos
                 </button>
             </div>

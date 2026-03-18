@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Meta Tags SEO -->
+    <title>Contactos | ImageOptiPro</title>
+    <meta name="description" content="Entre em contacto direto com a equipa do ImageOptimizerPro. Suporte técnico, melhorias e sugestões.">
+    
+    <!-- PWA -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#10B981">
+    <link rel="icon" href="icon-192.png" type="image/png">
+
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            light: '#F9FAFB',
+                            dark: '#1E293B',
+                            primary: '#10B981',
+                            primaryHover: '#059669',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- i18n Translation System -->
+    <script src="i18n.js" defer></script>
+
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #F9FAFB; color: #1E293B; }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-2">
+                <i class="fa-solid fa-leaf text-brand-primary text-2xl"></i>
+                <span class="font-bold text-xl tracking-tight text-brand-dark">ImageOpti<span class="text-brand-primary">Pro</span></span>
+            </a>
+            <nav class="hidden md:flex items-center gap-6 font-medium text-sm text-gray-600">
+                <a href="index.html" class="hover:text-brand-primary transition" data-i18n="nav_tools">Ferramentas</a>
+                <a href="blog.html" class="hover:text-brand-primary transition" data-i18n="nav_blog">Blog</a>
+                <a href="sobre.html" class="hover:text-brand-primary transition" data-i18n="nav_about">Sobre Nós</a>
+                <a href="contactos.html" class="text-brand-primary font-bold transition" data-i18n="nav_contact">Contactos</a>
+                <div class="flex items-center gap-2 border-l border-gray-200 pl-6 ml-2">
+                    <button id="lang-btn-pt" class="lang-selector font-bold text-brand-primary transition hover:text-brand-primaryHover" onclick="setLanguage('pt')">PT</button>
+                    <span class="text-gray-300">|</span>
+                    <button id="lang-btn-en" class="lang-selector text-gray-500 transition hover:text-brand-primary" onclick="setLanguage('en')">EN</button>
+                </div>
+            </nav>
+            <button class="md:hidden text-gray-600"><i class="fa-solid fa-bars text-xl"></i></button>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 w-full">
+        <article class="prose prose-slate max-w-none bg-white p-8 md:p-12 rounded-2xl border border-gray-100 shadow-sm text-center">
+            
+            <div class="mb-10 text-brand-primary">
+                <i class="fa-solid fa-envelope-open-text text-6xl"></i>
+            </div>
+            
+            <h1 class="text-4xl md:text-5xl font-bold text-brand-dark mb-6 tracking-tight" data-i18n="contact_title">Contactos</h1>
+            
+            <section class="mt-8 max-w-2xl mx-auto">
+                <p class="text-lg text-gray-600 leading-relaxed font-medium mb-10" data-i18n="contact_desc">
+                    Tem alguma dúvida, sugestão de nova funcionalidade ou precisa de suporte técnico? A nossa equipa está pronta para ajudar. Entre em contacto direto connosco através do e-mail. Tentaremos responder com a maior brevidade possível.
+                </p>
+
+                <a href="mailto:logiclabsstudios@gmail.com" class="inline-flex items-center gap-3 bg-brand-light text-brand-dark px-8 py-4 rounded-xl font-bold text-lg hover:bg-gray-100 hover:text-brand-primary transition-all duration-300 shadow-sm border border-gray-200 group">
+                    <i class="fa-solid fa-paper-plane text-brand-primary group-hover:-translate-y-1 transition-transform"></i>
+                    <span data-i18n="contact_email">logiclabsstudios@gmail.com</span>
+                </a>
+            </section>
+
+        </article>
+        
+        <!-- AdSense Area (Hidden for E-E-A-T pages via inline style and class) -->
+        <div class="hidden w-full max-w-7xl mx-auto px-4 mt-8 justify-center" style="display: none;">
+            <!-- Placeholder -->
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-brand-dark text-gray-300 py-8 text-center text-sm border-t border-gray-800 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row gap-6 justify-between items-center">
+            <div class="flex items-center gap-2 text-white">
+                <i class="fa-solid fa-leaf text-brand-primary"></i> <span class="font-bold border-r border-gray-600 pr-2 pb-1">ImageOptiPro</span> <span>&copy; 2026</span>
+            </div>
+            <div class="flex gap-4 items-center flex-wrap justify-center">
+                <a href="index.html" class="hover:text-white transition" data-i18n="foot_tools">Ferramentas</a>
+                <a href="blog.html" class="hover:text-white transition" data-i18n="foot_blog">Blog</a>
+                <a href="sobre.html" class="hover:text-white transition" data-i18n="foot_about">Sobre Nós</a>
+                <a href="contactos.html" class="hover:text-white transition font-bold text-white" data-i18n="foot_contact">Contactos</a>
+                <a href="privacidade.html" class="text-brand-primary font-semibold hover:text-white transition underline underline-offset-4 decoration-brand-primary/50" data-i18n="nav_privacy">Política de Privacidade</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

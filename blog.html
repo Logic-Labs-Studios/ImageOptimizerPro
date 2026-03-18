@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="pt-PT" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#10B981">
+    
+    <!-- Meta Tags SEO -->
+    <title>Blog - ImageOptimizerPro: Dicas de SEO e Otimização de Imagens</title>
+    <meta name="description" content="Aprenda tudo sobre otimização de imagens, SEO, formatos avançados como WebP e AVIF, redimensionamento para redes sociais e privacidade com metadados EXIF.">
+    <meta name="keywords" content="blog seo, dicas otimização de imagem, compressor de imagens online, formato webp, formato jpeg, conversão de formato de imagem, redimensionar fotos online, apagar dados exif online">
+    
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍃</text></svg>">
+    
+    <!-- Tailwind CSS (CDN para este projeto) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            primary: '#10B981',
+                            primaryHover: '#059669',
+                            dark: '#0F172A',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- i18n Sistema de Tradução -->
+    <script src="i18n.js" defer></script>
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #F9FAFB; color: #1E293B; }
+        .article-content h1 { font-size: 2.25rem; font-weight: 800; color: #0F172A; margin-bottom: 1.5rem; line-height: 1.2; }
+        .article-content h2 { font-size: 1.5rem; font-weight: 700; color: #0F172A; margin-top: 2.5rem; margin-bottom: 1rem; }
+        .article-content p { color: #475569; margin-bottom: 1.25rem; line-height: 1.75; font-size: 1.125rem; }
+        .article-content strong { color: #1E293B; }
+        .article-image { border-radius: 1rem; width: 100%; height: auto; max-height: 400px; object-fit: cover; margin-bottom: 2.5rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col font-sans antialiased text-gray-800 bg-gray-50 selection:bg-brand-primary selection:text-white">
+
+    <!-- Header -->
+    <header class="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-gray-100 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-2 group hover:opacity-80 transition cursor-pointer">
+                <i class="fa-solid fa-leaf text-brand-primary text-2xl group-hover:rotate-12 transition-transform"></i>
+                <span class="font-bold text-xl tracking-tight text-brand-dark">ImageOpti<span class="text-brand-primary">Pro</span></span>
+            </a>
+            <nav class="hidden md:flex items-center gap-6 font-medium text-sm text-gray-600">
+                <a href="index.html" class="hover:text-brand-primary transition" data-i18n="nav_tools">Ferramentas</a>
+                <a href="blog.html" class="text-brand-primary font-bold transition" data-i18n="nav_blog">Blog</a>
+                <a href="index.html#faq" class="hover:text-brand-primary transition" data-i18n="nav_faq">FAQ</a>
+                <a href="privacidade.html" class="hover:text-brand-primary transition" data-i18n="nav_privacy">Privacidade</a>
+            </nav>
+            <button class="md:hidden text-gray-600"><i class="fa-solid fa-bars text-xl"></i></button>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 w-full flex flex-col lg:flex-row gap-8 justify-center">
+        
+        <!-- Left Column -->
+        <div class="w-full max-w-5xl mx-auto">
+            
+            <!-- Blog Index Grid -->
+            <section id="blog-grid" class="block">
+                <div class="text-center mb-12">
+                    <h1 class="text-4xl md:text-5xl font-extrabold text-brand-dark mb-4 tracking-tight" data-i18n="blog_index_title">Blog & Recursos</h1>
+                    <p class="text-lg text-gray-500 max-w-2xl mx-auto" data-i18n="blog_index_desc">Dicas essenciais sobre SEO, velocidade de carregamento e privacidade digital para profissionais.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Artigo 1 Card -->
+                    <a href="#artigo-1" onclick="showArticle('artigo-1')" class="group bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 block cursor-pointer">
+                        <div class="w-full h-48 bg-gray-200 relative overflow-hidden flex items-center justify-center">
+                            <i class="fa-solid fa-rocket text-5xl text-gray-400 group-hover:scale-110 group-hover:text-brand-primary transition-all duration-500"></i>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-brand-dark mb-3 leading-tight group-hover:text-brand-primary transition-colors" data-i18n="blog_card1_title">Como a Compressão de Imagens Melhora o SEO e a Velocidade do seu Site</h3>
+                            <p class="text-gray-500 text-sm line-clamp-3 leading-relaxed" data-i18n="blog_card1_desc">O tempo de carregamento de uma página web é um fator crítico para o sucesso online. O Google utiliza os Core Web Vitals para classificar sites, e as imagens pesadas são o principal inimigo do desempenho...</p>
+                            <span class="inline-flex items-center mt-4 text-brand-primary font-semibold text-sm group-hover:translate-x-1 transition-transform"><span data-i18n="blog_read_more">Ler artigo completo</span> <i class="fa-solid fa-arrow-right ml-2 text-xs"></i></span>
+                        </div>
+                    </a>
+
+                    <!-- Artigo 2 Card -->
+                    <a href="#artigo-2" onclick="showArticle('artigo-2')" class="group bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 block cursor-pointer">
+                        <div class="w-full h-48 bg-gray-200 relative overflow-hidden flex items-center justify-center">
+                            <i class="fa-solid fa-file-image text-5xl text-gray-400 group-hover:scale-110 group-hover:text-brand-primary transition-all duration-500"></i>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-brand-dark mb-3 leading-tight group-hover:text-brand-primary transition-colors" data-i18n="blog_card2_title">JPEG, PNG, WebP ou AVIF: Qual o Melhor Formato de Imagem?</h3>
+                            <p class="text-gray-500 text-sm line-clamp-3 leading-relaxed" data-i18n="blog_card2_desc">Escolher a extensão correta para as suas fotografias pode ser confuso. A conversão de formato de imagem é o primeiro passo para um site profissional. O formato JPEG é clássico e excelente para fotografias...</p>
+                            <span class="inline-flex items-center mt-4 text-brand-primary font-semibold text-sm group-hover:translate-x-1 transition-transform"><span data-i18n="blog_read_more">Ler artigo completo</span> <i class="fa-solid fa-arrow-right ml-2 text-xs"></i></span>
+                        </div>
+                    </a>
+
+                    <!-- Artigo 3 Card -->
+                    <a href="#artigo-3" onclick="showArticle('artigo-3')" class="group bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 block cursor-pointer">
+                        <div class="w-full h-48 bg-gray-200 relative overflow-hidden flex items-center justify-center">
+                            <i class="fa-solid fa-crop-simple text-5xl text-gray-400 group-hover:scale-110 group-hover:text-brand-primary transition-all duration-500"></i>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-brand-dark mb-3 leading-tight group-hover:text-brand-primary transition-colors" data-i18n="blog_card3_title">O Guia Prático para Redimensionar Imagens para Redes Sociais e Impressão</h3>
+                            <p class="text-gray-500 text-sm line-clamp-3 leading-relaxed" data-i18n="blog_card3_desc">Cada plataforma digital tem as suas próprias regras. Fazer o upload de uma imagem com o tamanho errado resulta num recorte automático desastroso ou numa compressão que destrói a nitidez...</p>
+                            <span class="inline-flex items-center mt-4 text-brand-primary font-semibold text-sm group-hover:translate-x-1 transition-transform"><span data-i18n="blog_read_more">Ler artigo completo</span> <i class="fa-solid fa-arrow-right ml-2 text-xs"></i></span>
+                        </div>
+                    </a>
+
+                    <!-- Artigo 4 Card -->
+                    <a href="#artigo-4" onclick="showArticle('artigo-4')" class="group bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 block cursor-pointer">
+                        <div class="w-full h-48 bg-gray-200 relative overflow-hidden flex items-center justify-center">
+                            <i class="fa-solid fa-shield-halved text-5xl text-gray-400 group-hover:scale-110 group-hover:text-brand-primary transition-all duration-500"></i>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-brand-dark mb-3 leading-tight group-hover:text-brand-primary transition-colors" data-i18n="blog_card4_title">Privacidade Online: Porque Deve Remover os Dados EXIF das suas Fotos</h3>
+                            <p class="text-gray-500 text-sm line-clamp-3 leading-relaxed" data-i18n="blog_card4_desc">Sempre que tira uma fotografia com o telemóvel, a câmara guarda metadados invisíveis a olho nu. Estes dados, conhecidos como metadados EXIF, incluem a marca do dispositivo, a hora exata da captura...</p>
+                            <span class="inline-flex items-center mt-4 text-brand-primary font-semibold text-sm group-hover:translate-x-1 transition-transform"><span data-i18n="blog_read_more">Ler artigo completo</span> <i class="fa-solid fa-arrow-right ml-2 text-xs"></i></span>
+                        </div>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Articles Container (Hidden by default) -->
+            <section id="article-view" class="hidden">
+                <button onclick="hideArticle()" class="mb-8 text-gray-500 hover:text-brand-dark font-medium transition inline-flex items-center group bg-white px-4 py-2 rounded-lg shadow-sm border border-gray-100">
+                    <i class="fa-solid fa-arrow-left mr-2 group-hover:-translate-x-1 transition-transform"></i> <span data-i18n="blog_back">Voltar ao Blog</span>
+                </button>
+
+                <!-- Artigo 1 -->
+                <article id="artigo-1" class="article-content hidden bg-white rounded-2xl shadow-sm p-8 md:p-12 border border-gray-100">
+                    <h1 data-i18n="blog_a1_title">Como a Compressão de Imagens Melhora o SEO e a Velocidade do seu Site</h1>
+                    <div class="w-full h-64 md:h-96 bg-gray-200 rounded-xl mb-10 flex items-center justify-center relative overflow-hidden border border-gray-100">
+                        <!-- Placeholder Imagem -->
+                        <div class="text-center text-gray-400 relative z-10 flex flex-col items-center">
+                            <i class="fa-solid fa-rocket text-6xl mb-4 group-hover:text-brand-primary transition-colors"></i>
+                            <span class="text-sm font-medium" data-i18n="blog_placeholder_a1">Foguetão / Velocímetro SEO</span>
+                        </div>
+                        <img alt="Velocidade de site e optimização de SEO no Google" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" class="absolute inset-0 w-full h-full object-cover opacity-5">
+                    </div>
+
+                    <p data-i18n="blog_a1_p1">O tempo de carregamento de uma página web é um fator crítico para o sucesso online. O Google utiliza os Core Web Vitals para classificar sites, e as imagens pesadas são o principal inimigo do desempenho. Fazer a <strong class="text-gray-800">otimização de imagens para web</strong> não é apenas um luxo, é uma necessidade para garantir um bom ranking no Google.</p>
+                    
+                    <p data-i18n="blog_a1_p2">Ao utilizar um <strong class="text-gray-800">compressor de imagens online</strong>, consegue reduzir o peso dos ficheiros até 80% sem qualquer perda percetível de qualidade visual. Isto garante uma velocidade de carregamento rápida, diminuindo a taxa de rejeição (bounce rate) dos visitantes. Sites mais leves consomem menos largura de banda, sendo cruciais para a navegação em dispositivos móveis. A nossa ferramenta de <strong class="text-gray-800">compressão de fotos grátis</strong> processa tudo no seu navegador, garantindo que o seu site cumpre as exigências técnicas dos motores de busca de forma imediata e segura.</p>
+                </article>
+
+                <!-- Artigo 2 -->
+                <article id="artigo-2" class="article-content hidden bg-white rounded-2xl shadow-sm p-8 md:p-12 border border-gray-100">
+                    <h1 data-i18n="blog_a2_title">JPEG, PNG, WebP ou AVIF: Qual o Melhor Formato de Imagem?</h1>
+                    <div class="w-full h-64 md:h-96 bg-gray-200 rounded-xl mb-10 flex items-center justify-center relative overflow-hidden border border-gray-100">
+                        <!-- Placeholder Imagem -->
+                        <div class="text-center text-gray-400 relative z-10 flex flex-col items-center">
+                            <i class="fa-solid fa-file-image text-6xl mb-4 group-hover:text-brand-primary transition-colors"></i>
+                            <span class="text-sm font-medium" data-i18n="blog_placeholder_a2">Comparação de Formatos de Imagem</span>
+                        </div>
+                        <img alt="Comparar formatos JPEG, PNG, WebP e AVIF" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" class="absolute inset-0 w-full h-full object-cover opacity-5">
+                    </div>
+
+                    <p data-i18n="blog_a2_p1">Escolher a extensão correta para as suas fotografias pode ser confuso. A <strong class="text-gray-800">conversão de formato de imagem</strong> é o primeiro passo para um site profissional. O <strong class="text-gray-800">formato JPEG</strong> é clássico e excelente para fotografias complexas, oferecendo um bom rácio de compressão. Já o PNG é indispensável quando precisa de imagens com fundo transparente, como logótipos ou gráficos vetoriais.</p>
+                    
+                    <p data-i18n="blog_a2_p2">No entanto, a web moderna exige mais. O <strong class="text-gray-800">formato WebP</strong>, desenvolvido pelo Google, e o formato de nova geração AVIF, oferecem qualidades superiores com tamanhos de ficheiro significativamente menores. Utilizar um <strong class="text-gray-800">conversor de imagens HEIC para JPG</strong> ou transformar as suas fotos em WebP garante compatibilidade total e máxima eficiência. Com o nosso conversor online gratuito, pode transitar entre estes formatos num clique, sem instalar qualquer software, melhorando a experiência do utilizador e o desempenho global do seu projeto.</p>
+                </article>
+
+                <!-- Artigo 3 -->
+                <article id="artigo-3" class="article-content hidden bg-white rounded-2xl shadow-sm p-8 md:p-12 border border-gray-100">
+                    <h1 data-i18n="blog_a3_title">O Guia Prático para Redimensionar Imagens para Redes Sociais e Impressão</h1>
+                    <div class="w-full h-64 md:h-96 bg-gray-200 rounded-xl mb-10 flex items-center justify-center relative overflow-hidden border border-gray-100">
+                        <!-- Placeholder Imagem -->
+                        <div class="text-center text-gray-400 relative z-10 flex flex-col items-center">
+                            <i class="fa-solid fa-crop-simple text-6xl mb-4 group-hover:text-brand-primary transition-colors"></i>
+                            <span class="text-sm font-medium" data-i18n="blog_placeholder_a3">Grelha de design Instagram / Facebook</span>
+                        </div>
+                        <img alt="Redimensionar imagens para Instagram e Facebook" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" class="absolute inset-0 w-full h-full object-cover opacity-5">
+                    </div>
+
+                    <p data-i18n="blog_a3_p1">Cada plataforma digital tem as suas próprias regras. Fazer o upload de uma imagem com o tamanho errado resulta num recorte automático desastroso ou numa compressão que destrói a nitidez. Saber como <strong class="text-gray-800">redimensionar fotos online</strong> com as proporções exatas é vital para criadores de conteúdo e profissionais de marketing.</p>
+                    
+                    <p data-i18n="blog_a3_p2">Seja para adaptar uma foto para o formato retrato do Instagram (1080x1350), criar uma capa perfeita para o Facebook, ou preparar aquele design incrível para impressões de t-shirts a 4500 X 5400 píxeis, usar as medidas corretas evita dores de cabeça. Um bom <strong class="text-gray-800">redimensionador e recortador de imagens</strong> permite manter a proporção da foto ou aplicar um crop específico. Utilize o nosso <strong class="text-gray-800">redimensionador de imagem sem perda de qualidade</strong> para garantir que as suas publicações, campanhas e produtos físicos têm sempre um aspeto incrivelmente profissional.</p>
+                </article>
+
+                <!-- Artigo 4 -->
+                <article id="artigo-4" class="article-content hidden bg-white rounded-2xl shadow-sm p-8 md:p-12 border border-gray-100">
+                    <h1 data-i18n="blog_a4_title">Privacidade Online: Porque Deve Remover os Dados EXIF das suas Fotos</h1>
+                    <div class="w-full h-64 md:h-96 bg-gray-200 rounded-xl mb-10 flex items-center justify-center relative overflow-hidden border border-gray-100">
+                        <!-- Placeholder Imagem -->
+                        <div class="text-center text-gray-400 relative z-10 flex flex-col items-center">
+                            <i class="fa-solid fa-shield-halved text-6xl mb-4 group-hover:text-brand-primary transition-colors"></i>
+                            <span class="text-sm font-medium" data-i18n="blog_placeholder_a4">Cadeado digital e privacidade de fotos</span>
+                        </div>
+                        <img alt="Remover dados EXIF e proteger privacidade na internet" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" class="absolute inset-0 w-full h-full object-cover opacity-5">
+                    </div>
+
+                    <p data-i18n="blog_a4_p1">Sempre que tira uma fotografia com o telemóvel, a câmara guarda metadados invisíveis a olho nu. Estes dados, conhecidos como <strong class="text-gray-800">metadados EXIF</strong>, incluem a marca do dispositivo, a hora exata da captura e, mais preocupante ainda, as coordenadas GPS exatas de onde a foto foi tirada. Partilhar estas imagens sem tratamento é um risco de privacidade.</p>
+                    
+                    <p data-i18n="blog_a4_p2">Usar um <strong class="text-gray-800">leitor de dados EXIF</strong> permite-lhe inspecionar o que está escondido nos seus ficheiros. Mais importante ainda é utilizar um <strong class="text-gray-800">removedor de metadados de imagem</strong> antes de partilhar fotografias nas redes sociais ou com clientes. O processo de <strong class="text-gray-800">apagar dados EXIF online</strong> deve ser feito de forma segura. A nossa ferramenta garante que a limpeza de metadados ocorre localmente no seu dispositivo, sem qualquer envio de ficheiros para servidores externos, garantindo 100% de privacidade digital.</p>
+                </article>
+
+            </section>
+        </div>
+
+        <!-- Sidebar for Ads -->
+        <aside class="hidden w-[300px] flex-shrink-0" style="display: none;">
+            <div class="sticky top-24 flex justify-center">
+                <!-- AdSense: 300x600 - Inserir Código Aqui -->
+                <div class="bg-gray-100 w-[300px] h-[600px] flex items-center justify-center text-gray-400 text-sm border-2 border-dashed border-gray-200 rounded-lg">Anúncio Vertical</div>
+            </div>
+        </aside>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-brand-dark text-gray-300 py-8 text-center text-sm border-t border-gray-800 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row gap-6 justify-between items-center">
+            <div class="flex items-center gap-2 text-white">
+                <i class="fa-solid fa-leaf text-brand-primary"></i> <span class="font-bold border-r border-gray-600 pr-2 pb-1">ImageOptiPro</span> <span>&copy; 2026</span>
+            </div>
+            <div class="flex gap-4 items-center flex-wrap justify-center">
+                <a href="index.html" class="hover:text-white transition" data-i18n="foot_tools">Ferramentas</a>
+                <a href="blog.html" class="hover:text-white transition font-bold text-white" data-i18n="foot_blog">Blog</a>
+                <a href="sobre.html" class="hover:text-white transition" data-i18n="foot_about">Sobre Nós</a>
+                <a href="contactos.html" class="hover:text-white transition" data-i18n="foot_contact">Contactos</a>
+                <a href="privacidade.html" class="text-brand-primary font-semibold hover:text-white transition underline underline-offset-4 decoration-brand-primary/50" data-i18n="nav_privacy">Política de Privacidade</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts para roteamento do Blog PWA -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const hash = window.location.hash;
+            if(hash && hash.startsWith('#artigo-')) {
+                showArticle(hash.substring(1));
+            }
+        });
+
+        function showArticle(articleId) {
+            document.getElementById('blog-grid').classList.replace('block', 'hidden');
+            document.getElementById('article-view').classList.replace('hidden', 'block');
+            
+            // Esconder todos
+            document.querySelectorAll('.article-content').forEach(el => {
+                el.classList.add('hidden');
+                el.classList.remove('block');
+            });
+            
+            // Mostrar o selecionado
+            const target = document.getElementById(articleId);
+            if(target) {
+                target.classList.remove('hidden');
+                target.classList.add('block');
+            }
+            
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function hideArticle() {
+            // Remove o hash na rodinha do histórico para manter a sanidade SEO em mobile
+            history.pushState("", document.title, window.location.pathname + window.location.search);
+            
+            document.getElementById('article-view').classList.replace('block', 'hidden');
+            document.getElementById('blog-grid').classList.replace('hidden', 'block');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
