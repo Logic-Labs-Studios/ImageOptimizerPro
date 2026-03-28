@@ -570,8 +570,20 @@ document.addEventListener('DOMContentLoaded', () => {
                         propCount++;
                         const tr = document.createElement('tr');
                         tr.className = 'border-b border-gray-100 hover:bg-gray-100/50';
-                        const vStr = (value instanceof Date) ? value.toLocaleString() : value;
-                        tr.innerHTML = `<td class="px-4 py-2 font-medium text-gray-700 w-1/3">${key}</td><td class="px-4 py-2 text-gray-600 truncate max-w-[200px]" title="${vStr}">${vStr}</td>`;
+                        const vStr = (value instanceof Date) ? value.toLocaleString() : String(value);
+                        
+                        const tdKey = document.createElement('td');
+                        tdKey.className = 'px-4 py-2 font-medium text-gray-700 w-1/3';
+                        tdKey.textContent = key;
+
+                        const tdVal = document.createElement('td');
+                        tdVal.className = 'px-4 py-2 text-gray-600 truncate max-w-[200px]';
+                        tdVal.title = vStr;
+                        tdVal.textContent = vStr;
+
+                        tr.appendChild(tdKey);
+                        tr.appendChild(tdVal);
+                        
                         exifDataBody.appendChild(tr);
                     }
                     

@@ -471,18 +471,35 @@ function applyTranslations() {
 function updateLangSelectorUI() {
     const btnPt = document.getElementById('lang-btn-pt');
     const btnEn = document.getElementById('lang-btn-en');
-    if(!btnPt || !btnEn) return;
+    const mobBtnPt = document.getElementById('mobile-lang-pt');
+    const mobBtnEn = document.getElementById('mobile-lang-en');
 
     if (currentLang === 'pt') {
-        btnPt.classList.add('font-bold', 'text-brand-primary');
-        btnPt.classList.remove('text-gray-500');
-        btnEn.classList.add('text-gray-500');
-        btnEn.classList.remove('font-bold', 'text-brand-primary');
+        if (btnPt && btnEn) {
+            btnPt.classList.add('font-bold', 'text-brand-primary');
+            btnPt.classList.remove('text-gray-500');
+            btnEn.classList.add('text-gray-500');
+            btnEn.classList.remove('font-bold', 'text-brand-primary');
+        }
+        if (mobBtnPt && mobBtnEn) {
+            mobBtnPt.classList.add('font-bold', 'text-brand-primary');
+            mobBtnPt.classList.remove('text-gray-500');
+            mobBtnEn.classList.add('text-gray-500');
+            mobBtnEn.classList.remove('font-bold', 'text-brand-primary');
+        }
     } else {
-        btnEn.classList.add('font-bold', 'text-brand-primary');
-        btnEn.classList.remove('text-gray-500');
-        btnPt.classList.add('text-gray-500');
-        btnPt.classList.remove('font-bold', 'text-brand-primary');
+        if (btnPt && btnEn) {
+            btnEn.classList.add('font-bold', 'text-brand-primary');
+            btnEn.classList.remove('text-gray-500');
+            btnPt.classList.add('text-gray-500');
+            btnPt.classList.remove('font-bold', 'text-brand-primary');
+        }
+        if (mobBtnPt && mobBtnEn) {
+            mobBtnEn.classList.add('font-bold', 'text-brand-primary');
+            mobBtnEn.classList.remove('text-gray-500');
+            mobBtnPt.classList.add('text-gray-500');
+            mobBtnPt.classList.remove('font-bold', 'text-brand-primary');
+        }
     }
 }
 

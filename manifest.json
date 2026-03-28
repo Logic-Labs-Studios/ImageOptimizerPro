@@ -8,15 +8,15 @@
   "theme_color": "#10B981",
   "icons": [
     {
-      "src": "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><rect width='512' height='512' rx='128' ry='128' fill='%2310B981'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-size='200' fill='white' font-family='sans-serif'>IOP</text></svg>",
+      "src": "icon-192.png",
       "sizes": "192x192",
-      "type": "image/svg+xml",
+      "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><rect width='512' height='512' rx='128' ry='128' fill='%2310B981'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-size='200' fill='white' font-family='sans-serif'>IOP</text></svg>",
+      "src": "icon-512.png",
       "sizes": "512x512",
-      "type": "image/svg+xml",
+      "type": "image/png",
       "purpose": "any maskable"
     }
   ]

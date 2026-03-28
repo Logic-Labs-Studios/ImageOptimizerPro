@@ -21,9 +21,10 @@
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#10B981">
     <link rel="icon" href="icon-192.png" type="image/png">
+    <link rel="apple-touch-icon" href="icon-192.png">
 
     <!-- Tailwind CSS via CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com/3.4.3"></script>
     <script>
         tailwind.config = {
             theme: {
@@ -46,18 +47,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Browser Image Compression CDN -->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/browser-image-compression@2.0.2/dist/browser-image-compression.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/browser-image-compression@2.0.2/dist/browser-image-compression.js" integrity="sha384-dHP9fwqd9BAiDh9uJ0p10khgbbcFMh34bVEiCnJ1Ah/AT2T2k4t572VEo3WXzxXp" crossorigin="anonymous"></script>
     <!-- HEIC to Any CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/heic2any@0.0.4/dist/heic2any.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/heic2any@0.0.4/dist/heic2any.min.js" integrity="sha384-OTofQ0MEeiSgh62havBcemCIK0gqj809wX6UA0uPISNMRnR6NZyCdGzX3SbLrgwL" crossorigin="anonymous"></script>
     <!-- EXIF Reader CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/exifr/dist/lite.umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/exifr/dist/lite.umd.js" integrity="sha384-KRanV2NRwHPanp7iM6nlLQC5jPCTscSYMko30dLJHzNXJaUNtcucWv+SOi3jV3PE" crossorigin="anonymous"></script>
     
     <!-- Cropper.js -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.1/cropper.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.1/cropper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.1/cropper.min.js" integrity="sha384-jzwsV9ieM/KUDMeo+d8dc+jm0GEl7ywPNwg10alB5BodVuC/Kx9RpEnyrl2Om9zH" crossorigin="anonymous"></script>
     
     <!-- ColorThief -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.3.2/color-thief.umd.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.3.2/color-thief.umd.js" integrity="sha384-rcZhI8LZdCSRdkfVGupT1OsW8LzGEGKoSOA1Nv6HyYKQjs6/jvzt3ITEgipptCFj" crossorigin="anonymous"></script>
 
     <!-- i18n Dictionary & Engine -->
     <script src="i18n.js"></script>
@@ -97,7 +98,21 @@
                     <button id="lang-btn-en" class="lang-selector text-gray-500 transition hover:text-brand-primary" onclick="setLanguage('en')">EN</button>
                 </div>
             </nav>
-            <button class="md:hidden text-gray-600"><i class="fa-solid fa-bars text-xl"></i></button>
+            <button id="mobile-menu-btn" class="md:hidden text-gray-600 focus:outline-none"><i class="fa-solid fa-bars text-xl"></i></button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 flex-col shadow-lg absolute w-full top-16 left-0 z-40">
+            <a href="#como-funciona" class="px-6 py-4 text-gray-600 hover:bg-gray-50 border-b border-gray-50 font-medium" data-i18n="nav_how">Como Funciona</a>
+            <a href="blog.html" class="px-6 py-4 font-bold text-gray-800 hover:bg-gray-50 border-b border-gray-50">Blog</a>
+            <a href="#faq" class="px-6 py-4 text-gray-600 hover:bg-gray-50 border-b border-gray-50 font-medium" data-i18n="nav_faq">FAQ</a>
+            <a href="privacidade.html" class="px-6 py-4 text-gray-600 hover:bg-gray-50 border-b border-gray-50 font-medium" data-i18n="nav_privacy">Privacidade</a>
+            <div class="px-6 py-4 flex items-center gap-4 bg-gray-50">
+                <span class="text-xs text-gray-400 font-semibold uppercase">Idioma:</span>
+                <button id="mobile-lang-pt" class="lang-selector font-bold text-brand-primary" onclick="setLanguage('pt')">PT</button>
+                <div class="w-px h-4 bg-gray-300"></div>
+                <button id="mobile-lang-en" class="lang-selector text-gray-500" onclick="setLanguage('en')">EN</button>
+            </div>
         </div>
     </header>
 
@@ -122,10 +137,10 @@
                 
                 <!-- Tabs Navigation -->
                 <div class="flex flex-wrap border-b border-gray-200 mb-6 font-medium text-sm text-center text-gray-500">
-                    <button class="tab-btn w-1/4 md:w-auto p-4 border-b-2 rounded-t-lg border-brand-primary text-brand-primary font-bold transition" data-target="panel-compressor" data-seo="seo-compressor" data-i18n="tab_compressor">Compressor</button>
-                    <button class="tab-btn w-1/4 md:w-auto p-4 border-b-2 rounded-t-lg border-transparent hover:text-gray-600 hover:border-gray-300 transition" data-target="panel-converter" data-seo="seo-converter" data-i18n="tab_converter">Converter</button>
-                    <button class="tab-btn w-1/4 md:w-auto p-4 border-b-2 rounded-t-lg border-transparent hover:text-gray-600 hover:border-gray-300 transition" data-target="panel-exif" data-seo="seo-exif" data-i18n="tab_exif">EXIF</button>
-                    <button class="tab-btn w-1/4 md:w-auto p-4 border-b-2 rounded-t-lg border-transparent hover:text-gray-600 hover:border-gray-300 transition" data-target="panel-utilities" data-seo="seo-utilities" data-i18n="tab_utils">Utilitários</button>
+                    <button class="tab-btn w-1/2 md:w-auto p-4 border-b-2 rounded-t-lg border-brand-primary text-brand-primary font-bold transition" data-target="panel-compressor" data-seo="seo-compressor" data-i18n="tab_compressor">Compressor</button>
+                    <button class="tab-btn w-1/2 md:w-auto p-4 border-b-2 rounded-t-lg border-transparent hover:text-gray-600 hover:border-gray-300 transition" data-target="panel-converter" data-seo="seo-converter" data-i18n="tab_converter">Converter</button>
+                    <button class="tab-btn w-1/2 md:w-auto p-4 border-b-2 rounded-t-lg border-transparent hover:text-gray-600 hover:border-gray-300 transition" data-target="panel-exif" data-seo="seo-exif" data-i18n="tab_exif">EXIF</button>
+                    <button class="tab-btn w-1/2 md:w-auto p-4 border-b-2 rounded-t-lg border-transparent hover:text-gray-600 hover:border-gray-300 transition" data-target="panel-utilities" data-seo="seo-utilities" data-i18n="tab_utils">Utilitários</button>
                 </div>
 
                 <!-- Compressor Panel -->
@@ -232,9 +247,9 @@
                         <div class="bg-white p-4 rounded-full shadow-sm mb-4 group-hover:scale-110 transition-transform duration-300">
                             <i class="fa-solid fa-arrows-rotate text-4xl text-brand-primary"></i>
                         </div>
-                        <h3 class="text-xl font-semibold mb-2 text-center">Arraste a imagem para converter</h3>
-                        <p class="text-sm text-gray-500 mb-4 text-center">HEIC, JPG, PNG, WebP, GIF, BMP, TIFF, AVIF, ICO</p>
-                        <button class="mt-4 px-6 py-2.5 bg-brand-dark hover:bg-gray-800 text-white font-medium rounded-lg shadow transition" onclick="document.getElementById('convert-file-input').click()">Selecionar Ficheiro</button>
+                        <h3 class="text-xl font-semibold mb-2 text-center" data-i18n="conv_drop">Arraste a imagem para converter</h3>
+                        <p class="text-sm text-gray-500 mb-4 text-center" data-i18n="conv_support">HEIC, JPG, PNG, WebP, GIF, BMP, TIFF, AVIF, ICO</p>
+                        <button class="mt-4 px-6 py-2.5 bg-brand-dark hover:bg-gray-800 text-white font-medium rounded-lg shadow transition" onclick="document.getElementById('convert-file-input').click()" data-i18n="conv_btn_select">Selecionar Ficheiro</button>
                     </div>
 
                     <!-- Convert Processing -->
@@ -295,9 +310,9 @@
                         <div class="bg-white p-4 rounded-full shadow-sm mb-4 group-hover:scale-110 transition-transform duration-300">
                             <i class="fa-solid fa-shield-halved text-4xl text-brand-primary"></i>
                         </div>
-                        <h3 class="text-xl font-semibold mb-2 text-center">Inspecionar ou Limpar Dados EXIF</h3>
-                        <p class="text-sm text-gray-500 mb-4 text-center">JPG, PNG, WEBP, HEIC, MP4, MOV, PDF</p>
-                        <button class="mt-4 px-6 py-2.5 bg-brand-dark hover:bg-gray-800 text-white font-medium rounded-lg shadow transition" onclick="document.getElementById('exif-file-input').click()">Selecionar Ficheiro</button>
+                        <h3 class="text-xl font-semibold mb-2 text-center" data-i18n="exif_drop">Inspecionar ou Limpar Dados EXIF</h3>
+                        <p class="text-sm text-gray-500 mb-4 text-center" data-i18n="exif_support">JPG, PNG, WEBP, HEIC, MP4, MOV, PDF</p>
+                        <button class="mt-4 px-6 py-2.5 bg-brand-dark hover:bg-gray-800 text-white font-medium rounded-lg shadow transition" onclick="document.getElementById('exif-file-input').click()" data-i18n="exif_btn_select">Selecionar Ficheiro</button>
                     </div>
 
                     <div id="exif-result-section" class="hidden flex-col gap-6">
@@ -804,6 +819,18 @@
                     marketing: toggleMarketing.checked
                 });
             });
+        });
+
+        // Lógica do Menu Mobile
+        document.addEventListener('DOMContentLoaded', () => {
+            const btn = document.getElementById('mobile-menu-btn');
+            const menu = document.getElementById('mobile-menu');
+            if(btn && menu) {
+                btn.addEventListener('click', () => {
+                    menu.classList.toggle('hidden');
+                    menu.classList.toggle('flex');
+                });
+            }
         });
     </script>
 
