@@ -72,9 +72,18 @@
                     <button id="lang-btn-en" class="lang-selector text-gray-500 transition hover:text-brand-primary" onclick="setLanguage('en')">EN</button>
                 </div>
             </nav>
-            <button class="md:hidden text-gray-600"><i class="fa-solid fa-bars text-xl"></i></button>
+            <button id="mobile-menu-btn" class="md:hidden text-gray-600 focus:outline-none"><i class="fa-solid fa-bars text-xl"></i></button>
         </div>
     </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 flex-col shadow-lg absolute w-full top-16 left-0 z-40">
+        <a href="index.html" class="px-6 py-4 text-gray-600 hover:bg-gray-50 border-b border-gray-50 font-medium" data-i18n="nav_tools">Ferramentas</a>
+        <a href="blog.html" class="px-6 py-4 text-gray-600 hover:bg-gray-50 border-b border-gray-50 font-medium" data-i18n="nav_blog">Blog</a>
+        <a href="sobre.html" class="px-6 py-4 text-gray-600 hover:bg-gray-50 border-b border-gray-50 font-medium" data-i18n="nav_about">Sobre Nós</a>
+        <a href="contactos.html" class="px-6 py-4 font-bold text-brand-primary hover:bg-gray-50 border-b border-gray-50" data-i18n="nav_contact">Contactos</a>
+        <a href="privacidade.html" class="px-6 py-4 text-gray-600 hover:bg-gray-50 border-b border-gray-50 font-medium" data-i18n="nav_privacy">Privacidade</a>
+    </div>
 
     <!-- Main Content -->
     <main class="flex-grow max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 w-full">
@@ -121,5 +130,19 @@
         </div>
     </footer>
 
+    <script src="i18n.js"></script>
+    <script>
+        // Mobile Menu Logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const btn = document.getElementById('mobile-menu-btn');
+            const menu = document.getElementById('mobile-menu');
+            if(btn && menu) {
+                btn.addEventListener('click', () => {
+                    menu.classList.toggle('hidden');
+                    menu.classList.toggle('flex');
+                });
+            }
+        });
+    </script>
 </body>
 </html>

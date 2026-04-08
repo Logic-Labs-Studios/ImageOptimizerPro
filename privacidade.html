@@ -3,165 +3,113 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Meta Tags SEO -->
-    <title>Política de Privacidade e Cookies | ImageOptiPro</title>
-    <meta name="description" content="Política de Privacidade e Cookies do ImageOptiPro. Saiba como protegemos os seus dados, utilizamos cookies e cumprimos com as diretrizes do RGPD.">
+    <title>Política de Privacidade | ImageOptimizerPro</title>
+    <meta name="description" content="Saiba como protegemos a sua privacidade e os seus dados. Processamento 100% local no seu navegador.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
     
-    <!-- SEO Avançado -->
+    <!-- SEO & Localization -->
     <link rel="canonical" href="https://imageoptimizerpro.pt/privacidade.html" />
     <link rel="alternate" hreflang="pt" href="https://imageoptimizerpro.pt/privacidade.html" />
-    <link rel="alternate" hreflang="en" href="https://imageoptimizerpro.pt/privacidade.html?lang=en" />
+    <link rel="alternate" hreflang="en" href="https://imageoptimizerpro.pt/en/privacy.html" />
     <link rel="alternate" hreflang="x-default" href="https://imageoptimizerpro.pt/privacidade.html" />
-    
-    <!-- PWA -->
-    <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#10B981">
-    <link rel="icon" href="icon-192.png" type="image/png">
-    <link rel="apple-touch-icon" href="icon-192.png">
-
-    <!-- Tailwind CSS via CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        brand: {
-                            light: '#F9FAFB',
-                            dark: '#1E293B',
-                            primary: '#10B981',
-                            primaryHover: '#059669',
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- FontAwesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <style>
-        body { font-family: 'Inter', sans-serif; background-color: #F9FAFB; color: #1E293B; }
-    </style>
 </head>
-<body class="min-h-screen flex flex-col">
+<body class="bg-gray-50 min-h-screen flex flex-col font-sans antialiased text-gray-900">
 
     <!-- Header -->
-    <header class="bg-white shadow-sm sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-            <a href="index.html" class="flex items-center gap-2">
-                <i class="fa-solid fa-leaf text-brand-primary text-2xl"></i>
-                <span class="font-bold text-xl tracking-tight text-brand-dark">ImageOpti<span class="text-brand-primary">Pro</span></span>
+    <header class="bg-white/80 backdrop-blur-md border-b border-gray-100 py-4 sticky top-0 z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-2 group">
+                <i class="fa-solid fa-leaf text-brand-primary text-2xl group-hover:rotate-12 transition"></i>
+                <span class="text-xl font-extrabold text-brand-dark tracking-tight">ImageOpti<span class="text-brand-primary">Pro</span></span>
             </a>
-            <nav class="hidden md:flex gap-6 font-medium text-sm text-gray-600">
-                <a href="index.html" class="hover:text-brand-primary transition">Ferramenta</a>
-                <a href="index.html#como-funciona" class="hover:text-brand-primary transition">Como Funciona</a>
-                <a href="index.html#faq" class="hover:text-brand-primary transition">FAQ</a>
+            <nav class="hidden md:flex items-center gap-6 font-medium text-sm text-gray-600">
+                <a href="index.html" class="hover:text-brand-primary transition" data-i18n="nav_tools">Ferramentas</a>
+                <a href="blog.html" class="hover:text-brand-primary transition" data-i18n="nav_blog">Blog</a>
+                <a href="sobre.html" class="hover:text-brand-primary transition" data-i18n="nav_about">Sobre Nós</a>
+                <a href="contactos.html" class="hover:text-brand-primary transition" data-i18n="nav_contact">Contactos</a>
+                <div class="flex items-center gap-2 border-l border-gray-200 pl-6 ml-2">
+                    <button id="lang-btn-pt" class="lang-selector font-bold text-brand-primary transition hover:text-brand-primaryHover" onclick="setLanguage('pt')">PT</button>
+                    <span class="text-gray-300">|</span>
+                    <button id="lang-btn-en" class="lang-selector text-gray-500 transition hover:text-brand-primary" onclick="setLanguage('en')">EN</button>
+                </div>
             </nav>
-            <button class="md:hidden text-gray-600"><i class="fa-solid fa-bars text-xl"></i></button>
+            <button id="mobile-menu-btn" class="md:hidden text-gray-600 focus:outline-none"><i class="fa-solid fa-bars text-xl"></i></button>
         </div>
     </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 flex-col shadow-lg absolute w-full top-16 left-0 z-40">
+        <a href="index.html" class="px-6 py-4 text-gray-600 hover:bg-gray-50 border-b border-gray-50 font-medium" data-i18n="nav_tools">Ferramentas</a>
+        <a href="blog.html" class="px-6 py-4 text-gray-600 hover:bg-gray-50 border-b border-gray-50 font-medium" data-i18n="nav_blog">Blog</a>
+        <a href="sobre.html" class="px-6 py-4 text-gray-600 hover:bg-gray-50 border-b border-gray-50 font-medium" data-i18n="nav_about">Sobre Nós</a>
+        <a href="contactos.html" class="px-6 py-4 text-gray-600 hover:bg-gray-50 border-b border-gray-50 font-medium" data-i18n="nav_contact">Contactos</a>
+    </div>
 
     <!-- Main Content -->
     <main class="flex-grow max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 w-full">
         <article class="prose prose-slate max-w-none bg-white p-8 md:p-12 rounded-2xl border border-gray-100 shadow-sm">
+            <h1 class="text-3xl font-bold text-brand-dark mb-8 border-b pb-4" data-i18n="privacy_title">Política de Privacidade</h1>
             
-            <h1 class="text-3xl md:text-5xl font-bold text-brand-dark mb-6 tracking-tight">Política de Privacidade e Cookies</h1>
-            
-            <p class="text-lg text-gray-600 mb-10 leading-relaxed font-medium">A privacidade dos nossos utilizadores é uma prioridade primordial para o ImageOptimizerPro. Preparamos este documento para o informar de forma transparente sobre as informações que recolhemos e o que fazemos com elas, em conformidade total com o Regulamento Geral sobre a Proteção de Dados (RGPD).</p>
-
-            <section id="processamento" class="mt-12 mb-10">
-                <div class="bg-green-50 border-l-4 border-brand-primary p-6 rounded-r-lg mb-8">
-                    <h2 class="text-2xl font-bold text-brand-dark mb-3 flex items-center gap-2">
-                        <i class="fa-solid fa-microchip text-brand-primary"></i> Processamento Totalmente Client-Side
-                    </h2>
-                    <p class="text-gray-700 leading-relaxed font-medium">As suas imagens nunca saem do seu computador ou dispositivo. Todo o processamento de compressão e conversão de formato é executado localmente através do seu navegador (Browser-Side). Nós <strong class="text-gray-900 border-b-2 border-brand-primary/30">não carregamos, não armazenamos temporariamente, nem partilhamos as suas fotos</strong> com nenhum dos nossos servidores ou parceiros terceiros. A sua privacidade fotográfica está 100% garantida pelo design da própria ferramenta (PWA).</p>
-                </div>
+            <section class="mb-8">
+                <h2 class="text-xl font-semibold text-brand-dark mb-4" data-i18n="privacy_sec1_title">1. Compromisso com a Privacidade</h2>
+                <p class="text-gray-600 leading-relaxed" data-i18n="privacy_sec1_text">
+                    No ImageOptimizerPro, a sua privacidade não é apenas uma funcionalidade – é a base de tudo o que construímos. Ao contrário de outros serviços online, as suas imagens <strong>nunca são enviadas para os nossos servidores</strong>.
+                </p>
             </section>
 
-            <section id="cookies" class="mt-12 mb-10">
-                <h2 class="text-2xl font-bold text-brand-dark mb-4 border-b border-gray-100 pb-2">Uso de Cookies e Tecnologias Semelhantes</h2>
-                <p class="text-gray-600 mb-6">Os cookies são pequenos ficheiros de texto guardados no seu dispositivo quando acede a um site. Ajudam o site a recordar as suas opções (por exemplo, as suas preferências de consentimento do próprio banner) para que não tenha de as indicar novamente cada vez que navega no site. Dividimos os cookies do nosso site nas seguintes categorias:</p>
-
-                <div class="space-y-6">
-                    <!-- Categoria 1 -->
-                    <div class="bg-gray-50 p-5 rounded-xl border border-gray-200 hover:border-gray-300 transition-colors">
-                        <div class="flex items-center gap-2 mb-2">
-                            <i class="fa-solid fa-shield-halved text-gray-400"></i>
-                            <h3 class="font-bold text-gray-900 m-0 text-lg">Estritamente Necessários</h3>
-                            <span class="ml-auto text-xs font-semibold px-2.5 py-1 bg-green-100 text-green-700 rounded-full">Sempre Ativos</span>
-                        </div>
-                        <p class="text-sm text-gray-600 m-0">Estes cookies são essenciais para que o site funcione corretamente. Incluem tecnologias, como o <em>LocalStorage</em> do seu navegador, que usamos exclusivamente para memorizar se aceitou, rejeitou ou personalizou os cookies, não sendo possível desativá-los no nosso sistema (pode, contudo, limpá-los no seu navegador em qualquer altura).</p>
-                    </div>
-
-                    <!-- Categoria 2 -->
-                    <div class="bg-gray-50 p-5 rounded-xl border border-gray-200 hover:border-gray-300 transition-colors">
-                        <div class="flex items-center gap-2 mb-2">
-                            <i class="fa-solid fa-chart-line text-blue-400"></i>
-                            <h3 class="font-bold text-gray-900 m-0 text-lg">Estatísticas e Desempenho</h3>
-                            <span class="ml-auto text-xs font-semibold px-2.5 py-1 bg-gray-200 text-gray-600 rounded-full">Opcional</span>
-                        </div>
-                        <p class="text-sm text-gray-600 m-0">Permitem-nos entender, de forma completamente anónima e agregada, como os visitantes interagem com o nosso compressor. Recolhem dados não-identificáveis sobre visitas a páginas e erros, ajudando-nos a criar atualizações melhores e serviços mais rápidos.</p>
-                    </div>
-
-                    <!-- Categoria 3 -->
-                    <div class="bg-gray-50 p-5 rounded-xl border border-gray-200 hover:border-gray-300 transition-colors">
-                        <div class="flex items-center gap-2 mb-2">
-                            <i class="fa-solid fa-bullhorn text-orange-400"></i>
-                            <h3 class="font-bold text-gray-900 m-0 text-lg">Marketing / Parceiros Publicitários</h3>
-                            <span class="ml-auto text-xs font-semibold px-2.5 py-1 bg-gray-200 text-gray-600 rounded-full">Opcional</span>
-                        </div>
-                        <p class="text-sm text-gray-600 m-0 mb-3">Utilizamos o <strong>Google AdSense</strong> para manter o nosso serviço gratuito financiando os custos operacionais do servidor base. O Google e os seus fornecedores parceiros utilizam cookies para apresentar anúncios baseados na sua visita anterior a este ou a outros websites web na Internet.</p>
-                        <ul class="text-sm text-gray-600 list-disc pl-5 mt-2 space-y-1">
-                            <li>Os utilizadores podem desativar a publicidade personalizada visitando as <a href="https://myadcenter.google.com/" target="_blank" rel="noopener noreferrer" class="text-brand-primary font-medium hover:underline">Definições de Anúncios do Google</a>.</li>
-                            <li>Pode voltar atrás e gerir o seu consentimento de Marketing neste site a qualquer altura usando o botão de preferências no rodapé.</li>
-                        </ul>
-                    </div>
-                </div>
+            <section class="mb-8">
+                <h2 class="text-xl font-semibold text-brand-dark mb-4" data-i18n="privacy_sec2_title">2. Processamento Local (Client-Side)</h2>
+                <p class="text-gray-600 leading-relaxed" data-i18n="privacy_sec2_text">
+                    Toda a compressão, conversão e remoção de metadados ocorre diretamente no seu navegador, utilizando tecnologias modernas de processamento local. Isto significa que os seus ficheiros permanecem no seu dispositivo durante todo o processo.
+                </p>
             </section>
 
-            <section id="direitos" class="mt-12 mb-10">
-                <h2 class="text-2xl font-bold text-brand-dark mb-4 border-b border-gray-100 pb-2">Os Seus Direitos (RGPD)</h2>
-                <p class="text-gray-600 mb-4">De acordo com o Regulamento Geral sobre a Proteção de Dados (RGPD), o utilizador detém vários direitos relativos às suas informações pessoais recolhidas:</p>
-                <ul class="text-gray-600 list-disc pl-5 space-y-3">
-                    <li><strong>Direito ao Acesso e Retificação:</strong> Tem o direito de requisitar os dados que armazenamos sobre si (ainda que, como ferramenta sem login em cloud, não recolhamos ativamente qualquer registo pessoal identificável em base de dados).</li>
-                    <li><strong>Direito ao Esquecimento:</strong> Pode eliminar o seu consentimento do nosso website em qualquer altura regressando às definições de Privacidade. Limpar o histórico e o armazenamento local do seu navegador resultará no "esquecimento" do seu perfil analítico para nós.</li>
-                    <li><strong>Retirada de Consentimento:</strong> Conforme mencionado anteriormente, tem a liberdade de abrir as definições de Privacidade da página, através da ligação no fundo deste site, e desativar com facilidade Estatísticas e Anúncios.</li>
-                </ul>
+            <section class="mb-8">
+                <h2 class="text-xl font-semibold text-brand-dark mb-4" data-i18n="privacy_sec3_title">3. Cookies e Publicidade</h2>
+                <p class="text-gray-600 leading-relaxed" data-i18n="privacy_sec3_text">
+                    Utilizamos cookies apenas para melhorar a sua experiência e, ocasionalmente, para exibir anúncios via Google AdSense que nos ajudam a manter a ferramenta gratuita. Pode gerir as suas preferências de cookies no banner inicial ou nas definições do seu navegador.
+                </p>
             </section>
 
-            <section id="contacto" class="mt-12 bg-white border border-gray-200 p-8 rounded-xl text-center">
-                <i class="fa-solid fa-envelope-open-text text-4xl text-gray-300 mb-4"></i>
-                <h2 class="text-xl font-bold text-brand-dark mb-2">Dúvidas Frequentes ou Contacto</h2>
-                <p class="text-gray-600 mb-6 max-w-lg mx-auto">Em caso de dúvidas relativas a esta política, às práticas de processamento de informação do Image OptiPro ou quaisquer questões RGPD, por favor comunique connosco:</p>
-                <a href="mailto:logiclabsstudios@gmail.com" class="inline-flex items-center gap-2 bg-brand-light text-brand-dark px-6 py-3 rounded-lg font-medium hover:bg-gray-100 transition shadow-sm border border-gray-200">
-                    <i class="fa-solid fa-at text-brand-primary"></i> logiclabsstudios@gmail.com
-                </a>
+            <section class="mb-8 border-t pt-8">
+                <p class="text-sm text-gray-500 italic" data-i18n="privacy_footer">
+                    Última atualização: Março de 2026. ImageOptimizerPro - Otimização Profissional com Privacidade Total.
+                </p>
             </section>
-
         </article>
     </main>
 
     <!-- Footer -->
-    <footer class="bg-brand-dark text-gray-300 py-8 text-center text-sm border-t border-gray-800 mt-auto">
-        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row gap-6 justify-between items-center">
-            <div class="flex items-center gap-2 text-white">
-                <i class="fa-solid fa-leaf text-brand-primary"></i> <span class="font-bold border-r border-gray-600 pr-2 pb-1">ImageOptiPro</span> <span>&copy; 2026</span>
+    <footer class="bg-gray-900 text-gray-400 py-8 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6 text-sm">
+            <div class="flex items-center gap-2">
+                <i class="fa-solid fa-leaf text-brand-primary"></i> <span class="font-bold border-r border-gray-600 pr-2 pb-1 text-white">ImageOptiPro</span> <span>&copy; 2026</span>
             </div>
             <div class="flex gap-4 items-center flex-wrap justify-center">
                 <a href="index.html" class="hover:text-white transition" data-i18n="foot_tools">Ferramentas</a>
                 <a href="blog.html" class="hover:text-white transition" data-i18n="foot_blog">Blog</a>
                 <a href="sobre.html" class="hover:text-white transition" data-i18n="foot_about">Sobre Nós</a>
                 <a href="contactos.html" class="hover:text-white transition" data-i18n="foot_contact">Contactos</a>
-                <a href="privacidade.html" class="text-brand-primary font-semibold hover:text-white transition underline underline-offset-4 decoration-brand-primary/50" data-i18n="nav_privacy">Política de Privacidade</a>
-                <button onclick="localStorage.removeItem('cookiePreferences'); localStorage.removeItem('cookieConsent'); window.location.reload();" class="hover:text-gray-100 text-gray-400 decoration-dotted underline transition" data-i18n="foot_cookies">
+                <a href="privacidade.html" class="text-white font-bold transition underline underline-offset-4 decoration-brand-primary" data-i18n="nav_privacy">Privacidade</a>
+            </div>
         </div>
     </footer>
 
+    <script src="i18n.js"></script>
+    <script>
+        // Mobile Menu Logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const btn = document.getElementById('mobile-menu-btn');
+            const menu = document.getElementById('mobile-menu');
+            if(btn && menu) {
+                btn.addEventListener('click', () => {
+                    menu.classList.toggle('hidden');
+                    menu.classList.toggle('flex');
+                });
+            }
+        });
+    </script>
 </body>
 </html>

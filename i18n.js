@@ -1,6 +1,7 @@
 const translations = {
     pt: {
         "nav_how": "Como Funciona",
+        "nav_tools": "Ferramentas",
         "nav_faq": "FAQ",
         "nav_privacy": "Privacidade",
         "hero_title": "Otimizador de Imagens Online: <br class=\"hidden md:block\"/><span class=\"text-brand-primary\">Rápido, Grátis e Seguro</span>",
@@ -266,6 +267,7 @@ const translations = {
     },
     en: {
         "nav_how": "How it Works",
+        "nav_tools": "Tools",
         "nav_faq": "FAQ",
         "nav_privacy": "Privacy",
         "hero_title": "Online Image Optimizer: <br class=\"hidden md:block\"/><span class=\"text-brand-primary\">Fast, Free & Secure</span>",
