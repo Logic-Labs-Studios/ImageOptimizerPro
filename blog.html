@@ -10,6 +10,15 @@
     <meta name="description" content="Aprenda tudo sobre otimização de imagens, SEO, formatos avançados como WebP e AVIF, redimensionamento para redes sociais e privacidade com metadados EXIF.">
     <meta name="keywords" content="blog seo, dicas otimização de imagem, compressor de imagens online, formato webp, formato jpeg, conversão de formato de imagem, redimensionar fotos online, apagar dados exif online">
     
+    <!-- SEO Avançado -->
+    <link rel="canonical" href="https://imageoptimizerpro.pt/blog.html" />
+    <link rel="alternate" hreflang="pt" href="https://imageoptimizerpro.pt/blog.html" />
+    <link rel="alternate" hreflang="en" href="https://imageoptimizerpro.pt/blog.html?lang=en" />
+    <link rel="alternate" hreflang="x-default" href="https://imageoptimizerpro.pt/blog.html" />
+
+    <!-- Schema Dinâmico (Será preenchido pelo script) -->
+    <script type="application/ld+json" id="blog-schema"></script>
+    
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍃</text></svg>">
     
     <!-- Tailwind CSS (CDN para este projeto) -->
@@ -130,6 +139,126 @@
                             <span class="inline-flex items-center mt-4 text-brand-primary font-semibold text-sm group-hover:translate-x-1 transition-transform"><span data-i18n="blog_read_more">Ler artigo completo</span> <i class="fa-solid fa-arrow-right ml-2 text-xs"></i></span>
                         </div>
                     </a>
+
+                    <!-- Artigo 5 Card -->
+                    <a href="#artigo-5" onclick="showArticle('artigo-5')" class="group bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 block cursor-pointer">
+                        <div class="w-full h-48 bg-gray-100 relative overflow-hidden flex items-center justify-center">
+                            <img src="images/blog/avif.png" alt="AVIF Format" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-brand-dark mb-3 leading-tight group-hover:text-brand-primary transition-colors" data-i18n="blog_card5_title">Artigo 5</h3>
+                            <p class="text-gray-500 text-sm line-clamp-3 leading-relaxed" data-i18n="blog_card5_desc">Descubra o AVIF, o formato de imagem que está a revolucionar a performance web...</p>
+                            <span class="inline-flex items-center mt-4 text-brand-primary font-semibold text-sm group-hover:translate-x-1 transition-transform"><span data-i18n="blog_read_more">Ler artigo completo</span> <i class="fa-solid fa-arrow-right ml-2 text-xs"></i></span>
+                        </div>
+                    </a>
+
+                    <!-- Artigo 6 Card -->
+                    <a href="#artigo-6" onclick="showArticle('artigo-6')" class="group bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 block cursor-pointer">
+                        <div class="w-full h-48 bg-gray-200 relative overflow-hidden flex items-center justify-center">
+                            <img src="images/blog/exif.png" alt="EXIF Privacy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-brand-dark mb-3 leading-tight group-hover:text-brand-primary transition-colors" data-i18n="blog_card6_title">Artigo 6</h3>
+                            <p class="text-gray-500 text-sm line-clamp-3 leading-relaxed" data-i18n="blog_card6_desc">Entenda os riscos dos metadados escondidos nas suas fotos...</p>
+                            <span class="inline-flex items-center mt-4 text-brand-primary font-semibold text-sm group-hover:translate-x-1 transition-transform"><span data-i18n="blog_read_more">Ler artigo completo</span> <i class="fa-solid fa-arrow-right ml-2 text-xs"></i></span>
+                        </div>
+                    </a>
+
+                    <!-- Artigo 7 Card -->
+                    <a href="#artigo-7" onclick="showArticle('artigo-7')" class="group bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 block cursor-pointer">
+                        <div class="w-full h-48 bg-gray-200 relative overflow-hidden flex items-center justify-center">
+                            <img src="images/blog/lossy-lossless.png" alt="Lossy vs Lossless" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-brand-dark mb-3 leading-tight group-hover:text-brand-primary transition-colors" data-i18n="blog_card7_title">Artigo 7</h3>
+                            <p class="text-gray-500 text-sm line-clamp-3 leading-relaxed" data-i18n="blog_card7_desc">Saiba quando utilizar cada tipo de compressão...</p>
+                            <span class="inline-flex items-center mt-4 text-brand-primary font-semibold text-sm group-hover:translate-x-1 transition-transform"><span data-i18n="blog_read_more">Ler artigo completo</span> <i class="fa-solid fa-arrow-right ml-2 text-xs"></i></span>
+                        </div>
+                    </a>
+
+                    <!-- Artigo 8 Card -->
+                    <a href="#artigo-8" onclick="showArticle('artigo-8')" class="group bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 block cursor-pointer">
+                        <div class="w-full h-48 bg-gray-200 relative overflow-hidden flex items-center justify-center">
+                            <img src="images/blog/ecommerce.png" alt="Ecommerce Optimization" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-brand-dark mb-3 leading-tight group-hover:text-brand-primary transition-colors" data-i18n="blog_card8_title">Artigo 8</h3>
+                            <p class="text-gray-500 text-sm line-clamp-3 leading-relaxed" data-i18n="blog_card8_desc">Aprenda a otimizar as fotos dos seus produtos...</p>
+                            <span class="inline-flex items-center mt-4 text-brand-primary font-semibold text-sm group-hover:translate-x-1 transition-transform"><span data-i18n="blog_read_more">Ler artigo completo</span> <i class="fa-solid fa-arrow-right ml-2 text-xs"></i></span>
+                        </div>
+                    </a>
+
+                    <!-- Artigo 9 Card -->
+                    <a href="#artigo-9" onclick="showArticle('artigo-9')" class="group bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 block cursor-pointer">
+                        <div class="w-full h-48 bg-gray-200 relative overflow-hidden flex items-center justify-center">
+                            <img src="images/blog/heic.png" alt="HEIC iPhone" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-brand-dark mb-3 leading-tight group-hover:text-brand-primary transition-colors" data-i18n="blog_card9_title">Artigo 9</h3>
+                            <p class="text-gray-500 text-sm line-clamp-3 leading-relaxed" data-i18n="blog_card9_desc">O formato HEIC é excelente para poupar espaço no iPhone...</p>
+                            <span class="inline-flex items-center mt-4 text-brand-primary font-semibold text-sm group-hover:translate-x-1 transition-transform"><span data-i18n="blog_read_more">Ler artigo completo</span> <i class="fa-solid fa-arrow-right ml-2 text-xs"></i></span>
+                        </div>
+                    </a>
+
+                    <!-- Artigo 10 Card -->
+                    <a href="#artigo-10" onclick="showArticle('artigo-10')" class="group bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 block cursor-pointer">
+                        <div class="w-full h-48 bg-gray-200 relative overflow-hidden flex items-center justify-center">
+                            <img src="images/blog/webp-jpeg.png" alt="WebP vs JPEG" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-brand-dark mb-3 leading-tight group-hover:text-brand-primary transition-colors" data-i18n="blog_card10_title">Artigo 10</h3>
+                            <p class="text-gray-500 text-sm line-clamp-3 leading-relaxed" data-i18n="blog_card10_desc">Confrontamos o formato clássico com o padrão moderno...</p>
+                            <span class="inline-flex items-center mt-4 text-brand-primary font-semibold text-sm group-hover:translate-x-1 transition-transform"><span data-i18n="blog_read_more">Ler artigo completo</span> <i class="fa-solid fa-arrow-right ml-2 text-xs"></i></span>
+                        </div>
+                    </a>
+
+                    <!-- Artigo 11 Card -->
+                    <a href="#artigo-11" onclick="showArticle('artigo-11')" class="group bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 block cursor-pointer">
+                        <div class="w-full h-48 bg-gray-200 relative overflow-hidden flex items-center justify-center">
+                            <img src="images/blog/aspect-ratio.png" alt="Aspect Ratio" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-brand-dark mb-3 leading-tight group-hover:text-brand-primary transition-colors" data-i18n="blog_card11_title">Artigo 11</h3>
+                            <p class="text-gray-500 text-sm line-clamp-3 leading-relaxed" data-i18n="blog_card11_desc">Entenda como as proporções das suas imagens afetam a experiência do utilizador...</p>
+                            <span class="inline-flex items-center mt-4 text-brand-primary font-semibold text-sm group-hover:translate-x-1 transition-transform"><span data-i18n="blog_read_more">Ler artigo completo</span> <i class="fa-solid fa-arrow-right ml-2 text-xs"></i></span>
+                        </div>
+                    </a>
+
+                    <!-- Artigo 12 Card -->
+                    <a href="#artigo-12" onclick="showArticle('artigo-12')" class="group bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 block cursor-pointer">
+                        <div class="w-full h-48 bg-gray-200 relative overflow-hidden flex items-center justify-center">
+                            <img src="images/blog/png-svg.png" alt="PNG vs SVG" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-brand-dark mb-3 leading-tight group-hover:text-brand-primary transition-colors" data-i18n="blog_card12_title">Artigo 12</h3>
+                            <p class="text-gray-500 text-sm line-clamp-3 leading-relaxed" data-i18n="blog_card12_desc">Descubra a diferença entre imagens de píxeis e vetores...</p>
+                            <span class="inline-flex items-center mt-4 text-brand-primary font-semibold text-sm group-hover:translate-x-1 transition-transform"><span data-i18n="blog_read_more">Ler artigo completo</span> <i class="fa-solid fa-arrow-right ml-2 text-xs"></i></span>
+                        </div>
+                    </a>
+
+                    <!-- Artigo 13 Card -->
+                    <a href="#artigo-13" onclick="showArticle('artigo-13')" class="group bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 block cursor-pointer">
+                        <div class="w-full h-48 bg-gray-200 relative overflow-hidden flex items-center justify-center">
+                            <img src="images/blog/lazy-loading.png" alt="Lazy Loading" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-brand-dark mb-3 leading-tight group-hover:text-brand-primary transition-colors" data-i18n="blog_card13_title">Artigo 13</h3>
+                            <p class="text-gray-500 text-sm line-clamp-3 leading-relaxed" data-i18n="blog_card13_desc">Aprenda a técnica de carregamento diferido que acelera o seu site...</p>
+                            <span class="inline-flex items-center mt-4 text-brand-primary font-semibold text-sm group-hover:translate-x-1 transition-transform"><span data-i18n="blog_read_more">Ler artigo completo</span> <i class="fa-solid fa-arrow-right ml-2 text-xs"></i></span>
+                        </div>
+                    </a>
+
+                    <!-- Artigo 14 Card -->
+                    <a href="#artigo-14" onclick="showArticle('artigo-14')" class="group bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 block cursor-pointer">
+                        <div class="w-full h-48 bg-gray-200 relative overflow-hidden flex items-center justify-center">
+                            <img src="images/blog/metadata-seo.png" alt="Metadata SEO" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-brand-dark mb-3 leading-tight group-hover:text-brand-primary transition-colors" data-i18n="blog_card14_title">Artigo 14</h3>
+                            <p class="text-gray-500 text-sm line-clamp-3 leading-relaxed" data-i18n="blog_card14_desc">As imagens não são apenas visuais; elas são dados...</p>
+                            <span class="inline-flex items-center mt-4 text-brand-primary font-semibold text-sm group-hover:translate-x-1 transition-transform"><span data-i18n="blog_read_more">Ler artigo completo</span> <i class="fa-solid fa-arrow-right ml-2 text-xs"></i></span>
+                        </div>
+                    </a>
                 </div>
             </section>
 
@@ -192,19 +321,104 @@
 
                 <!-- Artigo 4 -->
                 <article id="artigo-4" class="article-content hidden bg-white rounded-2xl shadow-sm p-8 md:p-12 border border-gray-100">
-                    <h1 data-i18n="blog_a4_title">Privacidade Online: Porque Deve Remover os Dados EXIF das suas Fotos</h1>
+                    <h1 class="text-3xl md:text-4xl font-black text-brand-dark mb-8 leading-tight" data-i18n="blog_a4_title">Privacidade Online: Porque Deve Remover os Dados EXIF das suas Fotos</h1>
                     <div class="w-full h-64 md:h-96 bg-gray-200 rounded-xl mb-10 flex items-center justify-center relative overflow-hidden border border-gray-100">
-                        <!-- Placeholder Imagem -->
-                        <div class="text-center text-gray-400 relative z-10 flex flex-col items-center">
-                            <i class="fa-solid fa-shield-halved text-6xl mb-4 group-hover:text-brand-primary transition-colors"></i>
-                            <span class="text-sm font-medium" data-i18n="blog_placeholder_a4">Cadeado digital e privacidade de fotos</span>
-                        </div>
-                        <img alt="Remover dados EXIF e proteger privacidade na internet" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" class="absolute inset-0 w-full h-full object-cover opacity-5">
+                        <i class="fa-solid fa-shield-halved text-7xl text-gray-300"></i>
                     </div>
+                    <div class="prose prose-lg prose-brand max-w-none text-gray-600 leading-relaxed">
+                        <p data-i18n="blog_a4_p1"></p>
+                        <p data-i18n="blog_a4_p2"></p>
+                    </div>
+                </article>
 
-                    <p data-i18n="blog_a4_p1">Sempre que tira uma fotografia com o telemóvel, a câmara guarda metadados invisíveis a olho nu. Estes dados, conhecidos como <strong class="text-gray-800">metadados EXIF</strong>, incluem a marca do dispositivo, a hora exata da captura e, mais preocupante ainda, as coordenadas GPS exatas de onde a foto foi tirada. Partilhar estas imagens sem tratamento é um risco de privacidade.</p>
-                    
-                    <p data-i18n="blog_a4_p2">Usar um <strong class="text-gray-800">leitor de dados EXIF</strong> permite-lhe inspecionar o que está escondido nos seus ficheiros. Mais importante ainda é utilizar um <strong class="text-gray-800">removedor de metadados de imagem</strong> antes de partilhar fotografias nas redes sociais ou com clientes. O processo de <strong class="text-gray-800">apagar dados EXIF online</strong> deve ser feito de forma segura. A nossa ferramenta garante que a limpeza de metadados ocorre localmente no seu dispositivo, sem qualquer envio de ficheiros para servidores externos, garantindo 100% de privacidade digital.</p>
+                <!-- Artigo 5 -->
+                <article id="artigo-5" class="article-content hidden bg-white rounded-2xl shadow-sm p-8 md:p-12 border border-gray-100">
+                    <h1 class="text-3xl md:text-4xl font-black text-brand-dark mb-8 leading-tight" data-i18n="blog_a5_title">O que é o formato AVIF e porque é o futuro da Web?</h1>
+                    <div class="w-full h-64 md:h-96 bg-gray-200 rounded-xl mb-10 flex items-center justify-center relative overflow-hidden border border-gray-100">
+                        <img src="images/blog/avif.png" alt="AVIF Format Guide" class="absolute inset-0 w-full h-full object-cover">
+                    </div>
+                    <div class="prose prose-lg prose-brand max-w-none text-gray-600 leading-relaxed" data-i18n="blog_a5_body"></div>
+                </article>
+
+                <!-- Artigo 6 -->
+                <article id="artigo-6" class="article-content hidden bg-white rounded-2xl shadow-sm p-8 md:p-12 border border-gray-100">
+                    <h1 class="text-3xl md:text-4xl font-black text-brand-dark mb-8 leading-tight" data-i18n="blog_a6_title">Como os dados EXIF podem comprometer a sua privacidade online</h1>
+                    <div class="w-full h-64 md:h-96 bg-gray-200 rounded-xl mb-10 flex items-center justify-center relative overflow-hidden border border-gray-100">
+                        <img src="images/blog/exif.png" alt="EXIF Data Privacy" class="absolute inset-0 w-full h-full object-cover">
+                    </div>
+                    <div class="prose prose-lg prose-brand max-w-none text-gray-600 leading-relaxed" data-i18n="blog_a6_body"></div>
+                </article>
+
+                <!-- Artigo 7 -->
+                <article id="artigo-7" class="article-content hidden bg-white rounded-2xl shadow-sm p-8 md:p-12 border border-gray-100">
+                    <h1 class="text-3xl md:text-4xl font-black text-brand-dark mb-8 leading-tight" data-i18n="blog_a7_title">Diferenças reais entre Compressão com Perda (Lossy) vs Sem Perda (Lossless)</h1>
+                    <div class="w-full h-64 md:h-96 bg-gray-200 rounded-xl mb-10 flex items-center justify-center relative overflow-hidden border border-gray-100">
+                        <img src="images/blog/lossy-lossless.png" alt="Compression Types" class="absolute inset-0 w-full h-full object-cover">
+                    </div>
+                    <div class="prose prose-lg prose-brand max-w-none text-gray-600 leading-relaxed" data-i18n="blog_a7_body"></div>
+                </article>
+
+                <!-- Artigo 8 -->
+                <article id="artigo-8" class="article-content hidden bg-white rounded-2xl shadow-sm p-8 md:p-12 border border-gray-100">
+                    <h1 class="text-3xl md:text-4xl font-black text-brand-dark mb-8 leading-tight" data-i18n="blog_a8_title">Otimização de Imagens para Shopify e WooCommerce</h1>
+                    <div class="w-full h-64 md:h-96 bg-gray-200 rounded-xl mb-10 flex items-center justify-center relative overflow-hidden border border-gray-100">
+                        <img src="images/blog/ecommerce.png" alt="Ecommerce Optimization" class="absolute inset-0 w-full h-full object-cover">
+                    </div>
+                    <div class="prose prose-lg prose-brand max-w-none text-gray-600 leading-relaxed" data-i18n="blog_a8_body"></div>
+                </article>
+
+                <!-- Artigo 9 -->
+                <article id="artigo-9" class="article-content hidden bg-white rounded-2xl shadow-sm p-8 md:p-12 border border-gray-100">
+                    <h1 class="text-3xl md:text-4xl font-black text-brand-dark mb-8 leading-tight" data-i18n="blog_a9_title">Porque deve converter as suas fotos de iPhone (HEIC)</h1>
+                    <div class="w-full h-64 md:h-96 bg-gray-200 rounded-xl mb-10 flex items-center justify-center relative overflow-hidden border border-gray-100">
+                        <img src="images/blog/heic.png" alt="HEIC to JPG converter" class="absolute inset-0 w-full h-full object-cover">
+                    </div>
+                    <div class="prose prose-lg prose-brand max-w-none text-gray-600 leading-relaxed" data-i18n="blog_a9_body"></div>
+                </article>
+
+                <!-- Artigo 10 -->
+                <article id="artigo-10" class="article-content hidden bg-white rounded-2xl shadow-sm p-8 md:p-12 border border-gray-100">
+                    <h1 class="text-3xl md:text-4xl font-black text-brand-dark mb-8 leading-tight" data-i18n="blog_a10_title">WebP vs JPEG: Qual escolher para o seu Blog em 2026?</h1>
+                    <div class="w-full h-64 md:h-96 bg-gray-200 rounded-xl mb-10 flex items-center justify-center relative overflow-hidden border border-gray-100">
+                        <img src="images/blog/webp-jpeg.png" alt="WebP vs JPEG Comparison" class="absolute inset-0 w-full h-full object-cover">
+                    </div>
+                    <div class="prose prose-lg prose-brand max-w-none text-gray-600 leading-relaxed" data-i18n="blog_a10_body"></div>
+                </article>
+
+                <!-- Artigo 11 -->
+                <article id="artigo-11" class="article-content hidden bg-white rounded-2xl shadow-sm p-8 md:p-12 border border-gray-100">
+                    <h1 class="text-3xl md:text-4xl font-black text-brand-dark mb-8 leading-tight" data-i18n="blog_a11_title">A importância do rácio de aspeto (Aspect Ratio) no Design Web</h1>
+                    <div class="w-full h-64 md:h-96 bg-gray-200 rounded-xl mb-10 flex items-center justify-center relative overflow-hidden border border-gray-100">
+                        <img src="images/blog/aspect-ratio.png" alt="Aspect Ratio Guide" class="absolute inset-0 w-full h-full object-cover">
+                    </div>
+                    <div class="prose prose-lg prose-brand max-w-none text-gray-600 leading-relaxed" data-i18n="blog_a11_body"></div>
+                </article>
+
+                <!-- Artigo 12 -->
+                <article id="artigo-12" class="article-content hidden bg-white rounded-2xl shadow-sm p-8 md:p-12 border border-gray-100">
+                    <h1 class="text-3xl md:text-4xl font-black text-brand-dark mb-8 leading-tight" data-i18n="blog_a12_title">PNG vs SVG: Quando usar cada formato para logótipos e ícones</h1>
+                    <div class="w-full h-64 md:h-96 bg-gray-200 rounded-xl mb-10 flex items-center justify-center relative overflow-hidden border border-gray-100">
+                        <img src="images/blog/png-svg.png" alt="PNG vs SVG" class="absolute inset-0 w-full h-full object-cover">
+                    </div>
+                    <div class="prose prose-lg prose-brand max-w-none text-gray-600 leading-relaxed" data-i18n="blog_a12_body"></div>
+                </article>
+
+                <!-- Artigo 13 -->
+                <article id="artigo-13" class="article-content hidden bg-white rounded-2xl shadow-sm p-8 md:p-12 border border-gray-100">
+                    <h1 class="text-3xl md:text-4xl font-black text-brand-dark mb-8 leading-tight" data-i18n="blog_a13_title">Como o Lazy Loading de Imagens acelera drasticamente o seu site</h1>
+                    <div class="w-full h-64 md:h-96 bg-gray-200 rounded-xl mb-10 flex items-center justify-center relative overflow-hidden border border-gray-100">
+                        <img src="images/blog/lazy-loading.png" alt="Lazy Loading Images" class="absolute inset-0 w-full h-full object-cover">
+                    </div>
+                    <div class="prose prose-lg prose-brand max-w-none text-gray-600 leading-relaxed" data-i18n="blog_a13_body"></div>
+                </article>
+
+                <!-- Artigo 14 -->
+                <article id="artigo-14" class="article-content hidden bg-white rounded-2xl shadow-sm p-8 md:p-12 border border-gray-100">
+                    <h1 class="text-3xl md:text-4xl font-black text-brand-dark mb-8 leading-tight" data-i18n="blog_a14_title">Metadados de Imagem: O segredo "invisível" do SEO e Performance</h1>
+                    <div class="w-full h-64 md:h-96 bg-gray-200 rounded-xl mb-10 flex items-center justify-center relative overflow-hidden border border-gray-100">
+                        <img src="images/blog/metadata-seo.png" alt="Metadata SEO" class="absolute inset-0 w-full h-full object-cover">
+                    </div>
+                    <div class="prose prose-lg prose-brand max-w-none text-gray-600 leading-relaxed" data-i18n="blog_a14_body"></div>
                 </article>
 
             </section>
@@ -246,31 +460,62 @@
         });
 
         function showArticle(articleId) {
-            document.getElementById('blog-grid').classList.replace('block', 'hidden');
-            document.getElementById('article-view').classList.replace('hidden', 'block');
+            // Hide selection grid
+            const grid = document.getElementById('blog-grid');
+            const view = document.getElementById('article-view');
             
-            // Esconder todos
-            document.querySelectorAll('.article-content').forEach(el => {
-                el.classList.add('hidden');
-                el.classList.remove('block');
-            });
-            
-            // Mostrar o selecionado
-            const target = document.getElementById(articleId);
-            if(target) {
-                target.classList.remove('hidden');
-                target.classList.add('block');
+            if (grid && view) {
+                grid.classList.add('hidden');
+                grid.classList.remove('block');
+                view.classList.remove('hidden');
+                view.classList.add('block');
             }
             
+            // Hide all articles first
+            document.querySelectorAll('.article-content').forEach(art => {
+                art.classList.add('hidden');
+                art.classList.remove('block');
+            });
+            
+            // Show target article
+            const target = document.getElementById(articleId);
+            if (target) {
+                target.classList.remove('hidden');
+                target.classList.add('block');
+                
+                // Update Page Title for SEO
+                const titleEl = target.querySelector('h1[data-i18n]');
+                if (titleEl) {
+                    const titleText = titleEl.textContent;
+                    document.title = titleText + " | ImageOptimizerPro Blog";
+                    
+                    // Update Dynamic Schema
+                    if (typeof updateBlogSchema === 'function') {
+                        updateBlogSchema(articleId);
+                    }
+                }
+            }
+            
+            // Scroll to top
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
         function hideArticle() {
-            // Remove o hash na rodinha do histórico para manter a sanidade SEO em mobile
-            history.pushState("", document.title, window.location.pathname + window.location.search);
+            // Restore default title
+            document.title = "Blog | ImageOptimizerPro - Otimização Profissional de Imagens";
+
+            const grid = document.getElementById('blog-grid');
+            const view = document.getElementById('article-view');
+
+            if (grid && view) {
+                view.classList.add('hidden');
+                view.classList.remove('block');
+                grid.classList.remove('hidden');
+                grid.classList.add('block');
+            }
             
-            document.getElementById('article-view').classList.replace('block', 'hidden');
-            document.getElementById('blog-grid').classList.replace('hidden', 'block');
+            // Clear URL hash
+            history.pushState("", document.title, window.location.pathname + window.location.search);
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     </script>

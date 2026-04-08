@@ -158,10 +158,10 @@ const translations = {
         "cookie_save": "Guardar Preferências",
 
         // E-E-A-T Institutional Pages
-        "about_title": "Sobre Nós",
-        "about_mission_title": "A Nossa Missão",
-        "about_mission_p1": "A nossa missão é simplificar a web. O ImageOptimizerPro nasceu da necessidade de fornecer aos criadores de conteúdo, web designers e utilizadores comuns um conjunto de ferramentas de imagem que fossem rápidas, gratuitas e, acima de tudo, seguras.",
-        "about_mission_p2": "Acreditamos na privacidade digital, e é por isso que desenvolvemos uma plataforma onde todo o processamento de compressão, conversão e limpeza de dados EXIF acontece localmente no seu navegador. Os seus ficheiros nunca tocam nos nossos servidores.",
+        "about_title": "Compromisso e Transparência",
+        "about_mission_title": "Privacidade por Design e a Nossa Origem",
+        "about_mission_p1": "O ImageOptimizerPro não é apenas mais um utilitário de imagem. Este projeto nasceu das mãos de um profissional com vasta experiência no setor de Food & Beverage (F&B) em Albufeira, Algarve. No dinamismo do dia-a-dia empresarial, percebemos que a rapidez e a segurança não são opções — são requisitos fundamentais.",
+        "about_mission_p2": "Farto de ferramentas que exigem uploads lentos para servidores distantes e recolhem dados desnecessários, criámos esta plataforma com base nos princípios da 'Web Limpa'. Aqui, a privacidade é absoluta: 100% do processamento ocorre no seu browser. Os seus ficheiros nunca saem do seu dispositivo. É a nossa palavra, suportada pela tecnologia.",
         "contact_title": "Contactos",
         "contact_desc": "Tem alguma dúvida, sugestão de nova funcionalidade ou precisa de suporte técnico? A nossa equipa está pronta para ajudar. Entre em contacto direto connosco através do e-mail oficial. Tentaremos responder com a maior brevidade possível.",
         "contact_email": "logiclabsstudios@gmail.com",
@@ -202,7 +202,67 @@ const translations = {
         "blog_a4_title": "Privacidade Online: Porque Deve Remover os Dados EXIF das suas Fotos",
         "blog_placeholder_a4": "Cadeado digital e privacidade de fotos",
         "blog_a4_p1": "Sempre que tira uma fotografia com o telemóvel, a câmara guarda metadados invisíveis a olho nu. Estes dados, conhecidos como <strong class=\"text-gray-800\">metadados EXIF</strong>, incluem a marca do dispositivo, a hora exata da captura e, mais preocupante ainda, as coordenadas GPS exatas de onde a foto foi tirada. Partilhar estas imagens sem tratamento é um risco de privacidade.",
-        "blog_a4_p2": "Usar um <strong class=\"text-gray-800\">leitor de dados EXIF</strong> permite-lhe inspecionar o que está escondido nos seus ficheiros. Mais importante ainda é utilizar um <strong class=\"text-gray-800\">removedor de metadados de imagem</strong> antes de partilhar fotografias nas redes sociais ou com clientes. O processo de <strong class=\"text-gray-800\">apagar dados EXIF online</strong> deve ser feito de forma segura. A nossa ferramenta garante que a limpeza de metadados ocorre localmente no seu dispositivo, sem qualquer envio de ficheiros para servidores externos, garantindo 100% de privacidade digital."
+        "blog_a4_p2": "Usar um <strong class=\"text-gray-800\">leitor de dados EXIF</strong> permite-lhe inspecionar o que está escondido nos seus ficheiros. Mais importante ainda é utilizar um <strong class=\"text-gray-800\">removedor de metadados de imagem</strong> antes de partilhar fotografias nas redes sociais ou com clientes. O processo de <strong class=\"text-gray-800\">apagar dados EXIF online</strong> deve ser feito de forma segura. A nossa ferramenta garante que a limpeza de metadados ocorre localmente no seu dispositivo, sem qualquer envio de ficheiros para servidores externos, garantindo 100% de privacidade digital.",
+
+        // Article 5: AVIF
+        "blog_card5_title": "Guia Completo: O que é o formato AVIF e porque é o futuro da Web?",
+        "blog_card5_desc": "Descubra o AVIF, o formato de imagem que está a revolucionar a performance web com compressão superior ao WebP e JPEG.",
+        "blog_a5_title": "Guia Completo: O que é o formato AVIF e porque é o futuro da Web?",
+        "blog_a5_body": "<h2>O que é o AVIF?</h2><p>O AVIF (AV1 Image File Format) é um formato de ficheiro de imagem moderno que utiliza a tecnologia de compressão do codec de vídeo AV1. Desenvolvido pela Alliance for Open Media, o AVIF foi criado para oferecer uma eficiência de compressão significativamente superior aos formatos tradicionais como JPEG, PNG e até mesmo o WebP.</p><h2>Porque é que o AVIF é considerado o futuro?</h2><p>A web moderna exige velocidade. Com o aumento do tráfego em dispositivos móveis e a importância dos Core Web Vitals no SEO, o tamanho das imagens tornou-se um dos maiores obstáculos à performance. O AVIF resolve este problema ao permitir reduções de tamanho que podem chegar aos 50% em comparação com o JPEG, mantendo uma qualidade visual impressionante.</p><h3>Vantagens Técnicas do AVIF</h3><p>1. <strong>Compressão Superior:</strong> Oferece ficheiros menores sem sacrificar o detalhe.<br/>2. <strong>Suporte para HDR e Wide Color Gamut:</strong> Ideal para fotografias de alta qualidade.<br/>3. <strong>Transparência e Animação:</strong> Tal como o PNG e o GIF, o AVIF suporta canais alfa e sequências de imagens.<br/>4. <strong>Resistência a Artefactos:</strong> Em baixas taxas de bits, o AVIF mantém a suavidade das cores onde o JPEG costuma apresentar \"blocos\" de compressão.</p><h2>Compatibilidade e Adoção</h2><p>Atualmente, a maioria dos navegadores modernos (Chrome, Firefox, Safari e Edge) já suporta o formato AVIF. No entanto, é sempre recomendada uma estratégia de \"fallback\" usando o elemento &lt;picture&gt; em HTML para servir WebP ou JPEG a navegadores mais antigos.</p>",
+
+        // Article 6: EXIF Privacy
+        "blog_card6_title": "Como os dados EXIF podem comprometer a sua localização e privacidade online",
+        "blog_card6_desc": "Entenda os riscos dos metadados escondidos nas suas fotos e como proteger a sua privacidade ao partilhar imagens na rede.",
+        "blog_a6_title": "Como os dados EXIF podem comprometer a sua localização e privacidade online",
+        "blog_a6_body": "<h2>O que são Dados EXIF?</h2><p>Cada vez que tira uma fotografia com o seu smartphone ou câmara digital, é criado um conjunto de metadados invisíveis conhecido como EXIF. Estes dados guardam informações sobre a captura, que podem ser extremamente úteis para fotógrafos, mas perigosos para a privacidade do utilizador comum.</p><h2>O Risco da Geolocalização</h2><p>O dado mais sensível presente num ficheiro EXIF são as coordenadas GPS. Se a sua câmara tiver a localização ativa, a foto guarda o local exato (rua, número e cidade) onde foi tirada. Ao publicar essa foto numa rede social ou fórum que não limpe automaticamente esses dados, qualquer pessoa pode descobrir onde vive ou onde se encontra no momento.</p><h2>Outras Informações Reveladoras</h2><p>Além do GPS, os dados EXIF revelam a marca e modelo do seu telemóvel, a data e hora exata da captura, definições técnicas como ISO e o nome do software de edição utilizado.</p><h2>Como Proteger a sua Privacidade</h2><p>Para garantir que não está a partilhar mais do que pretende, deve utilizar ferramentas de limpeza de metadados. O ImageOptimizerPro permite-lhe inspecionar e remover estes dados de forma segura, garantindo que a sua privacidade permanece intacta antes de qualquer partilha pública.</p>",
+
+        // Article 7: Lossy vs Lossless
+        "blog_card7_title": "Diferenças reais entre Compressão com Perda (Lossy) vs Sem Perda (Lossless)",
+        "blog_card7_desc": "Saiba quando utilizar cada tipo de compressão para otimizar as suas imagens sem comprometer o impacto visual do seu site.",
+        "blog_a7_title": "Diferenças reais entre Compressão com Perda (Lossy) vs Sem Perda (Lossless)",
+        "blog_a7_body": "<h2>A Ciência da Compressão</h2><p>Comprimir uma imagem significa reduzir a quantidade de dados necessária para a representar. No entanto, existem dois caminhos fundamentais: a compressão com perda (Lossy) e a compressão sem perda (Lossless).</p><h2>Compressão com Perda (Lossy)</h2><p>Este método remove permanentemente bits de informação redundante ou quase impercetível ao olho humano. O objetivo é reduzir drasticamente o tamanho do ficheiro.</p><p>Vantagem: Ficheiros minúsculos, ideais para a web. Exemplo: Formato JPEG.</p><h2>Compressão sem Perda (Lossless)</h2><p>Neste caso, os dados são reorganizados de forma mais eficiente sem nunca serem eliminados. Ao descompactar o ficheiro, a imagem é um clone exato da original.</p><p>Vantagem: Qualidade perfeita e preservação total de detalhes. Exemplo: Formato PNG e TIFF.</p><h2>Qual escolher?</h2><p>Para a maioria dos sites, a <strong>compressão Lossy</strong> é a vencedora, pois a velocidade de carregamento é prioritária. Reserve a <strong>compressão Lossless</strong> para ficheiros que requerem edição futura ou logos com transparência.</p>",
+
+        // Article 8: Shopify/Woo
+        "blog_card8_title": "Otimização de Imagens para Shopify e WooCommerce: Guia para aumentar vendas",
+        "blog_card8_desc": "Aprenda a otimizar as fotos dos seus produtos para acelerar a sua loja online e converter mais visitantes em clientes.",
+        "blog_a8_title": "Otimização de Imagens para Shopify e WooCommerce: Guia para aumentar vendas",
+        "blog_a8_body": "<h2>A Relação entre Velocidade e Vendas</h2><p>No e-commerce, cada segundo conta. Estudos demonstram que um atraso de apenas um segundo no carregamento pode reduzir as conversões em 7%. Numa loja Shopify ou WooCommerce, as imagens são os ficheiros mais pesados.</p><h2>O Que é a Otimização para E-commerce?</h2><p>A otimização envolve: Redimensionamento correto (não use 3000px se o tema exibe 800px), compressão inteligente e nomes de ficheiro SEO (ex: sapato-nike-azul.jpg).</p><h2>Formatos Recomendados</h2><p>Embora o JPEG seja o padrão, o <strong>WebP</strong> está a tornar-se a escolha obrigatória para lojas modernas, oferecendo alta qualidade com tamanho reduzido.</p><h2>Ferramentas Gratuitas</h2><p>Pode otimizar as suas coleções gratuitamente utilizando o ImageOptimizerPro. Comprima as suas fotos antes do upload para garantir que a experiência de navegação do seu cliente seja fluida e imediata.</p>",
+
+        // Article 9: HEIC
+        "blog_card9_title": "Porque deve converter as suas fotos de iPhone (HEIC) antes de as partilhar no PC",
+        "blog_card9_desc": "O formato HEIC é excelente para poupar espaço no iPhone, mas pode ser um pesadelo de compatibilidade no Windows e na Web.",
+        "blog_a9_title": "Porque deve converter as suas fotos de iPhone (HEIC) antes de as partilhar no PC",
+        "blog_a9_body": "<h2>O que é o Formato HEIC?</h2><p>Desde o iOS 11, a Apple utiliza o formato HEIC como padrão. Ele permite guardar imagens com metade do tamanho mantendo a mesma qualidade, mas o seu maior problema é a compatibilidade.</p><h2>O Problema da Partilha</h2><p>Muitos sites e PCs antigos não suportam o formato .heic de forma nativa. O Windows muitas vezes requer extensões pagas para visualizar estas imagens.</p><h2>Porque Converter para JPEG ou WebP?</h2><p>Converter garante: Compatibilidade universal em qualquer navegador, facilidade de edição e prontidão para a Web (o HEIC não é suportado nativamente pelos browsers).</p><h2>Como Converter de Forma Simples</h2><p>Utilize o conversor local do ImageOptimizerPro para transformar as suas fotos HEIC em formatos universais como JPEG ou WebP, mantendo a qualidade original e a sua total privacidade.</p>",
+
+        // Article 10: WebP vs JPEG
+        "blog_card10_title": "WebP vs JPEG: Qual escolher para o seu Blog em 2026?",
+        "blog_card10_desc": "Confrontamos o formato clássico com o padrão moderno. Descubra qual garante o melhor ranking e performance.",
+        "blog_a10_title": "WebP vs JPEG: Qual escolher para o seu Blog em 2026?",
+        "blog_a10_body": "<h2>A Batalha dos Formatos</h2><p>Em 2026, a escolha entre WebP e JPEG é uma decisão estratégica de SEO. O JPEG continua a ser o formato mais compatível, mas o WebP oferece reduções de peso de 25% a 35%.</p><h2>Vantagens do WebP</h2><p>O WebP suporta transparência (como o PNG) e acelera o carregamento drasticamente. Além disso, o Google recomenda explicitamente o uso de formatos de nova geração.</p><h2>O Veredito para 2026</h2><p>Para qualquer blog que pretenda crescer, o <strong>WebP é o vencedor indiscutível</strong>. A compatibilidade é agora superior a 97% dos utilizadores globais. Use o ImageOptimizerPro para converter a sua biblioteca e estar pronto para o futuro.</p>",
+
+        // Article 11: Aspect Ratio
+        "blog_card11_title": "A importância do rácio de aspeto (Aspect Ratio) no Design Responsivo",
+        "blog_card11_desc": "Entenda como as proporções das suas imagens afetam a experiência do utilizador e evite layouts quebrados.",
+        "blog_a11_title": "A importância do rácio de aspeto (Aspect Ratio) no Design Responsivo",
+        "blog_a11_body": "<h2>O que é o Rácio de Aspeto?</h2><p>É a relação proporcional entre a largura e a altura (ex: 16:9 ou 4:3). Manter a consistência é fundamental para evitar que o site pareça desorganizado em diferentes ecrãs.</p><h2>Layout Shift e SEO</h2><p>Sem rácios fixos, ocorre o \"Cumulative Layout Shift\" (CLS), onde o conteúdo salta enquanto as imagens carregam. Isto prejudica o ranking no Google.</p><h2>Rácios Comuns</h2><p>16:9 para banners, 4:3 para produtos, 1:1 para perfis sociais e 9:16 para Stories/TikTok.</p><h2>Como Otimizar</h2><p>Utilize o redimensionador do ImageOptimizerPro para recortar as suas imagens para rácios específicos antes de as otimizar, garantindo um design alinhado em qualquer dispositivo.</p>",
+
+        // Article 12: PNG vs SVG
+        "blog_card12_title": "PNG vs SVG: Quando usar cada formato para logótipos e ícones",
+        "blog_card12_desc": "Descubra a diferença entre imagens de píxeis e vetores para manter a nitidez da sua marca em qualquer resolução.",
+        "blog_a12_title": "PNG vs SVG: Quando usar cada formato para logótipos e ícones",
+        "blog_a12_body": "<h2>Píxeis vs Vetores</h2><p>O PNG é um formato raster (composto por píxeis), enquanto o SVG é vetorial (composto por equações matemáticas).</p><h2>O Poder do SVG</h2><p>O SVG pode ser ampliado infinitamente sem perder nitidez, sendo ideal para ícones e logótipos simples. Além disso, o seu tamanho de ficheiro é minúsculo.</p><h2>Quando Usar PNG?</h2><p>Use PNG para designs complexos com texturas ou sombras que o SVG não consiga representar bem. Suporta transparência total e é universalmente aceite.</p><h2>Dica Técnica</h2><p>Sempre que possível, use SVG para ícones de interface. Para logótipos complexos em PNG, passe-os pelo ImageOptimizerPro para garantir o melhor equilíbrio entre peso e nitidez.</p>",
+
+        // Article 13: Lazy Loading
+        "blog_card13_title": "Lazy Loading: Como carregar imagens de forma inteligente para melhorar o LCP",
+        "blog_card13_desc": "Aprenda a técnica de carregamento diferido que acelera o seu site e melhora a pontuação nos Core Web Vitals.",
+        "blog_a13_title": "Lazy Loading: Como carregar imagens de forma inteligente para melhorar o LCP",
+        "blog_a13_body": "<h2>O que é o Lazy Loading?</h2><p>É uma técnica que atrasa o carregamento de imagens no fundo da página até que o utilizador role até elas. Isso liberta largura de banda para o conteúdo inicial.</p><h2>O Impacto no LCP</h2><p>O Largest Contentful Paint (LCP) mede quando o conteúdo principal fica visível. O Lazy Loading evita que o navegador perca tempo a carregar 50 imagens invisíveis, acelerando a percepção de velocidade.</p><h2>Como Implementar</h2><p>Use o atributo loading=\"lazy\" em browsers modernos. Evite usá-lo na \"Hero Image\" do topo, que deve carregar imediatamente com prioridade alta.</p>",
+
+        // Article 14: Alt Text & Metadata
+        "blog_card14_title": "O impacto do Alt Text e Metadados de Imagem no Ranking do Google",
+        "blog_card14_desc": "As imagens não são apenas visuais; elas são dados. Aprenda a usar o texto alternativo para dominar o Google Imagens.",
+        "blog_a14_title": "O impacto do Alt Text e Metadados de Imagem no Ranking do Google",
+        "blog_a14_body": "<h2>O que é o Alt Text?</h2><p>É o atributo HTML que descreve a imagem para acessibilidade e SEO. Ajuda os robôs do Google a \"lerem\" o conteúdo visual.</p><h2>Boas Práticas</h2><p>Seja descritivo e natural. Evite encher de palavras-chave. Ex: Use \"Par de sapatos Nike azuis em fundo branco\" em vez de apenas \"sapatos baratos\".</p><h2>Metadados Úteis</h2><p>Renomeie os ficheiros antes do upload. Um nome como \"guia-seo-2026.jpg\" é muito mais valioso que \"IMG_001.jpg\".</p><h2>Conclusão</h2><p>A otimização completa envolve performance, contexto (Alt Text) e privacidade (limpeza de dados sensíveis). Use o ImageOptimizerPro para dominar estes três pilares.</p>"
     },
     en: {
         "nav_how": "How it Works",
@@ -363,10 +423,10 @@ const translations = {
         "cookie_save": "Save Preferences",
 
         // E-E-A-T Institutional Pages
-        "about_title": "About Us",
-        "about_mission_title": "Our Mission",
-        "about_mission_p1": "Our mission is to simplify the web. ImageOptimizerPro was born from the need to provide content creators, web designers, and everyday users with a suite of image tools that are fast, free, and above all, secure.",
-        "about_mission_p2": "We believe in digital privacy, which is why we developed a platform where all compression, conversion, and EXIF metadata cleaning happens locally within your browser. Your files never touch our servers.",
+        "about_title": "Commitment and Transparency",
+        "about_mission_title": "Privacy by Design and Our Roots",
+        "about_mission_p1": "ImageOptimizerPro isn't just another image utility. This project was born from the hands of a professional with extensive experience in the Food & Beverage (F&B) sector in Albufeira, Portugal. In the fast-paced world of business, we understand that speed and security aren't options — they are fundamental requirements.",
+        "about_mission_p2": "Fed up with tools that require slow uploads to distant servers and collect unnecessary data, we built this platform based on 'Clean Web' principles. Here, privacy is absolute: 100% of the processing happens in your browser. Your files never leave your device. This is our commitment, backed by technology.",
         "contact_title": "Contact Us",
         "contact_desc": "Do you have any questions, feature suggestions, or need technical support? Our team is ready to help. Reach out to us directly via our official email. We will try to respond as soon as possible.",
         "contact_email": "logiclabsstudios@gmail.com",
@@ -407,7 +467,67 @@ const translations = {
         "blog_a4_title": "Online Privacy: Why You Should Remove EXIF Data From Your Photos",
         "blog_placeholder_a4": "Digital Padlock and Photo Privacy",
         "blog_a4_p1": "Whenever you snap a picture with your phone, the camera saves invisible metadata. These details, known as <strong class=\"text-gray-800\">EXIF metadata</strong>, include the hardware brand, exact capture time, and more concerning: the precise GPS coordinates of where the picture was taken. Sharing these images untreated is a massive privacy risk.",
-        "blog_a4_p2": "Using an <strong class=\"text-gray-800\">EXIF data reader</strong> lets you inspect what is hidden inside your files. Moreover, heavily utilizing an <strong class=\"text-gray-800\">image metadata remover</strong> prior to sharing photos to social media or with clients is critical. The process to <strong class=\"text-gray-800\">erase EXIF data online</strong> should be done securely. Our tool guarantees that the metadata scraping occurs locally on your device without sending any files to external servers, ensuring 100% digital privacy."
+        "blog_a4_p2": "Using an <strong class=\"text-gray-800\">EXIF data reader</strong> lets you inspect what is hidden inside your files. Moreover, heavily utilizing an <strong class=\"text-gray-800\">image metadata remover</strong> prior to sharing photos to social media or with clients is critical. The process to <strong class=\"text-gray-800\">erase EXIF data online</strong> should be done securely. Our tool guarantees that the metadata scraping occurs locally on your device without sending any files to external servers, ensuring 100% digital privacy.",
+
+        // Article 5: AVIF
+        "blog_card5_title": "Complete Guide: What is AVIF and Why is it the Future of the Web?",
+        "blog_card5_desc": "Discover AVIF, the image format revolutionizing web performance with compression superior to WebP and JPEG.",
+        "blog_a5_title": "Complete Guide: What is AVIF and Why is it the Future of the Web?",
+        "blog_a5_body": "<h2>What is AVIF?</h2><p>AVIF (AV1 Image File Format) is a modern image file format that utilizes the compression technology of the AV1 video codec. Developed by the Alliance for Open Media, AVIF was created to offer significantly higher compression efficiency than traditional formats like JPEG, PNG, and even WebP.</p><h2>Why is AVIF considered the future?</h2><p>The modern web demands speed. With the rise of mobile traffic and the importance of <strong class=\"text-gray-800\">Core Web Vitals in SEO</strong>, image size has become one of the biggest bottlenecks for performance. AVIF solves this problem by allowing size reductions of up to 50% compared to JPEG while maintaining impressive visual quality.</p><h3>Technical Advantages of AVIF</h3><p>1. <strong>Superior Compression:</strong> Offers smaller files without sacrificing detail.<br/>2. <strong>HDR and Wide Color Gamut Support:</strong> Ideal for high-quality photography.<br/>3. <strong>Transparency and Animation:</strong> Like PNG and GIF, AVIF supports alpha channels and image sequences.<br/>4. <strong>Artifact Resistance:</strong> At low bitrates, AVIF maintains color smoothness where JPEG typically shows compression blocks.</p><h2>Compatibility and Adoption</h2><p>Currently, most modern browsers (Chrome, Firefox, Safari, and Edge) already support the AVIF format. However, an <strong class=\"text-gray-800\">image optimization strategy</strong> using the HTML &lt;picture&gt; element is always recommended to serve WebP or JPEG to older browsers.</p>",
+
+        // Article 6: EXIF Privacy
+        "blog_card6_title": "How EXIF Data Can Compromise Your Location and Online Privacy",
+        "blog_card6_desc": "Understand the risks of hidden metadata in your photos and how to protect your privacy when sharing images online.",
+        "blog_a6_title": "How EXIF Data Can Compromise Your Location and Online Privacy",
+        "blog_a6_body": "<h2>What are EXIF Data?</h2><p>Every time you take a photo with your smartphone or digital camera, a set of invisible metadata known as <strong class=\"text-gray-800\">EXIF (Exchangeable Image File Format)</strong> is created. This data stores information about the capture, which can be extremely useful for photographers but dangerous for the average user's privacy.</p><h2>The Risk of Geolocation</h2><p>The most sensitive data in an EXIF file are the GPS coordinates. If your camera has location enabled, the photo stores the exact spot (street, number and city) where it was taken. When publishing that photo on a social network or forum that doesn't automatically clean this data, anyone can find out where you live or where you are at the moment.</p><h2>Other Revealing Information</h2><p>In addition to GPS, EXIF data reveals the make and model of your phone, the exact date and time of the capture, technical settings like ISO, and the name of the editing software used.</p><h2>How to Protect Your Privacy</h2><p>To ensure you aren't sharing more than intended, you should use <strong class=\"text-gray-800\">metadata cleaning tools</strong>. ImageOptimizerPro allows you to inspect and remove this data safely, ensuring your privacy remains intact before any public sharing.</p>",
+
+        // Article 7: Lossy vs Lossless
+        "blog_card7_title": "Real Differences Between Lossy vs. Lossless Compression",
+        "blog_card7_desc": "Learn when to use each type of compression to optimize your images without compromising your website's visual impact.",
+        "blog_a7_title": "Real Differences Between Lossy vs. Lossless Compression",
+        "blog_a7_body": "<h2>The Science of Compression</h2><p>Compressing an image means reducing the amount of data needed to represent it. However, there are two fundamental paths to achieve this goal: <strong class=\"text-gray-800\">lossy compression</strong> and <strong class=\"text-gray-800\">lossless compression</strong>.</p><h2>Lossy Compression</h2><p>This method permanently removes bits of redundant information or details almost imperceptible to the human eye. The goal is to drastically reduce file size.</p><p><strong class=\"text-gray-800\">Advantage:</strong> Tiny files, ideal for the web. Example: JPEG format.</p><h2>Lossless Compression</h2><p>In this case, data is rearranged more efficiently without ever being deleted. When decompressing the file, the image is an exact clone of the original.</p><p><strong class=\"text-gray-800\">Advantage:</strong> Perfect quality and total preservation of detail. Example: PNG and TIFF formats.</p><h2>Which to Choose?</h2><p>For most websites, <strong>Lossy compression</strong> is the winner, as <strong class=\"text-gray-800\">page speed</strong> is a priority and quality loss is often invisible. Reserve <strong>Lossless compression</strong> for files that require future editing or logos with transparency.</p>",
+
+        // Article 8: Shopify/Woo
+        "blog_card8_title": "Image Optimization for Shopify and WooCommerce: Guide to Increasing Sales",
+        "blog_card8_desc": "Learn how to optimize your product photos to speed up your online store and convert more visitors into customers.",
+        "blog_a8_title": "Image Optimization for Shopify and WooCommerce: Guide to Increasing Sales",
+        "blog_a8_body": "<h2>The Relationship Between Speed and Sales</h2><p>In e-commerce, every second counts. Studies show that just a one-second delay in page load can reduce conversions by 7%. In a <strong class=\"text-gray-800\">Shopify or WooCommerce store</strong>, product images are generally the heaviest files. Optimizing them is the shortest path to a faster, more profitable store.</p><h2>What is E-commerce Optimization?</h2><p>Complete optimization involves: <strong class=\"text-gray-800\">Correct Resizing</strong> (don't use 3000px if the theme only displays 800px), smart compression and <strong class=\"text-gray-800\">SEO-friendly filenames</strong> (e.g. blue-nike-shoe.jpg).</p><h2>Recommended Formats</h2><p>While JPEG is the standard, <strong>WebP</strong> is becoming the must-have choice for modern stores. It offers the same quality as JPEG but at a significantly smaller size, which is crucial for customers shopping via mobile.</p><h2>Free Tools and Automation</h2><p>You can optimize your collections for free using ImageOptimizerPro. Compress your photos before uploading to ensure your customer's browsing experience is fluid and immediate.</p>",
+
+        // Article 9: HEIC
+        "blog_card9_title": "Why You Should Convert Your iPhone Photos (HEIC) Before Sharing on PC",
+        "blog_card9_desc": "The HEIC format is great for saving space on your iPhone, but it can be a compatibility nightmare on Windows and the Web.",
+        "blog_a9_title": "Why You Should Convert Your iPhone Photos (HEIC) Before Sharing on PC",
+        "blog_a9_body": "<h2>What is the HEIC Format?</h2><p>Since iOS 11, Apple has used the <strong class=\"text-gray-800\">HEIC (High Efficiency Image Format)</strong> as the standard for photos. It allows images to be saved at half the size while maintaining the same quality, but its greatest strength is also its greatest problem: compatibility.</p><h2>The Sharing Problem</h2><p>Many sites and older Windows PCs do not support the .heic format natively. Windows often requires specific (and sometimes paid) extensions to view these images natively.</p><h2>Why Convert to JPEG or WebP?</h2><p>Converting ensure: <strong class=\"text-gray-800\">Universal compatibility</strong> on any device or browser, ease of editing, and web readiness (HEIC is not natively supported by browsers for display).</p><h2>How to Convert Easily</h2><p>Use the local converter of ImageOptimizerPro to transform your <strong class=\"text-gray-800\">iPhone HEIC photos</strong> into universal formats like JPEG or WebP, maintaining original quality and your total privacy.</p>",
+
+        // Article 10: WebP vs JPEG
+        "blog_card10_title": "WebP vs. JPEG: Which to Choose for Your Blog in 2026?",
+        "blog_card10_desc": "We pit the classic format against the modern standard. Discover which guarantees the best ranking and performance.",
+        "blog_a10_title": "WebP vs. JPEG: Which to Choose for Your Blog in 2026?",
+        "blog_a10_body": "<h2>The Battle of Formats</h2><p>In 2026, the choice between <strong class=\"text-gray-800\">WebP vs JPEG</strong> is no longer just a matter of preference but a strategic SEO decision. While JPEG remains the most compatible format on the planet, WebP offers file size reductions of 25% to 35%.</p><h2>Advantages of WebP</h2><p>WebP supports transparency (like PNG) and speeds up page loading drastically. Moreover, <strong class=\"text-gray-800\">Google explicitly recommends</strong> using next-gen formats like WebP for better Core Web Vitals scores.</p><h2>The Verdict for 2026</h2><p>For any blog that wants to grow, <strong>WebP is the indisputable winner</strong>. Compatibility is now almost total (over 97% of global users). Use ImageOptimizerPro to convert your library and be future-ready.</p>",
+
+        // Article 11: Aspect Ratio
+        "blog_card11_title": "The Importance of Aspect Ratio in Responsive Design",
+        "blog_card11_desc": "Understand how your image proportions affect user experience and avoid broken layouts on mobile devices.",
+        "blog_a11_title": "The Importance of Aspect Ratio in Responsive Design",
+        "blog_a11_body": "<h2>What is Aspect Ratio?</h2><p>It is the proportional relationship between width and height (ex: 16:9 or 4:3). Maintaining consistency is vital to prevent your site from looking cluttered on different screens.</p><h2>Layout Shift and SEO</h2><p>Without fixed ratios, <strong class=\"text-gray-800\">Cumulative Layout Shift (CLS)</strong> occurs—where content \"jumps\" as images load. This is a negative metric for Google search rankings.</p><h2>Common Ratios</h2><p>16:9 for hero banners, 4:3 for product photos, 1:1 for social profiles, and 9:16 for Stories/TikTok.</p><h2>How to Optimize Proportions</h2><p>Use the <strong class=\"text-gray-800\">ImageOptimizerPro resizer</strong> to crop your images to specific ratios before optimizing them, ensuring a clean and professional design on any device.</p>",
+
+        // Article 12: PNG vs SVG
+        "blog_card12_title": "PNG vs. SVG: When to Use Each Format for Logos and Icons",
+        "blog_card12_desc": "Discover the difference between pixel images and vectors to maintain your brand's sharpness at any resolution.",
+        "blog_a12_title": "PNG vs. SVG: When to Use Each Format for Logos and Icons",
+        "blog_a12_body": "<h2>Pixels vs. Vectors</h2><p>The main difference lies in how the image is built. PNG is a <strong class=\"text-gray-800\">raster format</strong> (composed of pixels), while SVG is a <strong class=\"text-gray-800\">vector format</strong> (composed of mathematical equations).</p><h2>The Power of SVG</h2><p>SVG can be scaled infinitely without losing sharpness, making it ideal for icons and simple logos. Moreover, its file size is often tiny compared to bitmaps.</p><h2>When to Use PNG?</h2><p>Use PNG for complex designs with textures, gradients, or shadows that SVG cannot represent well. It supports full transparency and is universally accepted.</p><h2>Technical Tip</h2><p>Whenever possible, use <strong class=\"text-gray-800\">SVG for interface icons</strong>. For complex logos in PNG, run them through ImageOptimizerPro to ensure the best balance between weight and sharpness.</p>",
+
+        // Article 13: Lazy Loading
+        "blog_card13_title": "Lazy Loading: How to Smartly Load Images to Improve LCP",
+        "blog_card13_desc": "Learn the deferred loading technique that speeds up your site and improves your Google Core Web Vitals score.",
+        "blog_a13_title": "Lazy Loading: How to Smartly Load Images to Improve LCP",
+        "blog_a13_body": "<h2>What is Lazy Loading?</h2><p>It is an optimization technique that delays the loading of images at the bottom of the page until the user scrolls to them. This frees up bandwidth for initial content.</p><h2>The Impact on LCP</h2><p><strong class=\"text-gray-800\">Largest Contentful Paint (LCP)</strong> measures when the main content becomes visible. Lazy Loading prevents the browser from wasting time loading 50 invisible images, speeding up perceived speed.</p><h2>How to Implement Correctly</h2><p>Use the <strong class=\"text-gray-800\">loading=\"lazy\"</strong> attribute in modern browsers. Avoid using it on your \"Hero Image\" at the top, which should load immediately with high priority.</p>",
+
+        // Article 14: Alt Text & Metadata
+        "blog_card14_title": "The Impact of Alt Text and Image Metadata on Google Ranking",
+        "blog_card14_desc": "Images aren't just visual; they are data. Learn how to use alt text to dominate Google Images.",
+        "blog_a14_title": "The Impact of Alt Text and Image Metadata on Google Ranking",
+        "blog_a14_body": "<h2>What is Alt Text?</h2><p>It is an HTML attribute that describes an image for accessibility and SEO. It helps Google's robots \"read\" the visual content of your site.</p><h2>Best Practices</h2><p>Be descriptive and natural. <strong class=\"text-gray-800\">Avoid keyword stuffing</strong>. Example: Use \"Pair of blue Nike running shoes on a white background\" instead of just \"cheap shoes\".</p><h2>Useful Metadata</h2><p>Always rename your files before uploading. A filename like <strong class=\"text-gray-800\">seo-optimization-guide-2026.jpg</strong> is far more valuable to Google than a generic \"IMG_001.jpg\".</p><h2>Conclusion</h2><p>Complete image optimization involves performance, context (Alt Text), and privacy (cleaning sensitive data). Use ImageOptimizerPro to master these three pillars.</p>"
     }
 };
 
@@ -508,24 +628,65 @@ function injectHreflangTags() {
     document.querySelectorAll('link[rel="alternate"][hreflang]').forEach(el => el.remove());
     
     const baseUrl = "https://imageoptimizerpro.pt/";
+    const path = window.location.pathname.split('/').pop() || "index.html";
+    const fullBaseUrl = baseUrl + (path === "index.html" ? "" : path);
     
     const ptLink = document.createElement('link');
     ptLink.rel = 'alternate';
     ptLink.hreflang = 'pt';
-    ptLink.href = baseUrl;
+    ptLink.href = fullBaseUrl;
     document.head.appendChild(ptLink);
 
     const enLink = document.createElement('link');
     enLink.rel = 'alternate';
     enLink.hreflang = 'en';
-    enLink.href = baseUrl; // Depending on routing this might be /en, but since it's client-side, canonical is the base
+    enLink.href = fullBaseUrl + "?lang=en";
     document.head.appendChild(enLink);
 
     const xDefault = document.createElement('link');
     xDefault.rel = 'alternate';
     xDefault.hreflang = 'x-default';
-    xDefault.href = baseUrl;
+    xDefault.href = fullBaseUrl;
     document.head.appendChild(xDefault);
+}
+
+function updateBlogSchema(articleId) {
+    const schemaEl = document.getElementById('blog-schema');
+    if (!schemaEl) return;
+
+    const currentLang = localStorage.getItem('preferredLanguage') || 'pt';
+    const artNum = articleId.replace('artigo-', '');
+    
+    const title = translations[currentLang][`blog_card${artNum}_title`] || translations[currentLang][`blog_a${artNum}_title`];
+    const description = translations[currentLang][`blog_card${artNum}_desc`] || "Artigo sobre otimização de imagem e performance web.";
+    
+    const schemaData = {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": title,
+      "description": description,
+      "image": "https://imageoptimizerpro.pt/images/blog-placeholder.jpg",
+      "author": {
+        "@type": "Organization",
+        "name": "ImageOptimizerPro"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "ImageOptimizerPro",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://imageoptimizerpro.pt/icon-192.png"
+        }
+      },
+      "datePublished": "2026-04-08",
+      "dateModified": "2026-04-08",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": `https://imageoptimizerpro.pt/blog.html#${articleId}`
+      }
+    };
+
+    schemaEl.textContent = JSON.stringify(schemaData, null, 2);
 }
 
 // Automatically load on HTML parsing
