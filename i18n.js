@@ -1,5 +1,7 @@
 const translations = {
     pt: {
+        "nav_home": "In\u00edcio",
+        "nav_blog": "Blog",
         "nav_how": "Como Funciona",
         "nav_tools": "Ferramentas",
         "nav_faq": "FAQ",
@@ -14,7 +16,7 @@ const translations = {
         "tab_utils": "Utilitários",
 
         // E-E-A-T Pages Navigation
-        "nav_about": "Sobre Nós",
+        "nav_about": "Sobre N\u00f3s",
         "nav_contact": "Contactos",
 
         // Compressor Panel
@@ -273,9 +275,23 @@ const translations = {
         "blog_card17_title": "Design Profissional: Como extrair paletas de cores de fotos com perfeição",
         "blog_card17_desc": "Um guia para designers e web developers descobrirem e integrarem harmoniosamente as cores dominantes das suas fotografias na interface do site.",
         "blog_a17_title": "Design Profissional para Leigos: Como extrair paletas de cores",
-        "blog_a17_body": "<h2>A Harmonia Invisível</h2><p>Um dos maiores segredos de um site esteticamente apelativo é a harmonia de cores entre as fotografias exibidas e a própria cor do site (fundos, botões, e tipografia). Extrair uma cor de uma fotografia-chave e aplicá-la ao código do seu layout eleva imediatamente o sentimento de coesão do conteúdo.</p><h2>Sair do Advinho</h2><p>No passado, isto implicava abrir softwares complexos e procurar as cores manualmente, resultando num fluxo de trabalho lento. O erro habitua é usar tonalidades ligeiramente desencontradas (um vermelho puro de botão sobre uma foto com um vermelho mais gasto).</p><h2>Da Foto ao Hexadecimal Instantâneo</h2><p>Com a nova ferramenta de <strong>Extrator de Cores</strong> do ImageOptimizerPro, pode introduzir qualquer imagem na interface e, no próprio momento (via navegador), descobrir a paleta completa e primária da mesma. Terá automaticamente disponíveis os códigos HEX e RGB para aplicar no CSS, Tailwind e ferramentas de design sem interrupção de produtividade.</p>"
+        "blog_a17_body": "<h2>A Harmonia Invisível</h2><p>Um dos maiores segredos de um site esteticamente apelativo é a harmonia de cores entre as fotografias exibidas e a própria cor do site (fundos, botões, e tipografia). Extrair uma cor de uma fotografia-chave e aplicá-la ao código do seu layout eleva imediatamente o sentimento de coesão do conteúdo.</p><h2>Sair do Advinho</h2><p>No passado, isto implicava abrir softwares complexos e procurar as cores manualmente, resultando num fluxo de trabalho lento. O erro habitua é usar tonalidades ligeiramente desencontradas (um vermelho puro de botão sobre uma foto com um vermelho mais gasto).</p><h2>Da Foto ao Hexadecimal Instantâneo</h2><p>Com a nova ferramenta de <strong>Extrator de Cores</strong> do ImageOptimizerPro, pode introduzir qualquer imagem na interface e, no próprio momento (via navegador), descobrir a paleta completa e primária da mesma. Terá automaticamente disponíveis os códigos HEX e RGB para aplicar no CSS, Tailwind e ferramentas de design sem interrupção de produtividade.</p>",
+
+        // Article 18: Core Web Vitals
+        "blog_card18_title": "Guia Core Web Vitals: Como a Otimização de Imagens Resolve o LCP e o CLS",
+        "blog_card18_desc": "Saiba como o LCP e o CLS afetam o SEO do seu site. Aprenda a otimizar imagens com formatos modernos (WebP/AVIF) para melhorar a performance e subir no Google.",
+        "blog_a18_title": "Guia Core Web Vitals: Como a Otimização de Imagens Resolve o LCP e o CLS",
+        "blog_a18_body": "<h2 class=\"text-2xl font-bold text-gray-900 mb-4\">O que é o LCP (Largest Contentful Paint) e porque importa?</h2><p class=\"text-lg text-gray-700 leading-relaxed mb-6\">O LCP mede o tempo que o navegador demora a renderizar o maior elemento visível no ecrã (viewport). Geralmente, este elemento é uma imagem de destaque (hero image), um banner promocional ou um bloco de texto de grandes dimensões. Para o Google, um LCP ideal deve ocorrer em <strong>2.5 segundos ou menos</strong>.</p><p class=\"text-lg text-gray-700 leading-relaxed mb-6\">As imagens são as principais culpadas por um LCP lento. Quando uma imagem não está otimizada, o ficheiro é demasiado pesado para a ligação do utilizador, forçando o navegador a esperar preciosos segundos antes de mostrar o conteúdo principal. Isto resulta numa alta taxa de rejeição (bounce rate), pois o utilizador moderno raramente espera por uma página que parece \"congelada\".</p><h3 class=\"text-xl font-semibold text-gray-900 mb-3\">Como a Otimização de Imagens Resolve o LCP</h3><ul class=\"list-disc list-inside text-lg text-gray-700 mb-6\"><li class=\"mb-2\"><strong>Compressão Inteligente:</strong> Reduzir o peso do ficheiro sem perda visível de qualidade. Utilizar ferramentas como o ImageOptimizerPro permite poupar até 80% do espaço.</li><li class=\"mb-2\"><strong>Formatos de Próxima Geração:</strong> O uso de WebP e AVIF é crucial. Estes formatos oferecem uma relação compressão/qualidade muito superior aos antigos JPEG e PNG.</li><li class=\"mb-2\"><strong>Fetch Priority:</strong> Atribuir o atributo <code>fetchpriority=\"high\"</code> à imagem que constitui o LCP informa o navegador de que deve descarregar esse recurso antes de outros menos críticos.</li></ul><h2 class=\"text-2xl font-bold text-gray-900 mb-4\">CLS: O Inimigo da Estabilidade Visual</h2><p class=\"text-lg text-gray-700 leading-relaxed mb-6\">Já alguma vez tentou clicar num botão e, de repente, o conteúdo moveu-se e acabou por clicar num anúncio ou num link errado? Isso é o <strong>Cumulative Layout Shift (CLS)</strong> em ação. Esta métrica mede a soma total de todas as mudanças inesperadas de layout durante a vida de uma página. Um CLS aceitável deve ser inferior a <strong>0.1</strong>.</p><p class=\"text-lg text-gray-700 leading-relaxed mb-6\">No contexto das imagens, o CLS ocorre quase sempre quando o navegador não sabe quanto espaço deve reservar para uma imagem que ainda está a ser descarregada. Quando a imagem finalmente aparece, o texto que estava por baixo é \"empurrado\" para baixo, criando uma experiência frustrante.</p><h3 class=\"text-xl font-semibold text-gray-900 mb-3\">A Importância de Definir Dimensões</h3><p class=\"text-lg text-gray-700 leading-relaxed mb-6\">A solução é simples, mas frequentemente esquecida: <strong>definir sempre atributos de largura (width) e altura (height)</strong> nas tags <code>&lt;img&gt;</code>. Ao fornecer estas dimensões, o navegador reserva o espaço exato (aspect ratio) antes mesmo de o ficheiro chegar, garantindo que o resto da página permanece estático.</p><h2 class=\"text-2xl font-bold text-gray-900 mb-4\">Formatos Modernos: WebP vs AVIF</h2><p class=\"text-lg text-gray-700 leading-relaxed mb-6\">Para alcançar pontuações perfeitas nos Core Web Vitals, o uso de formatos modernos não é opcional. </p><ul class=\"list-disc list-inside text-lg text-gray-700 mb-6\"><li class=\"mb-2\"><strong>WebP:</strong> Criado pelo Google, oferece suporte a transparência e animação com ficheiros significativamente menores que o JPEG.</li><li class=\"mb-2\"><strong>AVIF:</strong> O novo standard da indústria. Consegue compressões ainda mais agressivas que o WebP, mantendo uma fidelidade de cor impressionante, especialmente em gradientes e áreas de alto detalhe.</li></ul><h2 class=\"text-2xl font-bold text-gray-900 mb-4\">Conclusão: Um Site Rápido é um Site Rentável</h2><p class=\"text-lg text-gray-700 leading-relaxed mb-6\">Otimizar imagens para resolver o LCP e o CLS não é apenas uma tarefa técnica; é uma estratégia de negócio. Sites mais rápidos retêm mais utilizadores, têm melhores taxas de conversão e são mais bem vistos pelos algoritmos de pesquisa. Ao utilizar ferramentas de otimização locais, como o <strong>ImageOptimizerPro</strong>, garante que a sua infraestrutura técnica está pronta para os desafios do SEO moderno.</p>",
+ 
+         // Article 19: Ecommerce Optimization
+         "blog_card19_title": "Vinted, OLX e Amazon: Como Otimizar as tuas Fotos para Vender Mais Rápido",
+         "blog_card19_desc": "Guia prático para vendedores: aprenda a reduzir o peso das fotos, converter HEIC para JPEG e usar o rácio 1:1 para evitar erros de upload e vender mais.",
+         "blog_a19_title": "Vinted, OLX e Amazon: Como Otimizar as tuas Fotos para Vender Mais Rápido",
+         "blog_a19_body": "<h2 class=\"text-2xl font-bold text-gray-900 mb-4\">A Psicologia do Clique em Apps de Revenda</h2><p class=\"text-lg text-gray-700 leading-relaxed mb-6\">Em plataformas como a Vinted ou o OLX, a sua foto é a sua montra. Antes de lerem a descrição ou o preço, os potenciais compradores decidem em milésimos de segundo se clicam no seu artigo. Uma imagem baça, mal enquadrada ou que demora a carregar na app do telemóvel afasta instantaneamente as vendas.</p><h2 class=\"text-2xl font-bold text-gray-900 mb-4\">O Erro \"Ficheiro demasiado grande\"</h2><p class=\"text-lg text-gray-700 leading-relaxed mb-6\">Muitos vendedores enfrentam a frustração de tentar carregar fotos de alta resolução e receber um erro de upload. Isto acontece porque as apps móveis têm limites de tamanho (frequentemente 5MB ou 10MB). Se tirou a foto com um smartphone moderno, o ficheiro pode ser demasiado pesado.</p><h3 class=\"text-xl font-semibold text-gray-900 mb-3\">Como resolver com o ImageOptimizerPro</h3><p class=\"text-lg text-gray-700 leading-relaxed mb-6\">Ao usar o nosso <strong>Compressor</strong>, consegue reduzir o peso de uma foto de 8MB para menos de 1MB sem que o comprador note qualquer perda de nitidez no tecido ou nos detalhes do produto. Isto garante um upload imediato e uma navegação fluida para quem está a ver o seu anúncio.</p><h2 class=\"text-2xl font-bold text-gray-900 mb-4\">De HEIC para JPEG: O Grande Truque para utilizadores de iPhone</h2><p class=\"text-lg text-gray-700 leading-relaxed mb-6\">Os iPhones gravam fotos no formato HEIC por padrão. Embora poupe espaço no telemóvel, o HEIC é frequentemente incompatível com os sistemas de upload de sites de e-commerce ou resulta em erros de processamento. A solução é converter para JPEG, o formato universal.</p><p class=\"text-lg text-gray-700 leading-relaxed mb-6\">Com o nosso <strong>Conversor</strong>, pode selecionar todas as suas fotos HEIC e transformá-las em JPEGs otimizados num único passo, tornando-as prontas para serem enviadas para a Amazon, eBay ou qualquer marketplace local.</p><h2 class=\"text-2xl font-bold text-gray-900 mb-4\">O Segredo do Quadrado: Porque é que o Rácio 1:1 Vende Mais</h2><p class=\"text-lg text-gray-700 leading-relaxed mb-6\">A maioria das apps de revenda utiliza feeds em grelha quadrada. Se tirar fotos verticais (16:9), a app irá cortar as extremidades, escondendo partes importantes do produto (como a sola de um sapato ou a gola de uma camisa). O segredo dos power-sellers é usar o nosso <strong>Recortador</strong> para definir o rácio 1:1 antes do upload, garantindo que o produto ocupa todo o espaço visual disponível.</p><h2 class=\"text-2xl font-bold text-gray-900 mb-4\">Passo-a-passo para o Sucesso</h2><ul class=\"list-decimal list-inside text-lg text-gray-700 mb-6\"><li class=\"mb-2\">Tire as fotos com luz natural.</li><li class=\"mb-2\">Aceda ao ImageOptimizerPro no seu navegador móvel.</li><li class=\"mb-2\">Redimensione para 1080x1080 (1:1).</li><li class=\"mb-2\">Comprima para garantir que o ficheiro tem menos de 2MB.</li><li class=\"mb-2\">Faça o upload e veja as mensagens de interessados a chegar!</li></ul>"
     },
     en: {
+        "nav_home": "Home",
+        "nav_blog": "Blog",
         "nav_how": "How it Works",
         "nav_tools": "Tools",
         "nav_faq": "FAQ",
@@ -549,7 +565,19 @@ const translations = {
         "blog_card17_title": "Professional Design: Perfectly Extracting Color Palettes from Photos",
         "blog_card17_desc": "A guide for designers and web developers to discover and harmoniously integrate the dominant colors from their photographs into their website interfaces.",
         "blog_a17_title": "Professional Design for Beginners: How to Extract Color Palettes",
-        "blog_a17_body": "<h2>The Invisible Harmony</h2><p>One of the biggest secrets to an aesthetically pleasing website is the color harmony between the displayed photographs and the website's own colors (backgrounds, buttons, and typography). Extracting a color from a key photograph and applying it to your layout code immediately elevates the feeling of content cohesion.</p><h2>Stop Guessing</h2><p>In the past, this meant opening complex software and searching for colors manually, resulting in a slow workflow. A common mistake is using slightly mismatched shades (a pure red button over a photo with a more faded red).</p><h2>From Photo to Instant Hexadecimal</h2><p>With ImageOptimizerPro's new <strong>Color Extractor</strong> tool, you can drop any image into the interface and instantly view the complete primary palette. You will automatically get the HEX and RGB codes to apply to your CSS, Tailwind, or design tools without any productivity interruption.</p>"
+        "blog_a17_body": "<h2>The Invisible Harmony</h2><p>One of the biggest secrets to an aesthetically pleasing website is the color harmony between the displayed photographs and the website's own colors (backgrounds, buttons, and typography). Extracting a color from a key photograph and applying it to your layout code immediately elevates the feeling of content cohesion.</p><h2>Stop Guessing</h2><p>In the past, this meant opening complex software and searching for colors manually, resulting in a slow workflow. A common mistake is using slightly mismatched shades (a pure red button over a photo with a more faded red).</p><h2>From Photo to Instant Hexadecimal</h2><p>With ImageOptimizerPro's new <strong>Color Extractor</strong> tool, you can drop any image into the interface and instantly view the complete primary palette. You will automatically get the HEX and RGB codes to apply to your CSS, Tailwind, or design tools without any productivity interruption.</p>",
+
+        // Article 18: Core Web Vitals
+        "blog_card18_title": "Core Web Vitals Guide: Solving LCP and CLS with Image Optimization",
+        "blog_card18_desc": "Understand how LCP and CLS impact your site's SEO. Learn to optimize images with modern formats (WebP/AVIF) to boost performance and climb Google rankings.",
+        "blog_a18_title": "Core Web Vitals Guide: Solving LCP and CLS with Image Optimization",
+        "blog_a18_body": "<h2 class=\"text-2xl font-bold text-gray-900 mb-4\">What is LCP (Largest Contentful Paint) and why does it matter?</h2><p class=\"text-lg text-gray-700 leading-relaxed mb-6\">LCP measures the time it takes for the browser to render the largest visible element in the viewport. Usually, this element is a hero image, a promotional banner, or a large text block. For Google, an ideal LCP should occur in <strong>2.5 seconds or less</strong>.</p><p class=\"text-lg text-gray-700 leading-relaxed mb-6\">Images are the primary culprits for a slow LCP. When an image is not optimized, the file is too heavy for the user's connection, forcing the browser to wait precious seconds before displaying the main content. This results in a high bounce rate, as modern users rarely wait for a page that seems \"frozen.\"</p><h3 class=\"text-xl font-semibold text-gray-900 mb-3\">How Image Optimization Solves LCP</h3><ul class=\"list-disc list-inside text-lg text-gray-700 mb-6\"><li class=\"mb-2\"><strong>Smart Compression:</strong> Reduce file weight without visible quality loss. Using tools like ImageOptimizerPro can save up to 80% of space.</li><li class=\"mb-2\"><strong>Next-Gen Formats:</strong> Using WebP and AVIF is crucial. These formats offer a much better compression/quality ratio than old JPEG and PNG.</li><li class=\"mb-2\"><strong>Fetch Priority:</strong> Adding the <code>fetchpriority=\"high\"</code> attribute to the LCP image tells the browser to download this resource before other less critical ones.</li></ul><h2 class=\"text-2xl font-bold text-gray-900 mb-4\">CLS: The Enemy of Visual Stability</h2><p class=\"text-lg text-gray-700 leading-relaxed mb-6\">Have you ever tried to click a button and, suddenly, the content moved and you ended up clicking an ad or a wrong link? That is <strong>Cumulative Layout Shift (CLS)</strong> in action. This metric measures the total sum of all unexpected layout shifts during a page's life. An acceptable CLS should be less than <strong>0.1</strong>.</p><p class=\"text-lg text-gray-700 leading-relaxed mb-6\">In the context of images, CLS almost always occurs when the browser doesn't know how much space to reserve for an image that is still downloading. When the image finally appears, the text below is \"pushed\" down, creating a frustrating experience.</p><h3 class=\"text-xl font-semibold text-gray-900 mb-3\">The Importance of Defining Dimensions</h3><p class=\"text-lg text-gray-700 leading-relaxed mb-6\">The solution is simple but often overlooked: <strong>always set width and height attributes</strong> on <code>&lt;img&gt;</code> tags. By providing these dimensions, the browser reserves the exact space (aspect ratio) before the file even arrives, ensuring the rest of the page remains static.</p><h2 class=\"text-2xl font-bold text-gray-900 mb-4\">Modern Formats: WebP vs AVIF</h2><p class=\"text-lg text-gray-700 leading-relaxed mb-6\">To achieve perfect Core Web Vitals scores, using modern formats is not optional. </p><ul class=\"list-disc list-inside text-lg text-gray-700 mb-6\"><li class=\"mb-2\"><strong>WebP:</strong> Created by Google, it supports transparency and animation with significantly smaller files than JPEG.</li><li class=\"mb-2\"><strong>AVIF:</strong> The new industry standard. It achieves even more aggressive compression than WebP while maintaining impressive color fidelity, especially in gradients and high-detail areas.</li></ul><h2 class=\"text-2xl font-bold text-gray-900 mb-4\">Conclusion: A Fast Site is a Profitable Site</h2><p class=\"text-lg text-gray-700 leading-relaxed mb-6\">Optimizing images to solve LCP and CLS is not just a technical task; it's a business strategy. Faster sites retain more users, have better conversion rates, and are better perceived by search algorithms. By using local optimization tools like <strong>ImageOptimizerPro</strong>, you ensure your technical infrastructure is ready for modern SEO challenges.</p>",
+ 
+         // Article 19: Ecommerce Optimization
+         "blog_card19_title": "Vinted, OLX, and Amazon: Optimizing Product Photos for Faster Sales",
+         "blog_card19_desc": "Sellers guide: learn how to reduce photo size, convert HEIC to JPEG, and use the 1:1 aspect ratio to avoid upload errors and sell faster.",
+         "blog_a19_title": "Vinted, OLX, and Amazon: Optimizing Product Photos for Faster Sales",
+         "blog_a19_body": "<h2 class=\"text-2xl font-bold text-gray-900 mb-4\">The Psychology behind the Click on Resale Apps</h2><p class=\"text-lg text-gray-700 leading-relaxed mb-6\">On platforms like Vinted or OLX, your photo is your storefront. Before reading the description or checking the price, potential buyers decide in milliseconds whether to click on your item. A dull, poorly framed image that takes too long to load on their mobile app instantly drives away sales.</p><h2 class=\"text-2xl font-bold text-gray-900 mb-4\">Common Problem: \"File too large\" Upload Error</h2><p class=\"text-lg text-gray-700 leading-relaxed mb-6\">Many sellers face the frustration of trying to upload high-resolution photos and receiving an error. This happens because mobile apps have file size limits (often 5MB or 10MB). If you took the photo with a modern smartphone, the file might simply be too heavy for the server to process.</p><h3 class=\"text-xl font-semibold text-gray-900 mb-3\">How to Solve it with ImageOptimizerPro</h3><p class=\"text-lg text-gray-700 leading-relaxed mb-6\">By using our <strong>Compressor</strong>, you can reduce a photo's weight from 8MB to under 1MB without missing any fabric texture or product detail. This ensures an immediate upload and a smooth experience for anyone browsing your listing.</p><h2 class=\"text-2xl font-bold text-gray-900 mb-4\">From HEIC to JPEG: The Trick for iPhone Users</h2><p class=\"text-lg text-gray-700 leading-relaxed mb-6\">iPhones save photos in HEIC format by default. While this saves space on your device, HEIC is often incompatible with ecommerce platforms, resulting in processing errors. The solution is converting to JPEG, the universal standard.</p><p class=\"text-lg text-gray-700 leading-relaxed mb-6\">With our <strong>Converter</strong>, you can select all your HEIC photos and transform them into optimized JPEGs in a single step, making them ready for Amazon, eBay, or any local marketplace.</p><h2 class=\"text-2xl font-bold text-gray-900 mb-4\">The 1:1 Aspect Ratio: Why Square Sells Better</h2><p class=\"text-lg text-gray-700 leading-relaxed mb-6\">Most resale apps use a square grid feed. If you take vertical photos (16:9), the app will crop the edges, potentially hiding important features like a shoe's sole or a shirt's collar. Power sellers use our <strong>Cropper</strong> to set a 1:1 ratio before uploading, ensuring the product fills the entire visual space available.</p><h2 class=\"text-2xl font-bold text-gray-900 mb-4\">Step-by-Step for Success</h2><ul class=\"list-decimal list-inside text-lg text-gray-700 mb-6\"><li class=\"mb-2\">Take photos in natural light.</li><li class=\"mb-2\">Access ImageOptimizerPro on your mobile browser.</li><li class=\"mb-2\">Resize to 1080x1080 (1:1).</li><li class=\"mb-2\">Compress to ensure the file is under 2MB.</li><li class=\"mb-2\">Upload and watch the messages from buyers roll in!</li></ul>"
     }
 };
 
@@ -608,13 +636,33 @@ function applyTranslations() {
             }
         }
     });
+
+    // Handle Article Meta if on a standalone article page
+    const articleIdEl = document.querySelector('meta[name="article-id"]');
+    if (articleIdEl) {
+        let id = articleIdEl.getAttribute('content');
+        if (id) {
+            id = id.replace('artigo-', '');
+            const titleKey = `blog_a${id}_title`;
+            const descKey = `blog_card${id}_desc`;
+            
+            if (dict[titleKey]) {
+                document.title = `${dict[titleKey]} | ImageOptimizerPro Blog`;
+            }
+            
+            if (dict[descKey]) {
+                const metaDesc = document.querySelector('meta[name="description"]');
+                if (metaDesc) metaDesc.setAttribute('content', dict[descKey]);
+            }
+        }
+    }
 }
 
 function updateLangSelectorUI() {
-    const btnPt = document.getElementById('lang-btn-pt');
-    const btnEn = document.getElementById('lang-btn-en');
-    const mobBtnPt = document.getElementById('mobile-lang-pt');
-    const mobBtnEn = document.getElementById('mobile-lang-en');
+    const btnPt = document.getElementById('lang-pt') || document.getElementById('lang-btn-pt');
+    const btnEn = document.getElementById('lang-en') || document.getElementById('lang-btn-en');
+    const mobBtnPt = document.getElementById('mobile-lang-pt') || document.getElementById('mobile-lang-btn-pt');
+    const mobBtnEn = document.getElementById('mobile-lang-en') || document.getElementById('mobile-lang-btn-en');
 
     if (currentLang === 'pt') {
         if (btnPt && btnEn) {
@@ -623,12 +671,6 @@ function updateLangSelectorUI() {
             btnEn.classList.add('text-gray-500');
             btnEn.classList.remove('font-bold', 'text-brand-primary');
         }
-        if (mobBtnPt && mobBtnEn) {
-            mobBtnPt.classList.add('font-bold', 'text-brand-primary');
-            mobBtnPt.classList.remove('text-gray-500');
-            mobBtnEn.classList.add('text-gray-500');
-            mobBtnEn.classList.remove('font-bold', 'text-brand-primary');
-        }
     } else {
         if (btnPt && btnEn) {
             btnEn.classList.add('font-bold', 'text-brand-primary');
@@ -636,7 +678,15 @@ function updateLangSelectorUI() {
             btnPt.classList.add('text-gray-500');
             btnPt.classList.remove('font-bold', 'text-brand-primary');
         }
-        if (mobBtnPt && mobBtnEn) {
+    }
+
+    if (mobBtnPt && mobBtnEn) {
+        if (currentLang === 'pt') {
+            mobBtnPt.classList.add('font-bold', 'text-brand-primary');
+            mobBtnPt.classList.remove('text-gray-500');
+            mobBtnEn.classList.add('text-gray-500');
+            mobBtnEn.classList.remove('font-bold', 'text-brand-primary');
+        } else {
             mobBtnEn.classList.add('font-bold', 'text-brand-primary');
             mobBtnEn.classList.remove('text-gray-500');
             mobBtnPt.classList.add('text-gray-500');
@@ -650,8 +700,13 @@ function injectHreflangTags() {
     document.querySelectorAll('link[rel="alternate"][hreflang]').forEach(el => el.remove());
     
     const baseUrl = "https://imageoptimizerpro.pt/";
-    const path = window.location.pathname.split('/').pop() || "index.html";
-    const fullBaseUrl = baseUrl + (path === "index.html" ? "" : path);
+    let path = window.location.pathname;
+    
+    // Normalize path for link generation
+    if (path.endsWith('index.html')) path = path.replace('index.html', '');
+    if (!path.endsWith('/') && path !== "") path += '/';
+    
+    const fullBaseUrl = baseUrl + (path === "/" ? "" : path.substring(1));
     
     const ptLink = document.createElement('link');
     ptLink.rel = 'alternate';
@@ -676,18 +731,42 @@ function updateBlogSchema(articleId) {
     const schemaEl = document.getElementById('blog-schema');
     if (!schemaEl) return;
 
-    const currentLang = localStorage.getItem('preferredLanguage') || 'pt';
     const artNum = articleId.replace('artigo-', '');
     
-    const title = translations[currentLang][`blog_card${artNum}_title`] || translations[currentLang][`blog_a${artNum}_title`];
-    const description = translations[currentLang][`blog_card${artNum}_desc`] || "Artigo sobre otimização de imagem e performance web.";
+    const title = translations[currentLang][`blog_a${artNum}_title`];
+    const description = translations[currentLang][`blog_card${artNum}_desc`];
     
+    const slugs = {
+        1: "compressao-imagens-seo-velocidade",
+        2: "melhor-formato-imagem-jpeg-png-webp-avif",
+        3: "guia-redimensionar-imagens-redes-sociais",
+        4: "remover-dados-exif",
+        5: "guia-formato-avif-futuro-web",
+        6: "exif-privacidade-localizacao",
+        7: "compressao-lossy-vs-lossless",
+        8: "otimizacao-imagens-shopify-woocommerce",
+        9: "converter-heic-iphone-windows",
+        10: "webp-vs-jpeg-blog-2026",
+        11: "importancia-aspect-ratio-design-responsivo",
+        12: "png-vs-svg-logos-icones",
+        13: "lazy-loading-imagens-lcp",
+        14: "alt-text-metadados-ranking-google",
+        15: "core-web-vitals-lcp-otimizacao-imagens",
+        16: "guia-tamanhos-imagens-redes-sociais-2026",
+        17: "extrair-paleta-cores-fotos-design",
+        18: "guia-core-web-vitals",
+        19: "otimizar-fotos-vinted-olx"
+    };
+
+    const slug = slugs[artNum];
+    const url = `https://imageoptimizerpro.pt/blog/${slug}/`;
+
     const schemaData = {
       "@context": "https://schema.org",
       "@type": "BlogPosting",
       "headline": title,
       "description": description,
-      "image": "https://imageoptimizerpro.pt/images/blog-placeholder.jpg",
+      "image": "https://imageoptimizerpro.pt/images/blog-og-image.png",
       "author": {
         "@type": "Organization",
         "name": "ImageOptimizerPro"
@@ -697,15 +776,16 @@ function updateBlogSchema(articleId) {
         "name": "ImageOptimizerPro",
         "logo": {
           "@type": "ImageObject",
-          "url": "https://imageoptimizerpro.pt/icon-192.png"
+          "url": "https://imageoptimizerpro.pt/logo.png"
         }
       },
       "datePublished": "2026-04-08",
-      "dateModified": "2026-04-08",
+      "dateModified": "2026-04-15",
       "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": `https://imageoptimizerpro.pt/blog.html#${articleId}`
-      }
+        "@id": url
+      },
+      "inLanguage": currentLang === 'en' ? 'en-US' : 'pt-PT'
     };
 
     schemaEl.textContent = JSON.stringify(schemaData, null, 2);

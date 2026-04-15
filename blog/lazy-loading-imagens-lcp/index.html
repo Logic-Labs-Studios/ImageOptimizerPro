@@ -1,0 +1,121 @@
+﻿<!DOCTYPE html>
+<html lang="pt-PT" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#10B981">
+    
+    <meta name="article-id" content="artigo-13">
+    
+    <title>ImageOptimizerPro Blog</title>
+    <!-- Preconnect & Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <meta name="description" content="Artigo sobre otimização de imagem e performance web.">
+    
+    <link rel="canonical" href="https://imageoptimizerpro.pt/blog/lazy-loading-imagens-lcp/" />
+    <script type="application/ld+json" id="blog-schema"></script>
+    
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>ðŸƒ</text></svg>">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel='stylesheet' href='../../css/style.css'>
+</head>
+<body class="bg-gray-50 font-['Outfit']">
+        <!-- Header (Dynamic) -->
+    <header class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
+        <nav class="container mx-auto px-4 h-20 flex items-center justify-between">
+            <a href="../../" class="flex items-center gap-2 group">
+                <div class="w-10 h-10 bg-emerald-500 rounded-xl flex items-center justify-center group-hover:rotate-12 transition-transform shadow-lg shadow-emerald-200">
+                    <i class="fas fa-leaf text-white text-xl"></i>
+                </div>
+                <span class="text-xl font-bold text-gray-900 tracking-tight">ImageOptimizer<span class="text-emerald-500">Pro</span></span>
+            </a>
+
+            <div class="hidden md:flex items-center gap-8">
+                <a href="../../" data-i18n="nav_home" class="text-gray-600 hover:text-emerald-600 font-medium transition-colors">In&iacute;cio</a>
+                <a href="../../blog" data-i18n="nav_blog" class="text-emerald-600 font-semibold">Blog</a>
+                <div class="flex items-center gap-2 bg-gray-50 p-1 rounded-lg border border-gray-100">
+                    <button onclick="changeLanguage('pt')" id="btn-pt" class="px-3 py-1 rounded-md text-sm font-medium transition-all">PT</button>
+                    <button onclick="changeLanguage('en')" id="btn-en" class="px-3 py-1 rounded-md text-sm font-medium transition-all">EN</button>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main class="pt-32 pb-20">
+        <article class="container mx-auto px-4 max-w-4xl">
+            <!-- Breadcrumbs -->
+            <nav class="flex items-center gap-2 text-sm text-gray-500 mb-8 overflow-x-auto whitespace-nowrap">
+                <a href="../../" data-i18n="nav_home" class="hover:text-emerald-600">In&iacute;cio</a>
+                <i class="fas fa-chevron-right text-[10px]"></i>
+                <a href="../../blog" data-i18n="nav_blog" class="hover:text-emerald-600">Blog</a>
+                <i class="fas fa-chevron-right text-[10px]"></i>
+                <span data-i18n="blog_a13_title" class="text-gray-900 font-medium whitespace-normal">...</span>
+            </nav>
+
+            <!-- Article Header -->
+            <header class="mb-12">
+                <h1 data-i18n="blog_a13_title" class="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+                    ...
+                </h1>
+                
+                <div class="flex items-center gap-6 text-gray-500 text-sm">
+                    <span class="flex items-center gap-2"><i class="far fa-calendar"></i> 14 Abr, 2026</span>
+                    <span class="flex items-center gap-2"><i class="far fa-clock"></i> 5 min read</span>
+                    <span class="flex items-center gap-2"><i class="far fa-user"></i> Editorial Team</span>
+                </div>
+            </header>
+
+            <!-- Banner Image -->
+            <div class="rounded-3xl overflow-hidden shadow-2xl mb-12 aspect-[16/9] relative group">
+                <img src="../../images/blog/lazy-loading.png" alt="ImageOptimizerPro Blog" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+            </div>
+
+            <!-- Content Area -->
+            <div id="article-content" data-i18n="blog_a13_body" class="prose prose-emerald lg:prose-xl max-w-none">
+                <!-- Content injected by i18n.js -->
+            </div>
+
+            <!-- Newsletter Box -->
+            <div class="mt-20 p-8 md:p-12 bg-emerald-900 rounded-[2rem] text-white relative overflow-hidden">
+                <div class="relative z-10 max-w-2xl">
+                    <h3 class="text-3xl font-bold mb-4">Queres mais dicas de venda?</h3>
+                    <p class="text-emerald-100 text-lg mb-8">Subscreve a nossa newsletter e recebe guias exclusivos para dominar as vendas online e otimiza&ccedil;&atilde;o de imagem.</p>
+                    <form class="flex flex-col sm:flex-row gap-4">
+                        <input type="email" placeholder="O teu melhor e-mail" class="flex-1 px-6 py-4 rounded-xl bg-white/10 border border-white/20 focus:outline-none focus:ring-2 focus:ring-emerald-400 placeholder:text-emerald-200">
+                        <button class="px-8 py-4 bg-white text-emerald-900 font-bold rounded-xl hover:bg-emerald-50 transition-colors shadow-lg shadow-black/20">Subscrever</button>
+                    </form>
+                </div>
+                <i class="fas fa-envelope absolute -right-10 -bottom-10 text-[15rem] text-white/5 -rotate-12"></i>
+            </div>
+        </article>
+    </main>
+        <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-12 border-t border-gray-800">
+        <div class="container mx-auto px-4 text-center">
+            <p class="mb-4">&copy; 2026 ImageOptimizerPro. Todos os direitos reservados.</p>
+            <div class="flex justify-center gap-6">
+                <a href="../../" class="hover:text-white transition-colors">Ferramentas</a>
+                <a href="../../blog" class="hover:text-white transition-colors">Blog</a>
+            </div>
+        </div>
+    </footer>    <!-- Scripts -->
+    <script src="../../i18n.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Apply translations on load
+            if (typeof applyTranslations === 'function') {
+                // 1. Initialize translation
+                applyTranslations();
+                
+                // 2. Generate Schema.org structured data
+                updateBlogSchema('artigo-13');
+            }
+        });
+    </script>
+</body>
+</html>
+
+
