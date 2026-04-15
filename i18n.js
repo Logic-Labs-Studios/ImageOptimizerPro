@@ -791,5 +791,8 @@ function updateBlogSchema(articleId) {
     schemaEl.textContent = JSON.stringify(schemaData, null, 2);
 }
 
-// Automatically load on HTML parsing
-document.addEventListener('DOMContentLoaded', initI18n);
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initI18n);
+} else {
+    initI18n();
+}
