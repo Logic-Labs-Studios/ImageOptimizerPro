@@ -814,6 +814,9 @@ function updateBlogSchema(articleId) {
     schemaEl.textContent = JSON.stringify(schemaData, null, 2);
 }
 
+// Compatibility Alias (Required for existing blog pages)
+window.changeLanguage = setLanguage;
+
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initI18n);
 } else {

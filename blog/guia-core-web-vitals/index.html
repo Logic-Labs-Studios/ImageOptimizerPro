@@ -1,4 +1,4 @@
-Ôªø<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-PT" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
@@ -12,12 +12,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <meta name="description" content="Artigo sobre otimiza√ß√£o de imagem e performance web.">
+    <meta name="description" content="Artigo sobre otimizaÁ„o de imagem e performance web.">
     
     <link rel="canonical" href="https://imageoptimizerpro.pt/blog/guia-core-web-vitals/" />
     <script type="application/ld+json" id="blog-schema"></script>
     
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>üçÉ</text></svg>">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>??</text></svg>">
     <script src="https://cdn.tailwindcss.com"></script>    <!-- Scripts -->
     <script src="../../i18n.js"></script>
     <script>
@@ -60,8 +60,8 @@
                 <a href="../../" data-i18n="nav_home" class="text-gray-600 hover:text-emerald-600 font-medium transition-colors">In&iacute;cio</a>
                 <a href="../../blog" data-i18n="nav_blog" class="text-emerald-600 font-semibold">Blog</a>
                 <div class="flex items-center gap-2 bg-gray-50 p-1 rounded-lg border border-gray-100">
-                    <button onclick="changeLanguage('pt')" id="btn-pt" class="px-3 py-1 rounded-md text-sm font-medium transition-all">PT</button>
-                    <button onclick="changeLanguage('en')" id="btn-en" class="px-3 py-1 rounded-md text-sm font-medium transition-all">EN</button>
+                    <button onclick="setLanguage('pt')" id="btn-pt" class="lang-selector px-3 py-1 rounded-md text-sm font-medium transition-all">PT</button>
+                    <button onclick="setLanguage('en')" id="btn-en" class="lang-selector px-3 py-1 rounded-md text-sm font-medium transition-all">EN</button>
                 </div>
             </div>
         </nav>
@@ -77,12 +77,12 @@
                 <i class="fas fa-chevron-right text-[10px]"></i>
                 <a href="../../blog" data-i18n="nav_blog" class="hover:text-emerald-600">Blog</a>
                 <i class="fas fa-chevron-right text-[10px]"></i>
-                <span data-i18n="blog_a18_title" class="text-gray-900 font-medium whitespace-normal">Guia Core Web Vitals: Como a Otimiza√ß√£o de Imagens Resolve o LCP e o CLS</span>
+                <span data-i18n="blog_a18_title" class="text-gray-900 font-medium whitespace-normal">Guia Core Web Vitals: Como a OtimizaÁ„o de Imagens Resolve o LCP e o CLS</span>
             </nav>
 
             <!-- Article Header -->
             <header class="mb-12">
-                <h1 data-i18n="blog_a18_title" class="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">Guia Core Web Vitals: Como a Otimiza√ß√£o de Imagens Resolve o LCP e o CLS</h1>
+                <h1 data-i18n="blog_a18_title" class="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">Guia Core Web Vitals: Como a OtimizaÁ„o de Imagens Resolve o LCP e o CLS</h1>
                 
                 <div class="flex items-center gap-6 text-gray-500 text-sm">
                     <span class="flex items-center gap-2"><i class="far fa-calendar"></i> 14 Abr, 2026</span>
@@ -99,7 +99,7 @@
 
             <!-- Content Area -->
             <div id="article-content" data-i18n="blog_a18_body" class="prose prose-emerald lg:prose-xl max-w-none">
-                <h2 class="text-2xl font-bold text-gray-900 mb-4">O que √© o LCP (Largest Contentful Paint) e porque importa?</h2><p class="text-lg text-gray-700 leading-relaxed mb-6">O LCP mede o tempo que o navegador demora a renderizar o maior elemento vis√≠vel no ecr√£ (viewport). Geralmente, este elemento √© uma imagem de destaque (hero image), um banner promocional ou um bloco de texto de grandes dimens√µes. Para o Google, um LCP ideal deve ocorrer em <strong>2.5 segundos ou menos</strong>.</p><p class="text-lg text-gray-700 leading-relaxed mb-6">As imagens s√£o as principais culpadas por um LCP lento. Quando uma imagem n√£o est√° otimizada, o ficheiro √© demasiado pesado para a liga√ß√£o do utilizador, for√ßando o navegador a esperar preciosos segundos antes de mostrar o conte√∫do principal. Isto resulta numa alta taxa de rejei√ß√£o (bounce rate), pois o utilizador moderno raramente espera por uma p√°gina que parece "congelada".</p><h3 class="text-xl font-semibold text-gray-900 mb-3">Como a Otimiza√ß√£o de Imagens Resolve o LCP</h3><ul class="list-disc list-inside text-lg text-gray-700 mb-6"><li class="mb-2"><strong>Compress√£o Inteligente:</strong> Reduzir o peso do ficheiro sem perda vis√≠vel de qualidade. Utilizar ferramentas como o ImageOptimizerPro permite poupar at√© 80% do espa√ßo.</li><li class="mb-2"><strong>Formatos de Pr√≥xima Gera√ß√£o:</strong> O uso de WebP e AVIF √© crucial. Estes formatos oferecem uma rela√ß√£o compress√£o/qualidade muito superior aos antigos JPEG e PNG.</li><li class="mb-2"><strong>Fetch Priority:</strong> Atribuir o atributo <code>fetchpriority="high"</code> √† imagem que constitui o LCP informa o navegador de que deve descarregar esse recurso antes de outros menos cr√≠ticos.</li></ul><h2 class="text-2xl font-bold text-gray-900 mb-4">CLS: O Inimigo da Estabilidade Visual</h2><p class="text-lg text-gray-700 leading-relaxed mb-6">J√° alguma vez tentou clicar num bot√£o e, de repente, o conte√∫do moveu-se e acabou por clicar num an√∫ncio ou num link errado? Isso √© o <strong>Cumulative Layout Shift (CLS)</strong> em a√ß√£o. Esta m√©trica mede a soma total de todas as mudan√ßas inesperadas de layout durante a vida de uma p√°gina. Um CLS aceit√°vel deve ser inferior a <strong>0.1</strong>.</p><p class="text-lg text-gray-700 leading-relaxed mb-6">No contexto das imagens, o CLS ocorre quase sempre quando o navegador n√£o sabe quanto espa√ßo deve reservar para uma imagem que ainda est√° a ser descarregada. Quando a imagem finalmente aparece, o texto que estava por baixo √© "empurrado" para baixo, criando uma experi√™ncia frustrante.</p><h3 class="text-xl font-semibold text-gray-900 mb-3">A Import√¢ncia de Definir Dimens√µes</h3><p class="text-lg text-gray-700 leading-relaxed mb-6">A solu√ß√£o √© simples, mas frequentemente esquecida: <strong>definir sempre atributos de largura (width) e altura (height)</strong> nas tags <code>&lt;img&gt;</code>. Ao fornecer estas dimens√µes, o navegador reserva o espa√ßo exato (aspect ratio) antes mesmo de o ficheiro chegar, garantindo que o resto da p√°gina permanece est√°tico.</p><h2 class="text-2xl font-bold text-gray-900 mb-4">Formatos Modernos: WebP vs AVIF</h2><p class="text-lg text-gray-700 leading-relaxed mb-6">Para alcan√ßar pontua√ß√µes perfeitas nos Core Web Vitals, o uso de format        
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">O que È o LCP (Largest Contentful Paint) e porque importa?</h2><p class="text-lg text-gray-700 leading-relaxed mb-6">O LCP mede o tempo que o navegador demora a renderizar o maior elemento visÌvel no ecr„ (viewport). Geralmente, este elemento È uma imagem de destaque (hero image), um banner promocional ou um bloco de texto de grandes dimensıes. Para o Google, um LCP ideal deve ocorrer em <strong>2.5 segundos ou menos</strong>.</p><p class="text-lg text-gray-700 leading-relaxed mb-6">As imagens s„o as principais culpadas por um LCP lento. Quando uma imagem n„o est· otimizada, o ficheiro È demasiado pesado para a ligaÁ„o do utilizador, forÁando o navegador a esperar preciosos segundos antes de mostrar o conte˙do principal. Isto resulta numa alta taxa de rejeiÁ„o (bounce rate), pois o utilizador moderno raramente espera por uma p·gina que parece "congelada".</p><h3 class="text-xl font-semibold text-gray-900 mb-3">Como a OtimizaÁ„o de Imagens Resolve o LCP</h3><ul class="list-disc list-inside text-lg text-gray-700 mb-6"><li class="mb-2"><strong>Compress„o Inteligente:</strong> Reduzir o peso do ficheiro sem perda visÌvel de qualidade. Utilizar ferramentas como o ImageOptimizerPro permite poupar atÈ 80% do espaÁo.</li><li class="mb-2"><strong>Formatos de PrÛxima GeraÁ„o:</strong> O uso de WebP e AVIF È crucial. Estes formatos oferecem uma relaÁ„o compress„o/qualidade muito superior aos antigos JPEG e PNG.</li><li class="mb-2"><strong>Fetch Priority:</strong> Atribuir o atributo <code>fetchpriority="high"</code> ‡ imagem que constitui o LCP informa o navegador de que deve descarregar esse recurso antes de outros menos crÌticos.</li></ul><h2 class="text-2xl font-bold text-gray-900 mb-4">CLS: O Inimigo da Estabilidade Visual</h2><p class="text-lg text-gray-700 leading-relaxed mb-6">J· alguma vez tentou clicar num bot„o e, de repente, o conte˙do moveu-se e acabou por clicar num an˙ncio ou num link errado? Isso È o <strong>Cumulative Layout Shift (CLS)</strong> em aÁ„o. Esta mÈtrica mede a soma total de todas as mudanÁas inesperadas de layout durante a vida de uma p·gina. Um CLS aceit·vel deve ser inferior a <strong>0.1</strong>.</p><p class="text-lg text-gray-700 leading-relaxed mb-6">No contexto das imagens, o CLS ocorre quase sempre quando o navegador n„o sabe quanto espaÁo deve reservar para uma imagem que ainda est· a ser descarregada. Quando a imagem finalmente aparece, o texto que estava por baixo È "empurrado" para baixo, criando uma experiÍncia frustrante.</p><h3 class="text-xl font-semibold text-gray-900 mb-3">A Import‚ncia de Definir Dimensıes</h3><p class="text-lg text-gray-700 leading-relaxed mb-6">A soluÁ„o È simples, mas frequentemente esquecida: <strong>definir sempre atributos de largura (width) e altura (height)</strong> nas tags <code>&lt;img&gt;</code>. Ao fornecer estas dimensıes, o navegador reserva o espaÁo exato (aspect ratio) antes mesmo de o ficheiro chegar, garantindo que o resto da p·gina permanece est·tico.</p><h2 class="text-2xl font-bold text-gray-900 mb-4">Formatos Modernos: WebP vs AVIF</h2><p class="text-lg text-gray-700 leading-relaxed mb-6">Para alcanÁar pontuaÁıes perfeitas nos Core Web Vitals, o uso de format        
             </div>
 
             <!-- Share Box -->
