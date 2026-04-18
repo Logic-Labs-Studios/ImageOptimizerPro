@@ -44,14 +44,12 @@
                 <i class="fas fa-chevron-right text-[10px]"></i>
                 <a href="../../blog" data-i18n="nav_blog" class="hover:text-emerald-600">Blog</a>
                 <i class="fas fa-chevron-right text-[10px]"></i>
-                <span data-i18n="blog_a7_title" class="text-gray-900 font-medium whitespace-normal">...</span>
+                <span data-i18n="blog_a7_title" class="text-gray-900 font-medium whitespace-normal">Diferenças reais entre Compressão com Perda (Lossy) vs Sem Perda (Lossless)</span>
             </nav>
 
             <!-- Article Header -->
             <header class="mb-12">
-                <h1 data-i18n="blog_a7_title" class="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
-                    ...
-                </h1>
+                <h1 data-i18n="blog_a7_title" class="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">Diferenças reais entre Compressão com Perda (Lossy) vs Sem Perda (Lossless)</h1>
                 
                 <div class="flex items-center gap-6 text-gray-500 text-sm">
                     <span class="flex items-center gap-2"><i class="far fa-calendar"></i> 14 Abr, 2026</span>
@@ -68,34 +66,76 @@
 
             <!-- Content Area -->
             <div id="article-content" data-i18n="blog_a7_body" class="prose prose-emerald lg:prose-xl max-w-none">
-                <!-- Content injected by i18n.js -->
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">Lossy vs. Lossless: Uma Decisão Técnica com Impacto Real no SEO</h2><p class="text-lg text-gray-700 leading-relaxed mb-6">Quando se fala em <strong class="text-gray-800">otimização de imagens para a web</strong>, a primeira decisão que tem de tomar não é 'qual ferramenta usar', mas 'que tipo de compressão é adequada à minha situação'. Existe uma distinção fundamental entre dois métodos que regem toda a compressão digital: compressão com perda de informação (Lossy) e compressão sem perda de informação (Lossless). Compreender quando aplicar cada um é a diferença entre um site profissional e rápido e um site com imagens degradadas ou desnecessariamente pesadas.</p><h2 class="text-2xl font-bold text-gray-900 mb-4">Compressão com Perda (Lossy): Velocidade Máxima</h2><p class="text-lg text-gray-700 leading-relaxed mb-6">A compressão Lossy funciona descartando permanentemente dados de imagem que o olho humano dificilmente percebe. Algoritmos sofisticados analisam cada pixel e eliminam informação redundante — especialmente em zonas de transição de cor suave — para reduzir drasticamente o tamanho do ficheiro.</p><p class="text-lg text-gray-700 leading-relaxed mb-6">Os resultados são impressionantes: uma fotografia de produto que originalmente pesava 4MB pode ser comprimida para 400KB mantendo uma qualidade visualmente idêntica ao olho humano. Esta é exatamente a técnica que o <strong class="text-gray-800">JPEG, o WebP (modo Lossy) e o AVIF</strong> utilizam para dominar a web.</p><h3 class="text-xl font-semibold text-gray-900 mb-3">Quando Usar Compressão Lossy</h3><ul class="list-disc list-inside text-lg text-gray-700 mb-6"><li class="mb-2"><strong>Fotografias de produtos</strong> para e-commerce (Shopify, WooCommerce), onde velocidade de carregamento é crítica.</li><li class="mb-2"><strong>Imagens de destaque (Hero Images)</strong> em sites e blogues, que devem carregar em menos de 2.5 segundos para satisfazer o LCP do Google.</li><li class="mb-2"><strong>Fotos de fundo e banners</strong> onde uma ligeira perda de detalhe é imperceptível.</li><li class="mb-2"><strong>Qualquer imagem para redes sociais</strong> onde as plataformas aplicarão compressão adicional de qualquer forma.</li></ul><h2 class="text-2xl font-bold text-gray-900 mb-4">Compressão sem Perda (Lossless): Qualidade Perfeita</h2><p class="text-lg text-gray-700 leading-relaxed mb-6">A compressão Lossless reorganiza matematicamente os dados do ficheiro de uma forma mais eficiente sem eliminar nenhuma informação. Quando o ficheiro é descomprimido, a imagem é um clone perfeitamente idêntico ao original — cada pixel é preservado com exatidão absoluta.</p><p class="text-lg text-gray-700 leading-relaxed mb-6">Os formatos <strong class="text-gray-800">PNG e TIFF</strong> são os exemplos clássicos. O WebP e o AVIF também oferecem um modo Lossless altamente eficiente. A desvantagem? Os ficheiros são consideravelmente maiores que os equivalentes Lossy.</p><h3 class="text-xl font-semibold text-gray-900 mb-3">Quando Usar Compressão Lossless</h3><ul class="list-disc list-inside text-lg text-gray-700 mb-6"><li class="mb-2"><strong>Logótipos e elementos de branding</strong> com transparência, onde qualquer artefacto é imediatamente visível.</li><li class="mb-2"><strong>Imagens para edição futura</strong> — use sempre Lossless para arquivos de trabalho; converta para Lossy apenas na exportação final.</li><li class="mb-2"><strong>Capturas de ecrã e diagramas técnicos</strong> onde o texto e os detalhes finos precisam de ser perfeitamente legíveis.</li><li class="mb-2"><strong>Impressão de alta fidelidade</strong>, onde cada detalhe de cor e nitidez é valorizado.</li></ul><h2 class="text-2xl font-bold text-gray-900 mb-4">A Solução Prática: O Melhor dos Dois Mundos</h2><p class="text-lg text-gray-700 leading-relaxed mb-6">O <strong class="text-gray-800">Compressor do ImageOptimizerPro</strong> oferece controlo total sobre o nível de qualidade, permitindo-lhe encontrar o ponto perfeito entre peso e nitidez para cada tipo de imagem. Para fotografias web, recomendamos um nível de qualidade entre 75-85%: a redução de tamanho é substancial (frequentemente superior a 70%) e a perda visual é praticamente indetetável. Experimente por si mesmo — o resultado irá surpreendê-lo.</p>
             </div>
 
-            <!-- Newsletter Box -->
-            <div class="mt-20 p-8 md:p-12 bg-emerald-900 rounded-[2rem] text-white relative overflow-hidden">
-                <div class="relative z-10 max-w-2xl">
-                    <h3 class="text-3xl font-bold mb-4">Queres mais dicas de venda?</h3>
-                    <p class="text-emerald-100 text-lg mb-8">Subscreve a nossa newsletter e recebe guias exclusivos para dominar as vendas online e otimização de imagem.</p>
-                    <form class="flex flex-col sm:flex-row gap-4">
-                        <input type="email" placeholder="O teu melhor e-mail" class="flex-1 px-6 py-4 rounded-xl bg-white/10 border border-white/20 focus:outline-none focus:ring-2 focus:ring-emerald-400 placeholder:text-emerald-200">
-                        <button class="px-8 py-4 bg-white text-emerald-900 font-bold rounded-xl hover:bg-emerald-50 transition-colors shadow-lg shadow-black/20">Subscrever</button>
-                    </form>
+            <!-- Share Box -->
+            <div class="mt-20 p-8 md:p-12 bg-white border border-gray-100 rounded-[2rem] shadow-lg">
+                <div class="text-center mb-8">
+                    <h3 data-i18n="share_title" class="text-2xl font-bold text-gray-900 mb-2">Partilha este artigo</h3>
+                    <p data-i18n="share_subtitle" class="text-gray-500">Ajuda outros a descobrir como otimizar as suas imagens</p>
                 </div>
-                <i class="fas fa-envelope absolute -right-10 -bottom-10 text-[15rem] text-white/5 -rotate-12"></i>
+                <div class="flex flex-wrap justify-center gap-4" id="share-buttons">
+                    <!-- Facebook -->
+                    <button onclick="shareOnFacebook()" class="flex items-center gap-3 px-6 py-3 bg-[#1877F2] text-white font-semibold rounded-xl hover:bg-[#1565D8] active:scale-95 transition-all shadow-md shadow-blue-200">
+                        <i class="fab fa-facebook-f text-lg"></i>
+                        <span>Facebook</span>
+                    </button>
+                    <!-- WhatsApp -->
+                    <button onclick="shareOnWhatsApp()" class="flex items-center gap-3 px-6 py-3 bg-[#25D366] text-white font-semibold rounded-xl hover:bg-[#1ebe5a] active:scale-95 transition-all shadow-md shadow-green-200">
+                        <i class="fab fa-whatsapp text-lg"></i>
+                        <span>WhatsApp</span>
+                    </button>
+                    <!-- Email -->
+                    <button onclick="shareByEmail()" class="flex items-center gap-3 px-6 py-3 bg-gray-700 text-white font-semibold rounded-xl hover:bg-gray-800 active:scale-95 transition-all shadow-md shadow-gray-200">
+                        <i class="fas fa-envelope text-lg"></i>
+                        <span>Email</span>
+                    </button>
+                    <!-- Copy Link -->
+                    <button onclick="copyLink(this)" id="copy-link-btn" class="flex items-center gap-3 px-6 py-3 bg-emerald-50 text-emerald-700 border border-emerald-200 font-semibold rounded-xl hover:bg-emerald-100 active:scale-95 transition-all">
+                        <i class="fas fa-link text-lg"></i>
+                        <span data-i18n="share_copy_link">Copiar link</span>
+                    </button>
+                </div>
             </div>
-        </article>
-    </main>
-
-        <!-- Footer -->
-        <!-- Footer -->
-    <footer class="bg-gray-900 text-gray-400 py-12 border-t border-gray-800">
-        <div class="container mx-auto px-4 text-center">
-            <p class="mb-4">© 2026 ImageOptimizerPro. Todos os direitos reservados.</p>
-            <div class="flex justify-center gap-6">
-                <a href="../../" class="hover:text-white transition-colors">Ferramentas</a>
-                <a href="../../blog" class="hover:text-white transition-colors">Blog</a>
-            </div>
-        </div>
+            <script>
+                function shareOnFacebook() {
+                    window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(window.location.href), '_blank', 'width=600,height=400');
+                }
+                function shareOnWhatsApp() {
+                    window.open('https://wa.me/?text=' + encodeURIComponent(document.title + ' ' + window.location.href), '_blank');
+                }
+                function shareByEmail() {
+                    const lang = (typeof currentLang !== 'undefined') ? currentLang : 'pt';
+                    const body = (translations && translations[lang] && translations[lang]['share_email_body'])
+                        ? translations[lang]['share_email_body']
+                        : (lang === 'en' ? 'I found this article and thought you might like it:\n\n' : 'Encontrei este artigo e achei que podias gostar:\n\n');
+                    window.location.href = 'mailto:?subject=' + encodeURIComponent(document.title) + '&body=' + encodeURIComponent(body + window.location.href);
+                }
+                function copyLink(btn) {
+                    navigator.clipboard.writeText(window.location.href).then(() => {
+                        const lang = (typeof currentLang !== 'undefined') ? currentLang : 'pt';
+                        const copiedText = (translations && translations[lang] && translations[lang]['share_copied'])
+                            ? translations[lang]['share_copied']
+                            : (lang === 'en' ? 'Copied!' : 'Copiado!');
+                        const copyText = (translations && translations[lang] && translations[lang]['share_copy_link'])
+                            ? translations[lang]['share_copy_link']
+                            : (lang === 'en' ? 'Copy link' : 'Copiar link');
+                        const span = btn.querySelector('span');
+                        const icon = btn.querySelector('i');
+                        span.textContent = copiedText;
+                        icon.className = 'fas fa-check text-lg';
+                        btn.classList.remove('bg-emerald-50', 'text-emerald-700', 'border-emerald-200');
+                        btn.classList.add('bg-emerald-500', 'text-white', 'border-emerald-500');
+                        setTimeout(() => {
+                            span.textContent = copyText;
+                            icon.className = 'fas fa-link text-lg';
+                            btn.classList.add('bg-emerald-50', 'text-emerald-700', 'border-emerald-200');
+                            btn.classList.remove('bg-emerald-500', 'text-white', 'border-emerald-500');
+                        }, 2000);
+                    });
+                }
+            </script>
     </footer>
 
         <!-- Scripts -->

@@ -44,14 +44,12 @@
                 <i class="fas fa-chevron-right text-[10px]"></i>
                 <a href="../../blog" data-i18n="nav_blog" class="hover:text-emerald-600">Blog</a>
                 <i class="fas fa-chevron-right text-[10px]"></i>
-                <span data-i18n="blog_a12_title" class="text-gray-900 font-medium whitespace-normal">...</span>
+                <span data-i18n="blog_a12_title" class="text-gray-900 font-medium whitespace-normal">PNG vs SVG: Quando usar cada formato para logótipos e ícones</span>
             </nav>
 
             <!-- Article Header -->
             <header class="mb-12">
-                <h1 data-i18n="blog_a12_title" class="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
-                    ...
-                </h1>
+                <h1 data-i18n="blog_a12_title" class="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">PNG vs SVG: Quando usar cada formato para logótipos e ícones</h1>
                 
                 <div class="flex items-center gap-6 text-gray-500 text-sm">
                     <span class="flex items-center gap-2"><i class="far fa-calendar"></i> 14 Abr, 2026</span>
@@ -68,34 +66,76 @@
 
             <!-- Content Area -->
             <div id="article-content" data-i18n="blog_a12_body" class="prose prose-emerald lg:prose-xl max-w-none">
-                <!-- Content injected by i18n.js -->
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">PNG vs. SVG: Dois Mundos Completamente Diferentes</h2><p class="text-lg text-gray-700 leading-relaxed mb-6">Quando se trata de logótipos, ícones e elementos de interface, a escolha entre <strong class="text-gray-800">PNG e SVG</strong> não é uma questão de preferência pessoal — é uma decisão que afeta diretamente a nitidez da sua marca em todos os ecrãs, o peso do seu site, e até a sua escalabilidade futura. Compreender as diferenças fundamentais entre os dois formatos é obrigatório para qualquer designer ou developer que queira construir produtos digitais que envelheçam bem.</p><h2 class="text-2xl font-bold text-gray-900 mb-4">SVG: Infinitamente Escalável, Ultraleve</h2><p class="text-lg text-gray-700 leading-relaxed mb-6">O <strong class="text-gray-800">SVG (Scalable Vector Graphics)</strong> é composto por instruções matemáticas que descrevem formas, cores e posições. Pode ampliar um SVG de 16px para o tamanho de um outdoor e ele mantém a nitidez absoluta — zero pixels, zero perda de qualidade. Além disso, um ficheiro SVG é frequentemente 5x a 20x mais pequeno que um PNG equivalente.</p><h3 class="text-xl font-semibold text-gray-900 mb-3">Quando Usar SVG</h3><ul class="list-disc list-inside text-lg text-gray-700 mb-6"><li class="mb-2"><strong>Logótipos simples</strong> com formas geométricas e texto — um SVG garante que o seu logo fica perfeito tanto num favicon de 16px como num banner de 3000px.</li><li class="mb-2"><strong>Ícones de interface</strong> — sets como Font Awesome ou Heroicons são distribuídos em SVG por uma razão: nítidos em qualquer densidade de ecrã (incluindo Retina e OLED).</li><li class="mb-2"><strong>Ilustrações simples</strong> com formas e cores planas — infográficos, mapas simples, diagramas.</li><li class="mb-2"><strong>Animações CSS</strong> — o SVG pode ser animado diretamente via CSS ou JavaScript, criando elementos interativos sem recorrer a GIFs pesados.</li></ul><h2 class="text-2xl font-bold text-gray-900 mb-4">PNG: Quando a Complexidade Vence o Vetor</h2><p class="text-lg text-gray-700 leading-relaxed mb-6">O <strong class="text-gray-800">PNG (Portable Network Graphics)</strong> é um formato raster composto por uma grelha de píxeis. A sua grande vantagem é a capacidade de representar qualquer imagem com qualquer nível de complexidade de cor — incluindo fotografias, gradientes complexos, sombras, texturas e efeitos que seriam impossíveis em SVG.</p><h3 class="text-xl font-semibold text-gray-900 mb-3">Quando Usar PNG</h3><ul class="list-disc list-inside text-lg text-gray-700 mb-6"><li class="mb-2"><strong>Logótipos com fotografias ou gradientes complexos</strong> que o SVG não consegue replicar sem um número absurdo de nós e vetores.</li><li class="mb-2"><strong>Capturas de ecrã (screenshots)</strong> com textos e detalhes finos onde a compressão Lossless do PNG preserva a legibilidade.</li><li class="mb-2"><strong>Imagens exportadas de Photoshop</strong> com efeitos de camada (sombras, glows, texturas) que não existem em formatos vetoriais.</li><li class="mb-2"><strong>Compatibilidade máxima</strong> — o PNG é suportado em absolutamente todo o lado, sem qualquer exceção.</li></ul><h2 class="text-2xl font-bold text-gray-900 mb-4">A Regra de Ouro: SVG para Identidade, PNG para Complexidade</h2><p class="text-lg text-gray-700 leading-relaxed mb-6">Se o elemento tem gradientes e sombras — use PNG e passe-o pelo <strong class="text-gray-800">Compressor do ImageOptimizerPro</strong> para reduzir o peso ao mínimo sem sacrificar os detalhes. Se o elemento é geométrico e simples — use SVG e economize largura de banda. Nos casos duvidosos, converta o seu PNG existente para WebP via ImageOptimizerPro para uma solução intermédia excecional.</p>
             </div>
 
-            <!-- Newsletter Box -->
-            <div class="mt-20 p-8 md:p-12 bg-emerald-900 rounded-[2rem] text-white relative overflow-hidden">
-                <div class="relative z-10 max-w-2xl">
-                    <h3 class="text-3xl font-bold mb-4">Queres mais dicas de venda?</h3>
-                    <p class="text-emerald-100 text-lg mb-8">Subscreve a nossa newsletter e recebe guias exclusivos para dominar as vendas online e otimização de imagem.</p>
-                    <form class="flex flex-col sm:flex-row gap-4">
-                        <input type="email" placeholder="O teu melhor e-mail" class="flex-1 px-6 py-4 rounded-xl bg-white/10 border border-white/20 focus:outline-none focus:ring-2 focus:ring-emerald-400 placeholder:text-emerald-200">
-                        <button class="px-8 py-4 bg-white text-emerald-900 font-bold rounded-xl hover:bg-emerald-50 transition-colors shadow-lg shadow-black/20">Subscrever</button>
-                    </form>
+            <!-- Share Box -->
+            <div class="mt-20 p-8 md:p-12 bg-white border border-gray-100 rounded-[2rem] shadow-lg">
+                <div class="text-center mb-8">
+                    <h3 data-i18n="share_title" class="text-2xl font-bold text-gray-900 mb-2">Partilha este artigo</h3>
+                    <p data-i18n="share_subtitle" class="text-gray-500">Ajuda outros a descobrir como otimizar as suas imagens</p>
                 </div>
-                <i class="fas fa-envelope absolute -right-10 -bottom-10 text-[15rem] text-white/5 -rotate-12"></i>
+                <div class="flex flex-wrap justify-center gap-4" id="share-buttons">
+                    <!-- Facebook -->
+                    <button onclick="shareOnFacebook()" class="flex items-center gap-3 px-6 py-3 bg-[#1877F2] text-white font-semibold rounded-xl hover:bg-[#1565D8] active:scale-95 transition-all shadow-md shadow-blue-200">
+                        <i class="fab fa-facebook-f text-lg"></i>
+                        <span>Facebook</span>
+                    </button>
+                    <!-- WhatsApp -->
+                    <button onclick="shareOnWhatsApp()" class="flex items-center gap-3 px-6 py-3 bg-[#25D366] text-white font-semibold rounded-xl hover:bg-[#1ebe5a] active:scale-95 transition-all shadow-md shadow-green-200">
+                        <i class="fab fa-whatsapp text-lg"></i>
+                        <span>WhatsApp</span>
+                    </button>
+                    <!-- Email -->
+                    <button onclick="shareByEmail()" class="flex items-center gap-3 px-6 py-3 bg-gray-700 text-white font-semibold rounded-xl hover:bg-gray-800 active:scale-95 transition-all shadow-md shadow-gray-200">
+                        <i class="fas fa-envelope text-lg"></i>
+                        <span>Email</span>
+                    </button>
+                    <!-- Copy Link -->
+                    <button onclick="copyLink(this)" id="copy-link-btn" class="flex items-center gap-3 px-6 py-3 bg-emerald-50 text-emerald-700 border border-emerald-200 font-semibold rounded-xl hover:bg-emerald-100 active:scale-95 transition-all">
+                        <i class="fas fa-link text-lg"></i>
+                        <span data-i18n="share_copy_link">Copiar link</span>
+                    </button>
+                </div>
             </div>
-        </article>
-    </main>
-
-        <!-- Footer -->
-        <!-- Footer -->
-    <footer class="bg-gray-900 text-gray-400 py-12 border-t border-gray-800">
-        <div class="container mx-auto px-4 text-center">
-            <p class="mb-4">© 2026 ImageOptimizerPro. Todos os direitos reservados.</p>
-            <div class="flex justify-center gap-6">
-                <a href="../../" class="hover:text-white transition-colors">Ferramentas</a>
-                <a href="../../blog" class="hover:text-white transition-colors">Blog</a>
-            </div>
-        </div>
+            <script>
+                function shareOnFacebook() {
+                    window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(window.location.href), '_blank', 'width=600,height=400');
+                }
+                function shareOnWhatsApp() {
+                    window.open('https://wa.me/?text=' + encodeURIComponent(document.title + ' ' + window.location.href), '_blank');
+                }
+                function shareByEmail() {
+                    const lang = (typeof currentLang !== 'undefined') ? currentLang : 'pt';
+                    const body = (translations && translations[lang] && translations[lang]['share_email_body'])
+                        ? translations[lang]['share_email_body']
+                        : (lang === 'en' ? 'I found this article and thought you might like it:\n\n' : 'Encontrei este artigo e achei que podias gostar:\n\n');
+                    window.location.href = 'mailto:?subject=' + encodeURIComponent(document.title) + '&body=' + encodeURIComponent(body + window.location.href);
+                }
+                function copyLink(btn) {
+                    navigator.clipboard.writeText(window.location.href).then(() => {
+                        const lang = (typeof currentLang !== 'undefined') ? currentLang : 'pt';
+                        const copiedText = (translations && translations[lang] && translations[lang]['share_copied'])
+                            ? translations[lang]['share_copied']
+                            : (lang === 'en' ? 'Copied!' : 'Copiado!');
+                        const copyText = (translations && translations[lang] && translations[lang]['share_copy_link'])
+                            ? translations[lang]['share_copy_link']
+                            : (lang === 'en' ? 'Copy link' : 'Copiar link');
+                        const span = btn.querySelector('span');
+                        const icon = btn.querySelector('i');
+                        span.textContent = copiedText;
+                        icon.className = 'fas fa-check text-lg';
+                        btn.classList.remove('bg-emerald-50', 'text-emerald-700', 'border-emerald-200');
+                        btn.classList.add('bg-emerald-500', 'text-white', 'border-emerald-500');
+                        setTimeout(() => {
+                            span.textContent = copyText;
+                            icon.className = 'fas fa-link text-lg';
+                            btn.classList.add('bg-emerald-50', 'text-emerald-700', 'border-emerald-200');
+                            btn.classList.remove('bg-emerald-500', 'text-white', 'border-emerald-500');
+                        }, 2000);
+                    });
+                }
+            </script>
     </footer>
 
         <!-- Scripts -->
