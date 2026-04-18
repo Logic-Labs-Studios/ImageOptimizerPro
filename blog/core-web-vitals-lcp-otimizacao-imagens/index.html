@@ -12,12 +12,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <meta name="description" content="Artigo sobre otimizaÁ„o de imagem e performance web.">
+    <meta name="description" content="Artigo sobre otimiza√ß√£o de imagem e performance web.">
     
     <link rel="canonical" href="https://imageoptimizerpro.pt/blog/core-web-vitals-lcp-otimizacao-imagens/" />
     <script type="application/ld+json" id="blog-schema"></script>
     
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>üçÉ</text></svg>">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>√∞≈∏¬ç∆í</text></svg>">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel='stylesheet' href='../../css/style.css'>
@@ -37,8 +37,8 @@
                 <a href="../../" data-i18n="nav_home" class="text-gray-600 hover:text-emerald-600 font-medium transition-colors">In&iacute;cio</a>
                 <a href="../../blog" data-i18n="nav_blog" class="text-emerald-600 font-semibold">Blog</a>
                 <div class="flex items-center gap-2 bg-gray-50 p-1 rounded-lg border border-gray-100">
-                    <button onclick="setLanguage('pt')" id="btn-pt" class="lang-selector px-3 py-1 rounded-md text-sm font-medium transition-all">PT</button>
-                    <button onclick="setLanguage('en')" id="btn-en" class="lang-selector px-3 py-1 rounded-md text-sm font-medium transition-all">EN</button>
+                    <button onclick="setLanguage('pt')" id="lang-pt" class="lang-selector px-3 py-1 rounded-md text-sm font-medium transition-all">PT</button>
+                    <button onclick="setLanguage('en')" id="lang-en" class="lang-selector px-3 py-1 rounded-md text-sm font-medium transition-all">EN</button>
                 </div>
             </div>
         </nav>
@@ -51,12 +51,12 @@
                 <i class="fas fa-chevron-right text-[10px]"></i>
                 <a href="../../blog" data-i18n="nav_blog" class="hover:text-emerald-600">Blog</a>
                 <i class="fas fa-chevron-right text-[10px]"></i>
-                <span data-i18n="blog_a15_title" class="text-gray-900 font-medium whitespace-normal">Core Web Vitals e PageSpeed: Como dominar a mÈtrica LCP otimizando imagens</span>
+                <span data-i18n="blog_a15_title" class="text-gray-900 font-medium whitespace-normal">Core Web Vitals e PageSpeed: Como dominar a m√©trica LCP otimizando imagens</span>
             </nav>
 
             <!-- Article Header -->
             <header class="mb-12">
-                <h1 data-i18n="blog_a15_title" class="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">Core Web Vitals e PageSpeed: Como dominar a mÈtrica LCP otimizando imagens</h1>
+                <h1 data-i18n="blog_a15_title" class="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">Core Web Vitals e PageSpeed: Como dominar a m√©trica LCP otimizando imagens</h1>
                 
                 <div class="flex items-center gap-6 text-gray-500 text-sm">
                     <span class="flex items-center gap-2"><i class="far fa-calendar"></i> 14 Abr, 2026</span>
@@ -73,7 +73,7 @@
 
             <!-- Content Area -->
             <div id="article-content" data-i18n="blog_a15_body" class="prose prose-emerald lg:prose-xl max-w-none">
-                <h2 class="text-2xl font-bold text-gray-900 mb-4">O Desafio LCP: A MÈtrica que Dita o Seu Ranking no Google</h2><p class="text-lg text-gray-700 leading-relaxed mb-6">Quando alguÈm pesquisa no Google e clica no seu site, o algoritmo j· tomou nota de qu„o r·pido a sua p·gina carrega. O <strong class="text-gray-800">Largest Contentful Paint (LCP)</strong> ó a mÈtrica que mede o tempo atÈ ao maior elemento visÌvel aparecer no ecr„ ó È um dos fatores de ranking mais diretos dos Core Web Vitals. Sites com LCP superior a 4 segundos s„o empurrados para baixo nos resultados. Sites com LCP inferior a 2.5 segundos recebem diretamente um sinal positivo do algoritmo.</p><p class="text-lg text-gray-700 leading-relaxed mb-6">Em 9 em cada 10 casos, o elemento que determina o LCP È uma imagem ó a hero image, o banner de destaque, ou a foto de capa do artigo. E em 9 em cada 10 casos de LCP lento, a causa È simples: <strong class="text-gray-800">a imagem È demasiado pesada para a ligaÁ„o do utilizador</strong>.</p><h2 class="text-2xl font-bold text-gray-900 mb-4">As 4 Causas de um LCP Lento e Como Resolver Cada Uma</h2><ul class="list-disc list-inside text-lg text-gray-700 mb-6"><li class="mb-2"><strong>Formato desatualizado (JPEG ou PNG):</strong> Um ficheiro JPEG de 500KB pode ser convertido para WebP com menos de 200KB sem perda visual percetÌvel. Use o <strong>Conversor do ImageOptimizerPro</strong> para esta convers„o em segundos.</li><li class="mb-2"><strong>Compress„o insuficiente:</strong> Fotografias tiradas com smartphone moderno chegam frequentemente a 8MB. O <strong>Compressor do ImageOptimizerPro</strong> reduz este valor para menos de 500KB mantendo a qualidade visual que os utilizadores esperam.</li><li class="mb-2"><strong>Dimensıes excessivas:</strong> Servir uma imagem de 4000◊3000px quando o ecr„ m·ximo do utilizador È 1440px de largura È um desperdÌcio puro. Redimensione para o tamanho exato com o <strong>Redimensionador do ImageOptimizerPro</strong>.</li><li class="mb-2"><strong>AusÍncia de fetchpriority:</strong> Adicione o atributo <code>fetchpriority="high"</code> ‡ tag <code>&lt;img&gt;</code> da hero image para informar o browser de que deve prioriz·-la acima de qualquer outro recurso.</li></ul><h2 class="text-2xl font-bold text-gray-900 mb-4">Plano de AÁ„o: Do PageSpeed Amarelo ao Verde</h2><p class="text-lg text-gray-700 leading-relaxed mb-6">Execute este processo em cada p·gina estratÈgica do seu site: (1) analise no Google PageSpeed Insights qual elemento È o LCP da p·gina, (2) comprima e converta essa imagem para WebP com o <strong class="text-gray-800">ImageOptimizerPro</strong>, (3) volte a analisar. Na maioria dos casos, ver· a pontuaÁ„o do PageSpeed subir 15 a 30 pontos numa ˙nica iteraÁ„o ó sem alterar uma linha de cÛdigo do site.</p>
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">O Desafio LCP: A M√©trica que Dita o Seu Ranking no Google</h2><p class="text-lg text-gray-700 leading-relaxed mb-6">Quando algu√©m pesquisa no Google e clica no seu site, o algoritmo j√° tomou nota de qu√£o r√°pido a sua p√°gina carrega. O <strong class="text-gray-800">Largest Contentful Paint (LCP)</strong> ‚Äî a m√©trica que mede o tempo at√© ao maior elemento vis√≠vel aparecer no ecr√£ ‚Äî √© um dos fatores de ranking mais diretos dos Core Web Vitals. Sites com LCP superior a 4 segundos s√£o empurrados para baixo nos resultados. Sites com LCP inferior a 2.5 segundos recebem diretamente um sinal positivo do algoritmo.</p><p class="text-lg text-gray-700 leading-relaxed mb-6">Em 9 em cada 10 casos, o elemento que determina o LCP √© uma imagem ‚Äî a hero image, o banner de destaque, ou a foto de capa do artigo. E em 9 em cada 10 casos de LCP lento, a causa √© simples: <strong class="text-gray-800">a imagem √© demasiado pesada para a liga√ß√£o do utilizador</strong>.</p><h2 class="text-2xl font-bold text-gray-900 mb-4">As 4 Causas de um LCP Lento e Como Resolver Cada Uma</h2><ul class="list-disc list-inside text-lg text-gray-700 mb-6"><li class="mb-2"><strong>Formato desatualizado (JPEG ou PNG):</strong> Um ficheiro JPEG de 500KB pode ser convertido para WebP com menos de 200KB sem perda visual percet√≠vel. Use o <strong>Conversor do ImageOptimizerPro</strong> para esta convers√£o em segundos.</li><li class="mb-2"><strong>Compress√£o insuficiente:</strong> Fotografias tiradas com smartphone moderno chegam frequentemente a 8MB. O <strong>Compressor do ImageOptimizerPro</strong> reduz este valor para menos de 500KB mantendo a qualidade visual que os utilizadores esperam.</li><li class="mb-2"><strong>Dimens√µes excessivas:</strong> Servir uma imagem de 4000√ó3000px quando o ecr√£ m√°ximo do utilizador √© 1440px de largura √© um desperd√≠cio puro. Redimensione para o tamanho exato com o <strong>Redimensionador do ImageOptimizerPro</strong>.</li><li class="mb-2"><strong>Aus√™ncia de fetchpriority:</strong> Adicione o atributo <code>fetchpriority="high"</code> √† tag <code>&lt;img&gt;</code> da hero image para informar o browser de que deve prioriz√°-la acima de qualquer outro recurso.</li></ul><h2 class="text-2xl font-bold text-gray-900 mb-4">Plano de A√ß√£o: Do PageSpeed Amarelo ao Verde</h2><p class="text-lg text-gray-700 leading-relaxed mb-6">Execute este processo em cada p√°gina estrat√©gica do seu site: (1) analise no Google PageSpeed Insights qual elemento √© o LCP da p√°gina, (2) comprima e converta essa imagem para WebP com o <strong class="text-gray-800">ImageOptimizerPro</strong>, (3) volte a analisar. Na maioria dos casos, ver√° a pontua√ß√£o do PageSpeed subir 15 a 30 pontos numa √∫nica itera√ß√£o ‚Äî sem alterar uma linha de c√≥digo do site.</p>
             </div>
 
             <!-- Share Box -->
