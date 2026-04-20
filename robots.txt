@@ -1,0 +1,11 @@
+User-agent: *
+# Proteção de pastas internas e rascunhos
+Disallow: /.agent/
+Disallow: /scripts/
+Disallow: /server.js
+Disallow: /blog_draft_en.txt
+Disallow: /blog_draft_pt.txt
+Disallow: /blog_drafts.md
+
+# Caminho para o Sitemap
+Sitemap: https://imageoptimizerpro.pt/sitemap.xml
