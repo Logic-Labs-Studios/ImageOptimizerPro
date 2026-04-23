@@ -1,5 +1,7 @@
 const translations = {
     pt: {
+        "meta_title": "Compressor de Imagens Online: Reduzir Tamanho de Foto e Converter para WebP",
+        "meta_desc": "Otimize, converta e remova dados EXIF das suas imagens de forma gratuita e segura, 100% no seu navegador. Suporta WebP, AVIF, JPEG, PNG e muito mais.",
         "nav_home": "In\u00edcio",
         "nav_blog": "Blog",
         "nav_how": "Como Funciona",
@@ -315,6 +317,8 @@ const translations = {
         "blog_a22_cta_desc": "Use o nosso compressor local: rápido, privado e sem limites de ficheiros.",
     },
     en: {
+        "meta_title": "Online Image Compressor: Reduce Photo Size & Convert to WebP",
+        "meta_desc": "Optimize, convert, and remove EXIF data from your images for free and securely, 100% in your browser. Supports WebP, AVIF, JPEG, PNG, and more.",
         "nav_home": "Home",
         "nav_blog": "Blog",
         "nav_how": "How it Works",
@@ -637,11 +641,16 @@ const translations = {
 let currentLang = 'pt'; // Default fallback
 
 function initI18n() {
-    // Detect Language
+    const urlParams = new URLSearchParams(window.location.search);
+    const urlLang = urlParams.get('lang');
+    
     const storedLang = localStorage.getItem('siteLang');
     const browserLang = navigator.language || navigator.userLanguage;
     
-    if (storedLang && (storedLang === 'pt' || storedLang === 'en')) {
+    if (urlLang === 'pt' || urlLang === 'en') {
+        currentLang = urlLang;
+        localStorage.setItem('siteLang', currentLang);
+    } else if (storedLang && (storedLang === 'pt' || storedLang === 'en')) {
         currentLang = storedLang;
     } else {
         if (browserLang.toLowerCase().startsWith('pt')) {
@@ -651,13 +660,10 @@ function initI18n() {
         }
     }
     
-    // Inject Dynamic hreflang into head for SEO
-    injectHreflangTags();
-    
-    // Set active class in Language Selector (if available)
-    updateLangSelectorUI();
+    document.documentElement.lang = (currentLang === 'pt') ? 'pt-PT' : 'en-US';
 
-    // Apply translations
+    injectHreflangTags();
+    updateLangSelectorUI();
     applyTranslations();
 }
 
@@ -672,9 +678,17 @@ function setLanguage(lang) {
         
         document.documentElement.lang = (lang === 'pt') ? 'pt-PT' : 'en-US';
         
+        const url = new URL(window.location);
+        if (lang === 'en') {
+            url.searchParams.set('lang', 'en');
+        } else {
+            url.searchParams.delete('lang');
+        }
+        window.history.replaceState({}, '', url);
+        
         updateLangSelectorUI();
         applyTranslations();
-        injectHreflangTags(); // Ensure SEO tags match new language
+        injectHreflangTags();
     }
 }
 
@@ -719,6 +733,14 @@ function applyTranslations() {
                 const metaDesc = document.querySelector('meta[name="description"]');
                 if (metaDesc) metaDesc.setAttribute('content', dict[descKey]);
             }
+        }
+    } else {
+        if (dict['meta_title']) {
+            document.title = dict['meta_title'];
+        }
+        if (dict['meta_desc']) {
+            const metaDesc = document.querySelector('meta[name="description"]');
+            if (metaDesc) metaDesc.setAttribute('content', dict['meta_desc']);
         }
     }
 }
