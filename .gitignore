@@ -4,3 +4,5 @@ node_modules/
 .DS_Store
 Thumbs.db
 server.js
+scratch/
+_content_backups/
