@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Otimização de Imagens no WordPress Sem Plugins (Código Puro) | ImageOptimizerPro</title>
+    <meta name="description" content="Aprenda a otimizar imagens no WordPress nativamente, sem depender de plugins pesados que atrasam o seu site. Guia avançado de functions.php e WebP.">
+    
+    <!-- Canonical Tag -->
+    <link rel="canonical" href="https://imageoptimizerpro.pt/blog/otimizacao-imagens-wordpress-sem-plugins/">
+    
+    <!-- Article ID for i18n -->
+    <meta name="article-id" content="artigo-33">
+    
+    <!-- Preconnect & Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS & Icons -->
+    <script src="https://cdn.tailwindcss.com/3.4.3"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            light: '#F9FAFB',
+                            dark: '#1E293B',
+                            primary: '#10B981',
+                            primaryHover: '#059669',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        outfit: ['Outfit', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body class="bg-gray-50 font-outfit">
+
+    <!-- Header (Dynamic) -->
+    <header class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
+        <nav class="container mx-auto px-4 h-20 flex items-center justify-between">
+            <a href="../../" class="flex items-center gap-2 group">
+                <div class="w-10 h-10 bg-brand-primary rounded-xl flex items-center justify-center group-hover:rotate-12 transition-transform shadow-lg shadow-emerald-200">
+                    <i class="fas fa-leaf text-white text-xl"></i>
+                </div>
+                <span class="text-xl font-bold text-gray-900 tracking-tight">ImageOptimizer<span class="text-brand-primary">Pro</span></span>
+            </a>
+
+            <div class="hidden md:flex items-center gap-8">
+                <a href="../../" data-i18n="nav_home" class="text-gray-600 hover:text-brand-primary font-medium transition-colors">Início</a>
+                <a href="../../blog" data-i18n="nav_blog" class="text-brand-primary font-semibold">Blog</a>
+                <div class="flex items-center gap-2 bg-gray-50 p-1 rounded-lg border border-gray-100">
+                    <button onclick="setLanguage('pt')" id="lang-pt" class="px-3 py-1 rounded-md text-sm font-medium transition-all">PT</button>
+                    <button onclick="setLanguage('en')" id="lang-en" class="px-3 py-1 rounded-md text-sm font-medium transition-all">EN</button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="pt-32 pb-20">
+        <article class="container mx-auto px-4 max-w-4xl">
+            <!-- Breadcrumbs -->
+            <nav class="flex items-center gap-2 text-sm text-gray-500 mb-8 overflow-x-auto whitespace-nowrap">
+                <a href="../../" data-i18n="nav_home" class="hover:text-emerald-600">Início</a>
+                <i class="fas fa-chevron-right text-[10px]"></i>
+                <a href="../../blog" data-i18n="nav_blog" class="hover:text-emerald-600">Blog</a>
+                <i class="fas fa-chevron-right text-[10px]"></i>
+                <span data-i18n="blog_a33_title" class="text-gray-900 font-medium whitespace-normal">Como Otimizar Imagens no WordPress Sem Plugins (Código Puro)</span>
+            </nav>
+
+            <!-- Article Header -->
+            <header class="mb-12">
+                <h1 data-i18n="blog_a33_title" class="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+                    Como Otimizar Imagens no WordPress Sem Plugins (Código Puro)
+                </h1>
+                
+                <div class="flex items-center gap-6 text-gray-500 text-sm">
+                    <span class="flex items-center gap-2"><i class="far fa-calendar"></i> 03 Mai, 2026</span>
+                    <span class="flex items-center gap-2"><i class="far fa-clock"></i> 8 min read</span>
+                    <span class="flex items-center gap-2"><i class="far fa-user"></i> Editorial Team</span>
+                </div>
+            </header>
+
+            <!-- Mini-Card Tool CTA -->
+            <div class="bg-gradient-to-br from-emerald-500 to-teal-600 rounded-3xl p-8 mb-12 shadow-xl shadow-emerald-200 relative overflow-hidden group border border-emerald-400">
+                <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:scale-110 transition-transform">
+                    <i class="fas fa-compress-arrows-alt text-9xl text-white"></i>
+                </div>
+                <div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
+                    <div class="text-center md:text-left">
+                        <h2 data-i18n="blog_a33_cta_title" class="text-2xl font-bold text-white mb-2 leading-tight">Otimize as suas imagens antes de as carregar no WordPress!</h2>
+                        <p data-i18n="blog_a33_cta_desc" class="text-emerald-50 opacity-90 text-lg">Use a nossa ferramenta gratuita para reduzir o peso em 80% sem perder qualidade. Ideal para WebP e AVIF.</p>
+                    </div>
+                    <a href="../../" class="bg-white text-emerald-600 px-8 py-4 rounded-2xl font-bold text-lg hover:bg-emerald-50 active:scale-95 transition-all shadow-lg flex items-center gap-3">
+                        <i class="fas fa-bolt"></i>
+                        <span data-i18n="tool_compress_now">Comprimir agora</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Banner Image -->
+            <div class="rounded-3xl overflow-hidden shadow-2xl mb-12 aspect-[16/9] relative group">
+                <img src="../../images/blog/wordpress-optimization.png" alt="Otimização de Imagens no WordPress Sem Plugins" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+            </div>
+
+            <!-- Content Area -->
+            <div id="article-content" data-i18n="blog_a33_body" class="prose prose-emerald lg:prose-xl max-w-none">
+                <!-- Content will be injected by i18n.js -->
+            </div>
+
+            <!-- Share Box -->
+            <div class="mt-20 p-8 md:p-12 bg-white border border-gray-100 rounded-[2rem] shadow-lg">
+                <div class="text-center mb-8">
+                    <h3 data-i18n="share_title" class="text-2xl font-bold text-gray-900 mb-2">Partilha este artigo</h3>
+                    <p data-i18n="share_subtitle" class="text-gray-500">Ajuda outros a descobrir como otimizar as suas imagens</p>
+                </div>
+                <div class="flex flex-wrap justify-center gap-4" id="share-buttons">
+                    <!-- Facebook -->
+                    <button onclick="shareOnFacebook()" class="flex items-center gap-3 px-6 py-3 bg-[#1877F2] text-white font-semibold rounded-xl hover:bg-[#1565D8] active:scale-95 transition-all shadow-md shadow-blue-200">
+                        <i class="fab fa-facebook-f text-lg"></i>
+                        <span>Facebook</span>
+                    </button>
+                    <!-- WhatsApp -->
+                    <button onclick="shareOnWhatsApp()" class="flex items-center gap-3 px-6 py-3 bg-[#25D366] text-white font-semibold rounded-xl hover:bg-[#1ebe5a] active:scale-95 transition-all shadow-md shadow-green-200">
+                        <i class="fab fa-whatsapp text-lg"></i>
+                        <span>WhatsApp</span>
+                    </button>
+                    <!-- Email -->
+                    <button onclick="shareByEmail()" class="flex items-center gap-3 px-6 py-3 bg-gray-700 text-white font-semibold rounded-xl hover:bg-gray-800 active:scale-95 transition-all shadow-md shadow-gray-200">
+                        <i class="fas fa-envelope text-lg"></i>
+                        <span>Email</span>
+                    </button>
+                    <!-- Copy Link -->
+                    <button onclick="copyLink(this)" id="copy-link-btn" class="flex items-center gap-3 px-6 py-3 bg-emerald-50 text-emerald-700 border border-emerald-200 font-semibold rounded-xl hover:bg-emerald-100 active:scale-95 transition-all">
+                        <i class="fas fa-link text-lg"></i>
+                        <span data-i18n="share_copy_link">Copiar link</span>
+                    </button>
+                </div>
+            </div>
+            <script>
+                function shareOnFacebook() {
+                    window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(window.location.href), '_blank', 'width=600,height=400');
+                }
+                function shareOnWhatsApp() {
+                    window.open('https://wa.me/?text=' + encodeURIComponent(document.title + ' ' + window.location.href), '_blank');
+                }
+                function shareByEmail() {
+                    const lang = (typeof currentLang !== 'undefined') ? currentLang : 'pt';
+                    const body = (translations && translations[lang] && translations[lang]['share_email_body'])
+                        ? translations[lang]['share_email_body']
+                        : (lang === 'en' ? 'I found this article and thought you might like it:\n\n' : 'Encontrei este artigo e achei que podias gostar:\n\n');
+                    window.location.href = 'mailto:?subject=' + encodeURIComponent(document.title) + '&body=' + encodeURIComponent(body + window.location.href);
+                }
+                function copyLink(btn) {
+                    navigator.clipboard.writeText(window.location.href).then(() => {
+                        const lang = (typeof currentLang !== 'undefined') ? currentLang : 'pt';
+                        const copiedText = (translations && translations[lang] && translations[lang]['share_copied'])
+                            ? translations[lang]['share_copied']
+                            : (lang === 'en' ? 'Copied!' : 'Copiado!');
+                        const copyText = (translations && translations[lang] && translations[lang]['share_copy_link'])
+                            ? translations[lang]['share_copy_link']
+                            : (lang === 'en' ? 'Copy link' : 'Copiar link');
+                        const span = btn.querySelector('span');
+                        const icon = btn.querySelector('i');
+                        span.textContent = copiedText;
+                        icon.className = 'fas fa-check text-lg';
+                        btn.classList.remove('bg-emerald-50', 'text-emerald-700', 'border-emerald-200');
+                        btn.classList.add('bg-emerald-500', 'text-white', 'border-emerald-500');
+                        setTimeout(() => {
+                            span.textContent = copyText;
+                            icon.className = 'fas fa-link text-lg';
+                            btn.classList.add('bg-emerald-50', 'text-emerald-700', 'border-emerald-200');
+                            btn.classList.remove('bg-emerald-500', 'text-white', 'border-emerald-500');
+                        }, 2000);
+                    });
+                }
+            </script>
+        </article>
+    </main>
+
+    <!-- Scripts -->
+    <script src="../../i18n.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Apply translations on load
+            if (typeof applyTranslations === 'function') {
+                // 1. Initialize translation
+                applyTranslations();
+                
+                // 2. Generate Schema.org structured data
+                if (typeof updateBlogSchema === 'function') {
+                    updateBlogSchema('artigo-33');
+                }
+            }
+        });
+    </script>
+</body>
+</html>
